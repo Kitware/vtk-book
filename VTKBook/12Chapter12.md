@@ -604,7 +604,7 @@ Once we have obtained the data, we convert it to a format that can be read into 
 
 Each line stores the data for one day of trading. The first number is the date, stored as the last two digits of the year, followed by a two-digit month and finally the day of the month. The next three values represent the high, low, and closing price of the stock for that day. The next value is the volume of trading in thousands of shares. The final value is the volume of trading in millions of dollars.
 
-We used an Awk script to convert the original data format into a VTK data file. (See the *VTK*  *User's Guide* for information on VTK file formats; or see [VTK File Formats](/VTKFileFormats/).) This conversion could be done using many other approaches, such as writing a C program or a Tcl script.
+We used an Awk script to convert the original data format into a VTK data file. (See the *VTK*  *User's Guide* for information on VTK file formats; or see [VTK File Formats](https://vtk-docs.readthedocs.io/en/latest/user_guide/VTKFileFormats.html) This conversion could be done using many other approaches, such as writing a C program or a Tcl script.
 
 ``` awk
 BEGIN {print "# vtk DataFile Version 2.0\n
@@ -629,10 +629,10 @@ END {
     print "POINTS " count " float";
     for (i = 1; i <= count; i++) print dates[i] " " prices[i] " 0 ";
     print "\nLINES 1 " (count + 1) " " count;
-    for (i = 0; i \< count; i++) print i;
+    for (i = 0; i < count; i++) print i;
     print "\nPOINT_DATA " count "\nSCALARS volume float";
-    print "LOOKUP\_TABLE default";
-    for (i = 1; i \<= count; i++) print volumes\[i\];
+    print "LOOKUP_TABLE default";
+    for (i = 1; i <= count; i++) print volumes[i];
 }
 ```
 
@@ -692,8 +692,8 @@ def main():
     renderers.append(bottomRenderer)
 
     # create the outline
-    apf = vtk.vtkAppendPolyData()$\index{vtkAppendPolyData!application}$
-    olf = vtk.vtkOutlineFilter()$\index{vtkOutlineFilter!application}$
+    apf = vtk.vtkAppendPolyData()
+    olf = vtk.vtkOutlineFilter()
     olf.SetInputConnection(apf.GetOutputPort())
     outlineMapper = vtk.vtkPolyDataMapper()
     outlineMapper.SetInputConnection(olf.GetOutputPort())
@@ -740,19 +740,19 @@ def AddStock(renderers, apf, filename, name, zPosition):
     PolyDataRead = vtk.vtkPolyDataReader()
     PolyDataRead.SetFileName(filename)
     PolyDataRead.Update()
-    TubeFilter = vtk.vtkTubeFilter()$\index{vtkTubeFilter!application}$
+    TubeFilter = vtk.vtkTubeFilter()
     TubeFilter.SetInputConnection(PolyDataRead.GetOutputPort())
     TubeFilter.SetNumberOfSides(8)
     TubeFilter.SetRadius(0.5)
     TubeFilter.SetRadiusFactor(10000)
-    Transform = vtk.vtkTransform()$\index{vtkTransform!application}$
+    Transform = vtk.vtkTransform()
     Transform.Translate(0, 0, zPosition)
     Transform.Scale(0.15, 1, 1)
     TransformFilter = vtk.vtkTransformPolyDataFilter()
     TransformFilter.SetInputConnection(TubeFilter.GetOutputPort())
     TransformFilter.SetTransform(Transform)
     # Create the labels.
-    TextSrc = vtk.vtkVectorText()$\index{vtkVectorText!application}$
+    TextSrc = vtk.vtkVectorText()
     TextSrc.SetText(name)
     numberOfPoints = PolyDataRead.GetOutput().GetNumberOfPoints()
     nameIndex = int((numberOfPoints - 1) * 0.8)
@@ -764,7 +764,7 @@ def AddStock(renderers, apf, filename, name, zPosition):
     for r in range(0, len(renderers)):
         LabelMapper = vtk.vtkPolyDataMapper()
         LabelMapper.SetInputConnection(TextSrc.GetOutputPort())
-        LabelActor = vtk.vtkFollower()$\index{vtkFollower!example}$
+        LabelActor = vtk.vtkFollower()
         LabelActor.SetMapper(LabelMapper)
         LabelActor.SetPosition(x, y, z)
         LabelActor.SetScale(2, 2, 2)
@@ -926,7 +926,7 @@ These colors are then assigned to the appropriate actors.
   <figcaption style="color:blue"><b>Figure 12-13</b>. A logo created with &#118;tkImplicitModeller.<a href="../../Cxx/Visualization/BlobbyLogo" title="BlobbyLogo"> See BlobbyLogo.cxx</a> and <a href="../../Python/Visualization/BlobbyLogo" title="BlobbyLogo"> BlobbyLogo.py</a>.</figcaption>
 </figure>
 
-``` c+++
+``` c++
 logo->SetProperty(tomato);
 blobbyLogo->SetProperty(banana);
 ```
