@@ -13,7 +13,7 @@ We will examine three different coordinate systems: the global, dataset, and str
 
 ### Global Coordinate System
 
-The global coordinate system is a Cartesian, three-dimensional space. Each point is expressed as a triplet of values (x,y,z) along the x, y, and z axes. This is the same system that was described in ["Coordinate Systems"](/VTKBook/03Chapter3/#37-coordinate-transformation) in [Chapter 3 - Computer Graphics Primer](/VTKBook/03Chapter3)).
+The global coordinate system is a Cartesian, three-dimensional space. Each point is expressed as a triplet of values (x,y,z) along the x, y, and z axes. This is the same system that was described in ["Coordinate Systems"](/VTKBook/03Chapter3.md#37-coordinate-transformation) in [Chapter 3 - Computer Graphics Primer](/VTKBook/03Chapter3)).
 
 The global coordinate system is always used to specify dataset geometry (i.e., the point coordinates), and data attributes such as normals and vectors. We will use the word "position" to indicate that we are using global coordinates.
 
@@ -43,7 +43,7 @@ Every cell type will have its own parametric coordinate system. Later in this ch
 
 ### Structured Coordinate System
 
-Many dataset types are structured. This includes image data and structured grids. Because of their inherent structure, they have their own natural coordinate system. This coordinate system is based on the $i-j-k$ indexing scheme that we touched on in ["Image Data"](/VTKBook/05Chapter5/#image-data) in [Chapter 5](/VTKBook/05Chapter5).
+Many dataset types are structured. This includes image data and structured grids. Because of their inherent structure, they have their own natural coordinate system. This coordinate system is based on the $i-j-k$ indexing scheme that we touched on in ["Image Data"](/VTKBook/05Chapter5.md#image-data) in [Chapter 5](/VTKBook/05Chapter5).
 
 The structured coordinate system is a natural way to describe components of a structured dataset. By fixing some indices, and allowing the others to vary within a limited range, we can specify points, lines, surfaces, and volumes. For example, by fixing the $i$ index $i = i_0$, and allowing the $j$ and $k$ indices to range between their minimum and maximum values, we specify a surface. If we fix three indices, we specify a point, if we fix two indices, we specify a line, and if we allow three indices to vary, we specify a volume (or sub-volume). The structured coordinate system is generally used to specify a region of interest (or ROI). The region of interest is an area that we want to visualize, or to operate on.
 
@@ -347,7 +347,7 @@ Attentive readers will have noticed that the subdivision scheme described previo
 
 By definition, these conditions are directly related to critical points, since an extremum of a differentiable function over an open domain is necessarily a critical point. Linear meshes assume that all extrema of the scalar field occur at element vertices, but in general when using a higher-order basis this is not the case, and extrema can be found interior to a cell.
 
-To address this problem, a pre-triangulation of the basis must be performed. The pre-triangulation must identify all critical points in the interior, on the faces, or on the edge of a cell, and then insert these points into the triangulation. For example, an initial triangulation based on the vertices of the higher-order cell can be performed first, followed by insertion into the triangulation using a method such as Delaunay triangulation or equivalent (see ["Triangulation Techniques"](/VTKBook/09Chapter9/#Chapter 9 - Triangulation Techniques) in [Chapter 9](/VTKBook/09Chapter9)). The pre-triangulation can then be followed by the standard edge-based algorithm presented previously.
+To address this problem, a pre-triangulation of the basis must be performed. The pre-triangulation must identify all critical points in the interior, on the faces, or on the edge of a cell, and then insert these points into the triangulation. For example, an initial triangulation based on the vertices of the higher-order cell can be performed first, followed by insertion into the triangulation using a method such as Delaunay triangulation or equivalent (see ["Triangulation Techniques"](/VTKBook/09Chapter9.md#Chapter 9 - Triangulation Techniques) in [Chapter 9](/VTKBook/09Chapter9)). The pre-triangulation can then be followed by the standard edge-based algorithm presented previously.
 
 ## 8.4 Coordinate Transformation
 
@@ -658,7 +658,7 @@ Another useful cell operation is cell decomposition into simplices. Every cell c
 
 Dataset operations return information about the topology of a dataset or topological information about the adjacency of cells. Typical operations include determining the neighbors of a cell or returning a list of all cells that use a particular point.
 
-We can formalize the adjacency operations by continuing the discussion of ["Cell Types"](/VTKBook/05Chapter5/#54-cell-types) in [Chapter 5](/VTKBook/05Chapter5). Adjacency methods are used to obtain information about the neighbors of a cell. A neighbor of a particular cell $C_i$ is simply a cell that shares one or more points in common with $C_i$. A vertex neighbor is a neighbor that shares one or more vertices. An edge neighbor is a neighbor that shares one or more edges. A face neighbor is a cell that shares vertices that define one of the faces of the cell. Note that a face neighbor is also an edge neighbor, and an edge neighbor is also a vertex neighbor.
+We can formalize the adjacency operations by continuing the discussion of ["Cell Types"](/VTKBook/05Chapter5.md#54-cell-types) in [Chapter 5](/VTKBook/05Chapter5). Adjacency methods are used to obtain information about the neighbors of a cell. A neighbor of a particular cell $C_i$ is simply a cell that shares one or more points in common with $C_i$. A vertex neighbor is a neighbor that shares one or more vertices. An edge neighbor is a neighbor that shares one or more edges. A face neighbor is a cell that shares vertices that define one of the faces of the cell. Note that a face neighbor is also an edge neighbor, and an edge neighbor is also a vertex neighbor.
 
 The adjacency operators are simple set operations. For a particular cell $C_i$ defined by points and a point list $\vec{P} = (\vec{p_1}, \vec{p_2}, ..., \vec{p_n})$  with $P \subset P$, where $P$ typically corresponds to the points defining a boundary cell of $C_i$; the neighbors of $C_i$ are the adjacency set A(C, P).
 
@@ -716,7 +716,7 @@ Line/cell intersection for 0D, 1D, and 2D cells follows standard approaches. Int
 
 ## 8.9 Scalars and Colors
 
-There is a close correspondence between scalar data and colors. We touched on this in ["Color Mapping"](/VTKBook/06Chapter6/#color-mapping) in [Chapter 6](/VTKBook/06Chapter6), where we saw how to use a color table to map scalar values into a color specification (i.e., red, green, blue, and alpha, or RGBA). There are cases, however, when we want to circumvent this mapping process. Such cases occur when color data is supplied instead of scalar data.
+There is a close correspondence between scalar data and colors. We touched on this in ["Color Mapping"](/VTKBook/06Chapter6.md#color-mapping) in [Chapter 6](/VTKBook/06Chapter6), where we saw how to use a color table to map scalar values into a color specification (i.e., red, green, blue, and alpha, or RGBA). There are cases, however, when we want to circumvent this mapping process. Such cases occur when color data is supplied instead of scalar data.
 
 A common example occurs in imaging. Recall that an image is a regular, two-dimensional array of points. The points define pixels, which in turn form a two-dimensional image dataset. Images are frequently stored as a pair of dimensions along with data values. The data values may be one of black and white (e.g., a bitmap), grayscale, or color (e.g., a pixmap). Bitmaps and gray-scale images can be directly cast into the form of single-values scalar data, and we can use our earlier approach. Pixmaps, however, consist of (at a minimum) three values per pixel of red, green, and blue. (Sometimes, a fourth alpha opacity value may also be included.) Thus, pixmaps cannot be directly cast into scalar form.
 
@@ -1083,7 +1083,7 @@ To illustrate this process consider visiting the edges of a triangle mesh. We be
 
 ### Color Scalar Data
 
-Multi-valued scalar data, or scalars represented by various color representations, are treated specially by the _Visualization Toolkit_. These data arise, for example, when using a color specification to directly control the color of objects rather than mapping a scalar value through a lookup table. (See ["Color Mapping"](/VTKBook/06Chapter6/#color-mapping) in [Chapter 6](/VTKBook/06Chapter6) for more information.)
+Multi-valued scalar data, or scalars represented by various color representations, are treated specially by the _Visualization Toolkit_. These data arise, for example, when using a color specification to directly control the color of objects rather than mapping a scalar value through a lookup table. (See ["Color Mapping"](/VTKBook/06Chapter6.md#color-mapping) in [Chapter 6](/VTKBook/06Chapter6) for more information.)
 
 By default, the mapping of scalars into colors proceeds as follows (vtkMapper and subclasses are responsible for implementing this behavior):
 
@@ -1132,7 +1132,7 @@ The _Visualization Toolkit_ provides a variety of classes to perform actor (or v
 
 All pickers are subclasses of vtkAbstractPicker which defines the basic pick interface. The user must specify a selection point in display coordinates for a specified instance of vtkRenderWindow and invoke the Pick() method. At a minimum, the class must return an $x-y-z$ pick position in world coordinates. It is possible to limit the pick candidates to a list of vtkProps (the PickList). The class also invokes the StartPickEvent, PickEvent, and EndPickEvent events that are invoked prior to picking, during picking, and after picking, respectively.
 
-Classes that can return information indicating which vtkProp they have picked are subclasses of vtkAbstractPropPicker. After the pick operation, vtkAbstractPropPicker returns a vtkAssemblyPath. The assembly path is an ordered list of instances of vtkProp and possibly associated 4x4 transformation matrices. The path represents a concatenated hierarchy of assembly nodes if an assembly has been defined (see ["Assemblies and Other Types of vtkProp"](http://localhost:8000/VTKBook/03Chapter3/#assemblies-and-other-types-of-vtkprop) in [Chapter 3](/VTKBook/03Chapter3)) for more information about props and assemblies).
+Classes that can return information indicating which vtkProp they have picked are subclasses of vtkAbstractPropPicker. After the pick operation, vtkAbstractPropPicker returns a vtkAssemblyPath. The assembly path is an ordered list of instances of vtkProp and possibly associated 4x4 transformation matrices. The path represents a concatenated hierarchy of assembly nodes if an assembly has been defined (see ["Assemblies and Other Types of vtkProp"](http://localhost:8000/VTKBook/03Chapter3.md#assemblies-and-other-types-of-vtkprop) in [Chapter 3](/VTKBook/03Chapter3)) for more information about props and assemblies).
 
 The object vtkPicker intersects a ray defined from camera position to a screen (i.e., pixel) coordinate against the bounding box of all pickable and nontransparent vtkProp3D's. (A vtkProp is pickable if its Pickable instance variable is true.) The result of the vtkPicker pick operation is to return a list of the vtkProp3D's whose bounding box is intersected. The prop closest to the camera position is also returned.
 
