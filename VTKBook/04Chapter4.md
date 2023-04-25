@@ -16,12 +16,10 @@ From an object-oriented viewpoint, transformations are processes in the function
 
 A simple mathematical function for a quadric will clarify these concepts. The function
 
-$$
-\begin{equation*}
+\begin{gather*}
 F(x,y,z) = a_0 x^2 + a_1 y^2 + a_2 z^2 + a_3 x y + a_4 y z + a_5 x z + a_6 x + a_7 y + a_8 z + a_9
-\end{equation*}
 \bf\tag{4-1}
-$$
+\end{gather*}
 
 is the mathematical representation of a quadric. **Figure 4-1a** shows a visualization of **Equation 4-1** in the region $-1 \leq x, y, z \leq 1$. The visualization process is as follows. We sample the data on a regular grid at a resolution of $50 \times 50 \times 50$. Three different visualization techniques are then used. On the left, we generate 3D surfaces corresponding to the function $F(x, y, z) = c$ where c is an arbitrary constant (i.e., the isosurface value). In the center, we show three different planes that cut through the data and are colored by function value. On the right we show the same three planes that have been contoured with constant valued lines. Around each we place a wireframe outline.
 
