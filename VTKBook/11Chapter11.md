@@ -50,7 +50,7 @@ Now let's use CGI and an HTML form to enable the client to change the isosurface
   <figcaption style="color:blue"><b>Figure 11-2</b>. Example HTML form.</figcaption>
 </figure>
 
-``` xml
+``` html
 <HEAD><TITLE>Sample MPEG Animation Page</TITLE></HEAD>
 <FORM METHOD="POST" ACTION="/cgi-bin/makempg.csh">
 
@@ -534,7 +534,7 @@ String purple_sphere =
   "     }\n" +
   "   }\n" +
   "   geometry Sphere {}\n" +
-  " }\n
+  " }\n" +
   " translation 0 3 0" +
   "}\n";
   try {
@@ -547,7 +547,6 @@ String purple_sphere =
   // Add the sphere to the ROOT group
   addChildren.setValue(shape);
   System.out.println("initScene: done.");
-  }
 ```
 
 The events for the two buttons are processed in the action() method. One increases the scale of the sphere and the other decreases it. This is done using the handle to the SPHERE node's scale that was obtained in the initScene() method, and invoking the setValue() method with the appropriate arguments.
