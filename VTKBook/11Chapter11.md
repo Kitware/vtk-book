@@ -233,7 +233,7 @@ This Java applet downloads a VTK data file into a Java String. It then uses the 
 <hr>
 ```
 
-The key lines are near the end where the applet keyword is used to start the App2 Java applet with a default window size of 400 by 500. Parameters are passed to the applet using the param keyword followed by key-value pairs. When the client encounters the applet keyword, it then requests that Java applet from the server and starts executing it. We will consider the Java code in App2 from a visualization perspective. A more complete introduction to Java programming can be found in numerous books (see ["Bibliographic Notes"](/VTKBook/11Chapter11/#1110-bibliographic-notes) in his Chapter).
+The key lines are near the end where the applet keyword is used to start the App2 Java applet with a default window size of 400 by 500. Parameters are passed to the applet using the param keyword followed by key-value pairs. When the client encounters the applet keyword, it then requests that Java applet from the server and starts executing it. We will consider the Java code in App2 from a visualization perspective. A more complete introduction to Java programming can be found in numerous books (see ["Bibliographic Notes"](#1110-bibliographic-notes) in his Chapter).
 
 The applet will have a standard structure starting by importing other classes that this application will use.
 

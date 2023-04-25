@@ -42,7 +42,7 @@ Given the ability to operate on regions of data, it is a small step to stream op
 
 Unlike visualization algorithms that may generate normals, vectors, tensors, and texture coordinates, image processing algorithms generally process attribute data consisting of scalar data. Often the data is a single component (e.g., a gray-scale image), but frequently color images (three components of RGB, for example) may also be processed.
 
-In the _Visualization Toolkit_ imaging pipeline, attribute data is represented as n-dimensional component data. Refer to ["Putting It All Together"](/VTKBook/10Chapter10/#104-putting-it-all-together) to see the implementation details for component data, regions of interest, streaming, and caching.
+In the _Visualization Toolkit_ imaging pipeline, attribute data is represented as n-dimensional component data. Refer to ["Putting It All Together"](#104-putting-it-all-together) to see the implementation details for component data, regions of interest, streaming, and caching.
 
 ## 10.3 Algorithms
 This section provides an overview and examples for important image processing algorithms. The importance of the algorithms is measured on their relevance to 3D data visualization. Topics include: removing noise, smoothing, reducing sampling artifacts, image enhancement, segmentation, and morphological operators such as erosion and dilation.
