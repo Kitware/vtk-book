@@ -792,7 +792,7 @@ The _Visualization Toolkit_ has built into its compilation process the ability t
 </figure>
 
 ``` python
-!/usr/bin/env python
+#!/usr/bin/env python
 import vtk
 colors = vtk.vtkNamedColors ()
 
