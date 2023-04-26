@@ -12,14 +12,13 @@ Transparency and its complement, opacity, are often referred to as *alpha* in co
 
 Unfortunately, having transparent actors introduces some complications into the rendering process. If you think back to the process of ray tracing, viewing rays are projected from the camera out into the world, where they intersect the first actor they come to. With an opaque actor, the lighting equations are applied and the resulting color is drawn to the screen. With a semi-transparent actor we must solve the lighting equations for this actor, and then continue projecting the ray farther to see if it intersects any other actors. The resulting color is a composite of all the actors it has intersected. For each surface intersection this can be expressed as **Equation7-1**.
 
-$$
-\begin{eqnarray*}
+\begin{align*}
 R &=& (1 - A_s) R_b + A_s R_s \\
 G &=& (1 - A_s) G_b + A_s G_s \\
 B &=& (1 - A_s) B_b + A_s B_s \\
-A &=& (1 - A_s) A_b + A_s \bf\tag{7-1}
-\end{eqnarray*}
-$$
+A &=& (1 - A_s) A_b + A_s
+\bf\tag{7-1}
+\end{align*}
 
 In this equation subscript $s$ refers to the surface of the actor, while subscript $b$ refers to what is behind the actor. The term is called-- the transmissivity, and represents the amount of light that is transmitted through the actor. As an example, consider starting with three polygons colored red, green, and blue each with a transparency of 0.5. If the red polygon is in the front and the background is black, the resulting RGBA color will be (0.4, 0.2, 0.1, 0.875) on a scale from zero to one (**Figure 7-1**).
 
@@ -264,13 +263,11 @@ Classifying a volume based on scalar value alone is often not capable of isolati
 
 If we are using a higher-order interpolation function such as tri-cubic interpolation then we can analytically compute the gradient vector at any location in the dataset by evaluating the first derivative of the interpolation function. Although we can use this approach for trilinear interpolation, it may produce undesirable artifacts since trilinear interpolation is not continuous in its first derivative across voxel boundaries. An alternative approach is to employ a finite differences technique to approximate the gradient vector:
 
-$$
-\begin{eqnarray*}
+\begin{align*}
 g_x &=& \frac{f(x + \Delta x, y, z) - f(x - \Delta x, y, z)}{2 \Delta x} \\
 g_y &=& \frac{f(x, y + \Delta y, z) - f(x, y - \Delta y, z)}{2 \Delta y} \\
 g_z &=& \frac{f(x, y, z + \Delta z) - f(x, y, z - \Delta z)}{2 \Delta z} \bf\tag{7-3}
-\end{eqnarray*}
-$$
+\end{align*}
 
 where $f(x,y,z)$ represents the scalar value at $(x,y,z)$ location in the dataset according to the interpolation function, and $g_x, g_y$ and $g_z$ are the partial derivatives of this function along the x, y, and z axes respectively. The magnitude of the gradient at $(x,y,z)$ is the length of the resulting vector $(g_x, g_y, g_z)$. This vector can also be normalized to produce a unit normal vector. The  $\Delta x, \Delta y, $ and $\Delta z$ are critical as shown in **Figure 7-19**. If these values are too small, then  the gradient vector field derived from **Equation7-3** may contain high frequencies, yet if these values are too large we will lose small features in the dataset.
 
@@ -334,13 +331,11 @@ which is equivalent to the simple compositing method using the over operator tha
 If we are visualizing an isosurface within the volumetric data, then we can employ the surface illumination model described in [Chapter 3](/VTKBook/03Chapter3) to capture ambient and diffuse lighting as well as specular highlights. There are a variety of techniques for estimating the surface normal needed to evaluate the shading equation. If the image that is produced as a result of volume rendering contains the distance from the view plane to the surface for every pixel, then we can post-process the image with a 2D gradient estimator to obtain surface normals. The gradient at some pixel $x_p, y_p$ can be
 estimated with a central difference technique by:
 
-$$
-\begin{eqnarray*}
+\begin{align*}
 \frac{\partial Z}{\partial x} &\simeq& \frac{Z\left(x_p + \Delta x, y_p\right) - Z\left(x_p - \Delta x, y_p\right)}{2 \Delta x} \\
 \frac{\partial Z}{\partial y} &\simeq& \frac{Z\left(x_p, y_p + \Delta y\right) - Z\left(x_p, y_p - \Delta y\right)}{2 \Delta y} \\
 \frac{\partial Z}{\partial z} &\simeq& 1 \bf\tag{7-9}
-\end{eqnarray*}
-$$
+\end{align*}
 
 <figure id="Figure 7-21">
   <figure id="Figure 7-21a">
