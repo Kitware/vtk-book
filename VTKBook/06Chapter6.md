@@ -267,12 +267,10 @@ A useful application of this technique is the study of vibration. In vibration a
 
 Some of the techniques described so far can be thought of as moving a point or object over a small time step. The hedgehog line is an approximation of a point's motion over a time period whose duration is given by the scale factor. In other words, if velocity $\vec{V} = dx/dt$, then displacement of a point is
 
-$$
 \begin{equation*}
 \text{d}\vec{x} = \vec{V} \text{d}t
-\end{equation*}
 \bf\tag{6-1}
-$$
+\end{equation*}
 
 This suggests an extension to our previous techniques: repeatedly displace points over many time steps. **Figure 6-16** shows such an approach. Beginning with a sphere *S* centered about some point *C*, we move *S* repeatedly to generate the bubbles shown. The eye tends to trace out a path by connecting the bubbles, giving the observer a qualitative understanding of the fluid flow in that area. The bubbles may be displayed as an animation over time (giving the illusion of motion) or as a multiple exposure sequence (giving the appearance of a path).
 
@@ -287,19 +285,19 @@ Once we move away from the point the velocity is likely to change. Using **Equat
 
 To evaluate **Equation6-1** we can express it as an integral:
 
-$$
+\begin{equation*}
 \vec{x}(t) = \int_{t}\vec{V}dt
 \bf\tag{6-2}
-$$
+\end{equation*}
 
 Although this form cannot be solved analytically for most real world data, its solution can be approximated using numerical integration techniques. Accurate numerical integration is a topic beyond the scope of this book, but it is known that the accuracy of the integration is a function of the step size *dt*. Since the path is an integration throughout the dataset, the accuracy of the cell interpolation functions, as well as the accuracy of the original vector data, plays an important role in realizing accurate solutions. No definitive study is yet available that relates cell size or interpolation function characteristics to visualization error. But the lesson is clear: the result of numerical integration must be examined carefully, especially in regions of large vector field gradient. However, as with many other visualization algorithms, the insight gained by using vector integration techniques is qualitatively beneficial, despite the unavoidable numerical errors.
 
 The simplest form of numerical integration is Euler's method,
 
-$$
+\begin{equation*}
 \vec{x}_{i+1} = \vec{x}_i + \vec{V}_i\Delta{t}
 \bf\tag{6-3}
-$$
+\end{equation*}
 
 where the position at time is the $\vec{x}_{i+}$ vector sum of the previous
 position plus the instantaneous velocity times the incremental time
@@ -314,10 +312,10 @@ Euler's method has error on the order of $O(\Delta{t}^2)$, which is not accurate
 
 In this text we will use the RungeKutta technique of order 2 <em style="color:green;background-color: white">\[Conte72\]</em>. This is given by the expression
 
-$$
+\begin{equation*}
 \vec{x}_{i+1} = \vec{x}_i +\frac{\Delta t}{2}(\vec{V}_i + \vec{V}_{i+1})
 \bf\tag{6-4}
-$$
+\end{equation*}
 
 where the velocity $\vec{V}_{i+1}$ is computed using Euler's method. The error of this method is $O(\Delta{t^3})$. Compared to Euler's method, the RungeKutta technique allows us to take a larger integration step at the expense of one additional function evaluation. Generally this tradeoff is beneficial, but like any numerical technique, the best method to use depends on the particular nature of the data. Higherorder techniques are also available, but generally not necessary, because the higher accuracy is countered by error in interpolation function or inherent in the data values. If you are interested in other integration formulas, please check the references at the end of the chapter.
 
@@ -343,10 +341,10 @@ Borrowing terminology from the study of fluid flow, we can define three related 
 
 * Streamlines  are integral curves along a curve $s$ satisfying the equation
 
-$$
+\begin{equation*}
 \vec{s}(t) = \int_{\tau = t_0}^{t} \vec{V}\left(\vec{s}\left(\tau\right)\right)\text{d}\tau
 \bf\tag{6-5}
-$$
+\end{equation*}
 
 for a particular time $t$.
 
@@ -376,17 +374,17 @@ A $3 \times 3$ real symmetric matrix can be characterized by three vectors in 3D
 
 Mathematically we can represent eigenvalues and eigenvectors as follows. Given a matrix the eigenvector and eigenvalue must satisfy the relation
 
-$$
+\begin{equation*}
 A \cdot \vec{x} = \lambda \vec{x}
 \bf\tag{6-6}
-$$
+\end{equation*}
 
 For **Equation6-6** to hold, the matrix determinate must satisfy
 
-$$
+\begin{equation*}
 det |A-\lambda I| = 0
 \bf\tag{6-7}
-$$
+\end{equation*}
 
 Expanding this equation yields a $n^{th}$ degree polynomial in $\lambda$ whose roots are the eigenvalues. Thus, there are always $n$ eigenvalues, although they may not be distinct. In general, **Equation6-7** is not solved using polynomial root searching because of poor computational performance. (For matrices of order 3 root searching is acceptable because we can solve for the eigenvalues analytically.) Once we determine the eigenvalues, we can substitute each into **Equation6-7** to solve for the associated eigenvectors.
 
@@ -397,17 +395,17 @@ Expanding this equation yields a $n^{th}$ degree polynomial in $\lambda$ whose r
 
 We can express the eigenvectors of the $3 \times 3$ system as
 
-$$
+\begin{equation*}
 \vec{v_i} = \lambda _i \vec{e_i} \ with\  i = 1,2,3
 \bf\tag{6-8}
-$$
+\end{equation*}
 
 $\vec{e_i}$ a unit vector in the direction of the eigenvalue, and $\lambda{_i}$ the eigenvalues of the system. If we order eigenvalues such that
 
-$$
+\begin{equation*}
 \lambda{_1} \geq \lambda{_2} \geq \lambda{_3}
 \bf\tag{6-9}
-$$
+\end{equation*}
 
 then we refer to the corresponding eigenvectors $\vec{v_1}$, $\vec{v_2}$ and $\vec{v_1}$ as the *major*, *medium* and *minor* eigenvectors.
 
@@ -417,10 +415,10 @@ This leads us to the tensor ellipsoid technique for the visualization of real, s
 
 To form the ellipsoid we begin by positioning a sphere at the tensor location. The sphere is then rotated around its origin using the eigenvectors, which in the form of **Equation6-8** are direction cosines. The eigenvalues are used to scale the sphere. Using $4 x 4$ transformation matrices and referring to **Equation3-6**, **Equation3-9** and **Equation3-13**, we form the ellipsoid by transforming the sphere centered at the origin using the matrix $T$
 
-$$
+\begin{equation*}
 T = T_T \cdot T_R \cdot T_S
 \bf\tag{6-10}
-$$
+\end{equation*}
 
  (remember to read right to left). The eigenvectors can be directly plugged in to create the rotation matrix, while the point coordinates $x-y-z$ and eigenvalues $\lambda{_1} \geq \lambda{_2} \geq \lambda{_3}$ are inserted into the translation and scaling matrices. A concatenation of these matrices forms the final transformation matrix $T$.
 
@@ -474,10 +472,10 @@ Source objects can be used as procedures to create data attributes. For example,
 
 Implicit functions are functions of the form
 
-$$
+\begin{equation*}
 F(x,y,z) = c
 \bf\tag{6-11}
-$$
+\end{equation*}
 
 where c is an arbitrary constant. Implicit functions have three
 important properties.
@@ -490,10 +488,10 @@ important properties.
 
 An example of an implicit function is the equation for a sphere of radius $R$.
 
-$$
+\begin{equation*}
 F(x,y,z) = x^2 + y^2 + z^2 - R^2
 \bf\tag{6-12}
-$$
+\end{equation*}
 
 This simple relationship defines the three regions (on $F(x,y,z = 0)s on$the sphere), $F(x,y,z) < 0$ (inside the sphere), and $F(x,y,z)$ (outside the sphere). Any point may be classified inside, on, or outside the sphere simply by evaluating *Equation6-12*.
 
@@ -520,30 +518,24 @@ Implicit functions can be used alone or in combination to model geometric object
 
 Implicit functions can be combined to create complex objects using the boolean operators union, intersection, and difference. The union operation between $F\cup G$ between two functions $F(x,y,z)$ and $G(x,y,z)$ is the minimum value
 
-$$
 \begin{equation*}
 F \cup G = \lbrace \max\left(F\left(\vec{x}\right), G\left(\vec{x}\right)\right)\, \vert \, \vec{x} \in \mathbb{R}^n \rbrace
-\end{equation*}
 \bf\tag{6-13}
-$$
+\end{equation*}
 
 The intersection between two implicit functions is given by
 
-$$
 \begin{equation*}
 F \cap G = \lbrace \min\left(F\left(\vec{x}\right), G\left(\vec{x}\right)\right)\, \vert \, \vec{x} \in \mathbb{R}^n  \rbrace
-\end{equation*}
 \bf\tag{6-14}
-$$
+\end{equation*}
 
 The difference of two implicit functions is given by
 
-$$
 \begin{equation*}
 F - G = \lbrace \min\left(F\left(\vec{x}\right), -G\left(\vec{x}\right)\right)\, \vert \, \vec{x} \in \mathbb{R}^n  \rbrace
-\end{equation*}
 \bf\tag{6-15}
-$$
+\end{equation*}
 
 **Figure 6-23c** shows a combination of simple implicit functions to create an ice-cream cone. The cone is created by clipping the (infinite) cone function with two planes. The ice cream is constructed by performing a difference operation on a larger sphere with a smaller offset sphere to create the "bite." The resulting surface was extracted using surface contouring with isosurface value 0.0.
 
@@ -580,9 +572,8 @@ $$
 \begin{eqnarray*}
 \frac{\text{d}x}{\text{d}t} &=& \sigma (y - z) \\
 \frac{\text{d}y}{\text{d}t} &=& \rho x - y - x z \\
-\frac{\text{d}z}{\text{d}t} &=& x y - \beta z
+\frac{\text{d}z}{\text{d}t} &=& x y - \beta z \bf\tag{6-16}
 \end{eqnarray*}
-\bf\tag{6-16}
 $$
 
 where $x$ is proportional to the fluid velocity in the fluid ring, $y$ and $z$z measure the fluid temperature in the plane of the ring, the parameters $\sigma$ and $\rho$ are related  to the Prandtl number and Raleigh number, respectively, and $\beta$ is a geometric factor.
