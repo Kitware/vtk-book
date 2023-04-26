@@ -423,7 +423,7 @@ $$
 we can develop an iterative procedure to solve for the parametric coordinates. This yields the general form
 
 $$
-\begin{equation*}
+\begin{equation*} \bf\tag{8-12}
 \left(
 \begin{array}{c}
 r_{i + 1} \\
@@ -451,7 +451,6 @@ h_i
 \end{array}
 \right)
 \end{equation*}
-\bf\tag{8-12}
 $$
 
 Fortunately, Newton's method converges quadratically (if it converges) and the interpolation functions that we have presented here are well behaved. In practice, Equation 8-12 converges in just a few iterations.
@@ -554,7 +553,7 @@ $$
 or after rearranging
 
 $$
-\begin{equation*}
+\begin{equation*} \bf\tag{8-21}
 \left(
 \begin{array}{c}
 \frac{\partial}{\partial r} \\
@@ -583,25 +582,22 @@ $$
 \end{array}
 \right)
 \end{equation*}
-\bf\tag{8-21}
 $$
 
 The $3 \times 3$ matrix $J$ is called the Jacobian matrix, and it relates the parametric coordinate derivatives to the global coordinate derivatives. We can rewrite Equation 8-21 into more compact form
 
 $$
-\begin{equation*}
+\begin{equation*} \bf\tag{8-21}
 \frac{\partial}{\partial r_i} = \sum_{j} J_{ij} \frac{\partial}{\partial x_j}
 \end{equation*}
-\bf\tag{8-21}
 $$
 
 and solve for the global derivatives by taking the inverse of the Jacobian matrix
 
 $$
-\begin{equation*}
+\begin{equation*}\bf\tag{8-22}
 \frac{\partial}{\partial x_i} = \sum_{j} J_{ij}^{-1} \frac{\partial}{\partial r_j}
 \end{equation*}
-\bf\tag{8-22}
 $$
 
 The inverse of the Jacobian always exists as long as there is a one-to-one correspondence between the parametric and global coordinate systems. This means that for any $(r, s, t)$ coordinate, there corresponds only one $(x, y, z)$ coordinate. This holds true for any of the parametric coordinate systems presented here, as long as pathological conditions such as cell self-intersection or a cell folding in on itself are avoided. (An example of cell folding is when a quadrilateral becomes non-convex.)
@@ -619,10 +615,9 @@ There are some simple rules we can use to decide whether a surface or region app
 We also will use the term simplex on some occasions. A simplex of dimension n is the convex region defined by a set of n+1 independent points. A vertex, line, triangle, and tetrahedron are simplices of dimension 0, 1, 2, and 3, respectively as shown in **Figure 8-28**.
 
 $$
-\begin{equation*}
+\begin{equation*}\bf\tag{8-23}
 \frac{\partial}{\partial x_i} = \sum_{j} J_{ij}^{-1} \frac{\partial}{\partial r_j}
 \end{equation*}
-\bf\tag{8-23}
 $$
 
 <figure id="Figure 8-27">

@@ -71,10 +71,9 @@ Although carpet plots are typically applied to image data, they can be used to v
 </figure>
 
 $$
-\begin{equation*}
+\begin{equation*} \bf\tag{9-2}
 F(r) = e^{-r}\cos(10\, r)
 \end{equation*}
-\bf\tag{9-2}
 $$
 
 The function values are used to warp the surface while the function derivatives are used to color it. **Figure 9-4**(b) shows a carpet plot that visualizes flow energy in a structured grid. Both displacement and color are used to show the energy values. Although this figure is similar to Figure 6-14(b) there are some important differences. Figure 6-14(b) displays vector data whereas **Figure 9-4**(b) displays scalar data. **Figure 9-4**(b) deforms the surface in the direction of surface normal (or possibly a user-defined direction). The vector data (i.e., vector orientation) controls the direction of deformation in Figure 6-14(b).
@@ -168,7 +167,7 @@ where $\epsilon_{ij}$ is the local strain and $\omega_{ij}$ is the local rotatio
 The local strain is expressed as a combination of the partial derivatives at x as follows.
 
 $$
-\begin{equation*}
+\begin{equation*} \bf\tag{9-5}
 \epsilon = \left(
 \begin{array}{c c c}
   \frac{\partial u}{\partial x} &
@@ -182,14 +181,13 @@ $$
   \frac{\partial w}{\partial z}
 \end{array}\right)
 \end{equation*}
-\bf\tag{9-5}
 $$
 
 The terms on the diagonal of $\epsilon_{ij}$ are the normal components of strain. The off-diagonal terms are the shear strain. The local rigid-body rotation is given by
 Equation 9-6 can also be represented using tensor notation as
 
 $$
-\begin{equation*}
+\begin{equation*}\bf\tag{9-6}
 \omega = \left(
 \begin{array}{c c c}
   0 &
@@ -203,7 +201,6 @@ $$
   0
 \end{array}\right)
 \end{equation*}
-\bf\tag{9-6}
 $$
 
 where $\omega$ is the vorticity vector referred to in the previous section. The vorticity, or local rigid body rotation is then
@@ -216,7 +213,7 @@ $$
 $$
 
 $$
-\begin{equation*}
+\begin{equation*}\bf\tag{9-8}
 \vec{\omega} = \left(
 \begin{array}{c}
 \frac{\partial w}{\partial y} - \frac{\partial v}{\partial z} \\
@@ -225,7 +222,6 @@ $$
 \end{array}
 \right)
 \end{equation*}
-\bf\tag{9-8}
 $$
 
 For the reader unfamiliar with tensor notation, this presentation is certainly less than complete. However, the matrices in Equation 9-5 and Equation 9-6 directly translate into visual form, which will help clarify the concepts presented here. Referring to **Figure 9-11**, the normal strain, shear strain, and rigid body motion create distinct deformation modes. These modes combine to produce the total deformation. Modes of normal strain cause compression or extension in the direction perpendicular to a surface, while shear strains cause angular distortions. These strains combined with rigid body rotation around an axis yield the total strain at a point.
@@ -273,15 +269,14 @@ v &\simeq& \frac{\partial v}{\partial x}\text{d}x
          + \frac{\partial v}{\partial z}\text{d}z \\
 w &\simeq& \frac{\partial w}{\partial x}\text{d}x
          + \frac{\partial w}{\partial y}\text{d}y
-         + \frac{\partial w}{\partial z}\text{d}z
+         + \frac{\partial w}{\partial z}\text{d}z \bf\tag{9-10}
 \end{eqnarray*}
-\bf\tag{9-10}
 $$
 
 The matrix of partial derivatives $J$ can be written in vector notation as $\partial u \partial v \partial w$
 
 $$
-\begin{equation*}
+\begin{equation*}\bf\tag{9-11}
 \vec{u} = J\cdot\text{d}\vec{x},\quad \text{where} \quad J = \left(
 \begin{array}{c c c}
 \frac{\partial u}{\partial x} & \frac{\partial u}{\partial y} & \frac{\partial u}{\partial z} \\
@@ -290,7 +285,6 @@ $$
 \end{array}
 \right)
 \end{equation*}
-\bf\tag{9-11}
 $$
 
 and is referred to as the Jacobian. The behavior of the vector field in the vicinity of a critical point is characterized by the eigenvalues of $J$. The eigenvalues consist of an imaginary and real component. The imaginary component describes the rotation of the vector field around the critical point, while the real part describes the relative attraction or repulsion of the vector field to the critical point. In two dimensions the critical points are as shown in **Figure 9-13**.

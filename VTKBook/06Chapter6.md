@@ -568,13 +568,11 @@ Strange attractors arise in the study of nonlinear dynamics and chaotic systems.
 
 A classical strange attractor was developed by Lorenz in 1963 <em style="color:green;background-color: white">\[Lorenz63\]</em>. Lorenz developed a simple model for thermally induced fluid convection in the atmosphere. Convection causes rings of rotating fluid and can be developed from the general NavierStokes partial differential equations for fluid flow. The Lorenz equations can be expressed in nondimensional form as
 
-$$
-\begin{eqnarray*}
+\begin{align*}
 \frac{\text{d}x}{\text{d}t} &=& \sigma (y - z) \\
 \frac{\text{d}y}{\text{d}t} &=& \rho x - y - x z \\
 \frac{\text{d}z}{\text{d}t} &=& x y - \beta z \bf\tag{6-16}
-\end{eqnarray*}
-$$
+\end{align*}
 
 where $x$ is proportional to the fluid velocity in the fluid ring, $y$ and $z$z measure the fluid temperature in the plane of the ring, the parameters $\sigma$ and $\rho$ are related  to the Prandtl number and Raleigh number, respectively, and $\beta$ is a geometric factor.
 
