@@ -806,7 +806,7 @@ k = \text{int}\left( \frac{z-z_0}{z_1 - z_0} \right)
 \end{eqnarray*}
 $$
 
-##8.11 Putting It All Together
+## 8.11 Putting It All Together
 
 In this section we will finish our earlier description of an implementation for unstructured data. We also define a high-level, abstract interface for cells and datasets. This interface allows us to implement the general (i.e., dataset specific) algorithms in the _Visualization Toolkit_. We also describe implementations for color scalars, searching and picking, and conclude with a series of examples to demonstrate some of these concepts.
 
