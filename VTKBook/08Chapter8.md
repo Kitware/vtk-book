@@ -453,7 +453,7 @@ h_i
 \end{array}
 \right)
 \end{equation*}
-\bf\tag{8-10}
+\bf\tag{8-12}
 $$
 
 Fortunately, Newton's method converges quadratically (if it converges) and the interpolation functions that we have presented here are well behaved. In practice, Equation 8-12 converges in just a few iterations.
