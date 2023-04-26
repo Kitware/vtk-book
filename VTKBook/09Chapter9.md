@@ -793,9 +793,8 @@ where $z$ and $r_{xy}$ are computed from
 $$
 \begin{eqnarray*}
 z &=& \vec{v}\cdot(\vec{p} - \vec{p}_i), \quad \text{where} \quad \vert \vec{v} \vert = 1 \\
-r_{xy} &=& r^2 - z^2
+r_{xy} &=& r^2 - z^2 \bf\tag{9-24}
 \end{eqnarray*}
-\bf\tag{9-24}
 $$
 
 The parameter $z$ is the distance along the vector $\vec{v}$, and the parameter $r_{xy}$ is the distance perpendicular to $\vec{v}$ to the point $p$. The eccentricity factor controls the shape of the splat. A value E = 1 results in spherical splats, whereas E > 1 yields flattened splats and E < 1 yields elongated splats in the direction of the vector $\vec{v}$.

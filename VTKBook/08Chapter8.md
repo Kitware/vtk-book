@@ -397,9 +397,8 @@ $$
 \begin{eqnarray*}
 f(r, s, t) &=& x - \sum W_i \, x_i = 0 \\
 g(r, s, t) &=& y - \sum W_i \, y_i = 0 \\
-h(r, s, t) &=& z - \sum W_i \, z_i = 0
+h(r, s, t) &=& z - \sum W_i \, z_i = 0 \bf\tag{8-10}
 \end{eqnarray*}
-\bf\tag{8-10}
 $$
 
 and then, expanding the functions using a Taylor's series approximation,
@@ -417,9 +416,8 @@ g(r, s, t) &\simeq& g_0
 h(r, s, t) &\simeq& h_0
   + \frac{\partial h}{\partial r}(r - r_0)
   + \frac{\partial h}{\partial s}(s - s_0)
-  + \frac{\partial h}{\partial t}(t - t_0) + \ldots \\
+  + \frac{\partial h}{\partial t}(t - t_0) + \ldots  \bf\tag{8-11}
 \end{eqnarray*}
-\bf\tag{8-11}
 $$
 
 we can develop an iterative procedure to solve for the parametric coordinates. This yields the general form
@@ -531,9 +529,8 @@ $$
 \begin{eqnarray*}
 \frac{ds}{dx}  &=& \left(\frac{s_1 - s_0}{1}\right) \vec{v} \cdot (1, 0, 0) \\
 \frac{ds}{dy}  &=& \left(\frac{s_1 - s_0}{1}\right) \vec{v} \cdot (0, 1, 0) \\
-\frac{ds}{dz}  &=& \left(\frac{s_1 - s_0}{1}\right) \vec{v} \cdot (0, 0, 1)
+\frac{ds}{dz}  &=& \left(\frac{s_1 - s_0}{1}\right) \vec{v} \cdot (0, 0, 1) \bf\tag{8-19}
 \end{eqnarray*}
-\bf\tag{8-19}
 $$
 
 To summarize this process, derivatives are computed in the local $r-s-t$ parametric space using cell interpolation. These are then transformed into a local $x'-y'-z'$ Cartesian system. Then, if the $x'-y'-z'$ system is not aligned with the global $x-y-z$ coordinate system, another transformation is required to generate the result.
@@ -550,9 +547,8 @@ $$
 + \frac{\partial}{\partial t} \frac{\partial t}{\partial y} \\
 \frac{\partial}{\partial z} &=& \frac{\partial}{\partial r} \frac{\partial r}{\partial z} \
 + \frac{\partial}{\partial s} \frac{\partial s}{\partial z} \
-+ \frac{\partial}{\partial t} \frac{\partial t}{\partial z}
++ \frac{\partial}{\partial t} \frac{\partial t}{\partial z} \bf\tag{8-20}
 \end{eqnarray*}
-\bf\tag{8-20}
 $$
 
 or after rearranging
@@ -760,12 +756,11 @@ Given a point $p$ we can find the structured coordinates by performing three div
 Because the image dataset is oriented parallel to the coordinate x, y, and z axes, and because the spacing of points in each of these directions is regular, finite difference schemes can be used to compute partial derivatives at the cell points. Referring to **Figure 8-33**, we see that central differences can be used in each of the three directions according to the equation:
 
 $$
-\begin{eqnarray*}
+\begin{eqnarray*} \bf\tag{8-28}
 g_x &=& \frac{d(x_0 + \Delta x_0, y_0, z_0) - d(x_0 - \Delta x_0, y_0, z_0)}{2 \Delta x_0} \\
 g_y &=& \frac{d(x_0, y_0 + \Delta y_0, z_0) - d(x_0, y_0 - \Delta y_0, z_0)}{2 \Delta y_0} \\
 g_z &=& \frac{d(x_0, y_0, z_0 + \Delta z_0) - d(x_0, y_0, z_0 - \Delta z_0)}{2 \Delta z_0}
 \end{eqnarray*}
-\bf\tag{8-28}
 $$
 
 (Note that at the boundary of the dataset, one-sided differences may be used.) We can use these equations to compute derivatives within the cell as well. We simply compute the derivatives at each cell point from Equation 8-28, and then use the cell interpolation functions to compute the derivative at the point inside the cell.
@@ -784,8 +779,8 @@ $$
 i &=& \text{id} \mod (n_x - 1) \\
 j &=& \frac{\text{id}}{n_x - 1} \mod (n_y - 1) \\
 k &=& \frac{\text{id}}{(n_x - 1)(n_y - 1)}
-\end{eqnarray*}
 \bf\tag{8-29}
+\end{eqnarray*}
 $$
 
 Face neighbors are determined by incrementing one of the i, j, or k indices. Edge neighbors are determined by incrementing any two indices, while vertex neighbors are found by incrementing all three indices. Care must be taken while incrementing to insure that the indices fall in the range
@@ -812,8 +807,8 @@ $$
 i = \text{int}\left( \frac{x-x_0}{x_1 - x_0} \right) \\
 j = \text{int}\left( \frac{y-y_0}{y_1 - y_0} \right) \\
 k = \text{int}\left( \frac{z-z_0}{z_1 - z_0} \right)
-\end{eqnarray*}
 \bf\tag{8-30}
+\end{eqnarray*}
 $$
 
 ##8.11 Putting It All Together

@@ -534,12 +534,10 @@ The answer is no. Certain data objects in VTK are reference counted to conserve 
 
 In this example we create scalar data along with the image data dataset. The scalar values are computed from the implicit function for a sphere
 
-$$
 \begin{equation*}
 F(x,y,z) = (x^2 + y^2 + z^2)-R^2
-\end{equation*}
 \bf\tag{5-2}
-$$
+\end{equation*}
 
 with the radius R = 0.4. The scalar data is stored in an instance of vtkFloatArray and assigned to the point attribute data of the dataset.
 
@@ -559,12 +557,10 @@ The topological dimension of the dataset is implicitly known from its instance v
 
 **Create a Structured Grid Dataset.** In the next example we create a vtkStructuredGrid dataset. Topology is implicitly defined from the dimensions of the dataset. The geometry is explicitly defined by providing an object to represent the point coordinates. In this example we use an instance of vtkPoints and assume that the structured grid is warped according to the equation for a cylinder
 
-$$
 \begin{equation*}
 x = r_i \cos\theta, y = r_i \sin\theta, z = z_i
-\end{equation*}
 \bf\tag{5-3}
-$$
+\end{equation*}
 
 <figure id="Figure 5-19">
   <figure id="Figure 5-19a">
