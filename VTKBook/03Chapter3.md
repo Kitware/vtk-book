@@ -123,7 +123,7 @@ Two components of the resulting color depend on direct lighting. *Diffuse lighti
 
 <figure id="Figure 3-7">
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/Rendering/TestFlatVersusGouraud.png?raw=true" width="640" alt="Figure 3-7">
-  <figcaption style="color:blue"><b>Figure 3-7</b>. Flat and Gouraud shading. Different shading methods can dramatically improve the look of an object represented with polygons. On the top, flat shading uses a constant surface normal across each polygon. On the bottom, Gouraud shading interpolates normals from polygon vertices to give a smoother look. <a href="../../Cxx/Rendering/FlatVersusGouraud" title="FlatVersusGouraud"> See FlatVersusGouraud.cxx</a> and <a href="../../Python/Rendering/FlatVersusGouraud" title="FlatVersusGouraud"> FlatVersusGouraud.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 3-7</b>. Flat and Gouraud shading. Different shading methods can dramatically improve the look of an object represented with polygons. On the top, flat shading uses a constant surface normal across each polygon. On the bottom, Gouraud shading interpolates normals from polygon vertices to give a smoother look. <a href="https://kitware.github.io/vtk-examples/site/Cxx/Rendering/FlatVersusGouraud" title="FlatVersusGouraud"> See FlatVersusGouraud.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Rendering/FlatVersusGouraud" title="FlatVersusGouraud"> FlatVersusGouraud.py</a>.</figcaption>
 </figure>
 
 The contribution from diffuse lighting is expressed in **Equation3-2** and illustrated in **Figure 3-8**.
@@ -167,7 +167,7 @@ The result is a color at a point on the surface of the object. The constants $O_
 
 <figure id="Figure 3-10">
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/Rendering/TestSpecularSpheres.png?raw=true" width="640" alt="Figure 3-10">
-  <figcaption style="color:blue"><b>Figure 3-10</b>. Effects of specular coefficients. Specular coefficients control the apparent "shininess" of objects. The top row has a specular intensity value of 0.5; the bottom row 1.0. Along the horizontal direction the specular power changes. The values (from left to right) are 5, 10, 20, and 40. <a href="../../Cxx/Rendering/SpecularSpheres" title="SpecularSpheres"> See SpecularSpheres.cxx</a> and <a href="../../Python/Rendering/SpecularSpheres" title="SpecularSpheres"> SpecularSpheres.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 3-10</b>. Effects of specular coefficients. Specular coefficients control the apparent "shininess" of objects. The top row has a specular intensity value of 0.5; the bottom row 1.0. Along the horizontal direction the specular power changes. The values (from left to right) are 5, 10, 20, and 40. <a href="https://kitware.github.io/vtk-examples/site/Cxx/Rendering/SpecularSpheres" title="SpecularSpheres"> See SpecularSpheres.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Rendering/SpecularSpheres" title="SpecularSpheres"> SpecularSpheres.py</a>.</figcaption>
 </figure>
 
 ## 3.5 Cameras
@@ -193,12 +193,12 @@ The next two motions keep the camera's position constant and instead modify the 
 
 <figure id="Figure 3-12">
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/Visualization/TestCameraModel1.png?raw=true" width="640" alt="Figure 3-12">
-  <figcaption style="color:blue"><b>Figure 3-12</b>. Camera movements around focal point. <a href="../../Cxx/Visualization/CameraModel1" title="CameraModel1"> See CameraModel1.cxx</a> and <a href="../../Python/Visualization/CameraModel1" title="CameraModel1"> CameraModel1.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 3-12</b>. Camera movements around focal point. <a href="https://kitware.github.io/vtk-examples/site/Cxx/Visualization/CameraModel1" title="CameraModel1"> See CameraModel1.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Visualization/CameraModel1" title="CameraModel1"> CameraModel1.py</a>.</figcaption>
 </figure>
 
 <figure id="Figure 3-13">
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/Visualization/TestCameraModel2.png?raw=true" width="640" alt="Figure 3-13">
-  <figcaption style="color:blue"><b>Figure 3-13</b>. Camera movements around camera position. <a href="../../Cxx/Visualization/CameraModel2" title="CameraModel2"> See CameraModel2.cxx</a> and <a href="../../Python/Visualization/CameraModel2" title="CameraModel2"> CameraModel2.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 3-13</b>. Camera movements around camera position. <a href="https://kitware.github.io/vtk-examples/site/Cxx/Visualization/CameraModel2" title="CameraModel2"> See CameraModel2.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Visualization/CameraModel2" title="CameraModel2"> CameraModel2.py</a>.</figcaption>
 </figure>
 
 Once we have the camera situated, we can generate our 2D image. Some of the rays of light traveling through our 3D space will pass through the lens on the camera. These rays then strike a flat surface to produce an image. This effectively projects our 3D scene into a 2D image. The camera's position and other properties determine which rays of light get captured and projected. More specifically, only rays of light that intersect the camera's position, and are within its viewing frustum, will affect the resulting 2D image.
@@ -463,7 +463,7 @@ use them in VTK.
 
 <figure id="Figure 3-24">
   <img src="https://github.com/Kitware/vtk-book/releases/download/book-resources/Figure3-24.png?raw=true" width="640" alt="Figure 3-24">
-  <figcaption style="color:blue"><b>Figure 3-24</b>. Illustrative diagram of graphics objects. <a href="../../Cxx/Rendering/Model" title="Model"> See Model.cxx</a> and <a href="../../Python/Rendering/Model" title="Model"> Model.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 3-24</b>. Illustrative diagram of graphics objects. <a href="https://kitware.github.io/vtk-examples/site/Cxx/Rendering/Model" title="Model"> See Model.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Rendering/Model" title="Model"> Model.py</a>.</figcaption>
 </figure>
 
 We have discussed many of the objects that play a part in the rendering of a scene. Now it's time to put them together into a comprehensive object model for graphics and visualization.
@@ -542,7 +542,7 @@ The use of object factories as implemented using the New() method allows us to c
 
 This section works through some simple applications implemented with VTK graphics objects. The focus is on the basics: how to create renderers, lights, cameras, and actors. Later chapters tie together these basic principles to create applications for data visualization.
 
-**<b id="Render a Cone"></b>.** The following C++ code uses most of the objects introduced in this section to create an image of a cone. The vtkConeSource generates a polygonal representation of a cone and vtkPolyDataMapper maps the geometry (in conjunction with the actor) to the underlying graphics library. (The source code to this example can be found in <a href="../../Cxx/GeometricObjects/Cone" title="Cone"> Cone.cxx</a>. The source code contains additional documentation as well.)
+**<b id="Render a Cone"></b>.** The following C++ code uses most of the objects introduced in this section to create an image of a cone. The vtkConeSource generates a polygonal representation of a cone and vtkPolyDataMapper maps the geometry (in conjunction with the actor) to the underlying graphics library. (The source code to this example can be found in <a href="https://kitware.github.io/vtk-examples/site/Cxx/GeometricObjects/Cone" title="Cone"> Cone.cxx</a>. The source code contains additional documentation as well.)
 2
 ``` c++
 #include <vtkSmartPointer.h>
@@ -606,7 +606,7 @@ int main(int, char *[])
 
 <figure id="Figure 3-26">
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/GeometricObjects/TestSourceObjectsDemo.png?raw=true" width="640" alt="Figure 3-26">
-  <figcaption style="color:blue"><b>Figure 3-26</b>. Examples of source objects that procedurally generate polygonal models. These nine images represent just some of the capability of VTK. From upper left in reading order: sphere, cone, cylinder, cube, plane, text, random point cloud, disk (with or without hole), and line source. Other polygonal source objects are available; check subclasses of &#118;tkPolyDataAlgorithm. <a href="../../Cxx/GeometricObjects/SourceObjectsDemo" title="SourceObjectsDemo"> See SourceObjectsDemo.cxx</a> and <a href="../../Python/GeometricObjects/SourceObjectsDemo" title="SourceObjectsDemo"> SourceObjectsDemo.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 3-26</b>. Examples of source objects that procedurally generate polygonal models. These nine images represent just some of the capability of VTK. From upper left in reading order: sphere, cone, cylinder, cube, plane, text, random point cloud, disk (with or without hole), and line source. Other polygonal source objects are available; check subclasses of &#118;tkPolyDataAlgorithm. <a href="https://kitware.github.io/vtk-examples/site/Cxx/GeometricObjects/SourceObjectsDemo" title="SourceObjectsDemo"> See SourceObjectsDemo.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/GeometricObjects/SourceObjectsDemo" title="SourceObjectsDemo"> SourceObjectsDemo.py</a>.</figcaption>
 </figure>
 
 Some comments about this example. The include files *vtk__*.h include class definitions for the objects in VTK necessary to compile this example. We use the constructor New() to create the objects in this example, and the method Delete() to destroy the objects. In VTK the use of New() and Delete() is mandatory to insure device independence and properly manage reference counting. (See VTK User's Guide for details.) In this example the use of Delete() is really not necessary because the objects are automatically deleted upon program termination. But generally speaking, you should always use a Delete() for every invocation of New(). (Future examples will not show the Delete() methods in the scope of the main() program to conserve space, nor show the required #include statements.)
@@ -686,7 +686,7 @@ This simple example does not demonstrate the true power of the command/observer 
 
 <figure id="Figure 3-27">
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/Rendering/TestCone3.png?raw=true" width="640" alt="Figure 3-27">
-  <figcaption style="color:blue"><b>Figure 3-27</b>. Four frames of output from Cone3.cxx.<a href="../../Cxx/Rendering/Cone3" title="Cone3"> See Cone3.cxx</a> and <a href="../../Python/Rendering/Cone3" title="Cone3"> Cone3.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 3-27</b>. Four frames of output from Cone3.cxx.<a href="https://kitware.github.io/vtk-examples/site/Cxx/Rendering/Cone3" title="Cone3"> See Cone3.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Rendering/Cone3" title="Cone3"> Cone3.py</a>.</figcaption>
 </figure>
 
 ``` c++
@@ -724,7 +724,7 @@ A good application of multiple renderers is to display different views of the sa
 
 <figure id="Figure 3-28">
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/Rendering/TestCone4.png?raw=true" width="640" alt="Figure 3-28">
-  <figcaption style="color:blue"><b>Figure 3-28</b>. Modifying properties and transformation matrix.<a href="../../Cxx/Rendering/Cone4" title="Cone4"> See Cone4.cxx</a> and <a href="../../Python/Rendering/Cone4" title="Cone4"> Cone4.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 3-28</b>. Modifying properties and transformation matrix.<a href="https://kitware.github.io/vtk-examples/site/Cxx/Rendering/Cone4" title="Cone4"> See Cone4.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Rendering/Cone4" title="Cone4"> Cone4.py</a>.</figcaption>
 </figure>
 
 This example creates an image of two cones of different colors and specular properties. In addition, we transform one of the objects to lay next to the other. The C++ source code for this example can be found in Cone4.cxx.
@@ -859,7 +859,7 @@ A good rule of thumb is to only use the SetOrientation() method to either reset 
 
 <figure id="Figure 3-31">
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/Rendering/TestRotations.png?raw=true" width="640" alt="Figure 3-31">
-  <figcaption style="color:blue"><b>Figure 3-31</b>. Rotations of a cow about her axes. In this model, the *x* axis is from the left to right; the *y* axis is from bottom to top; and the *z* axis emerges from the image. The camera location is the same in all four images. <a href="../../Cxx/Rendering/Rotations" title="Rotations"> See Rotations.cxx</a> and <a href="../../Python/Rendering/Rotations" title="Rotations"> Rotations.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 3-31</b>. Rotations of a cow about her axes. In this model, the *x* axis is from the left to right; the *y* axis is from bottom to top; and the *z* axis emerges from the image. The camera location is the same in all four images. <a href="https://kitware.github.io/vtk-examples/site/Cxx/Rendering/Rotations" title="Rotations"> See Rotations.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Rendering/Rotations" title="Rotations"> Rotations.py</a>.</figcaption>
 </figure>
 
 We have seen that VTK hides some of the complexities of matrix transformations by using instance variables that are more natural than a transformation matrix. But there will be times when the predefined order of transformations performed by the actor will not be sufficient. vtkActor has an instance variable UserMatrix that contains a 4 x 4 transformation matrix. This matrix is applied before the transformation composed by the actor. As you become more comfortable with 4 x 4 transformation matrices you may want to build your own matrix. The object vtkTransform creates and manipulates these matrices. Unlike an actor, an instance of vtkTransform does not have an instance variable for position, scale, origin, etc. You control the composition of the matrix directly.
@@ -923,7 +923,7 @@ There is one final and powerful operation that affects an actor's orientation. Y
 
 <figure id="Figure 3-32">
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/Rendering/TestWalkCow.png?raw=true" width="640" alt="Figure 3-32">
-  <figcaption style="color:blue"><b>Figure 3-32</b>. The cow "walking" around the global origin. <a href="../../Cxx/Rendering/WalkCow" title="WalkCow"> See WalkCow.cxx</a> and <a href="../../Python/Rendering/WalkCow" title="WalkCow"> WalkCow.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 3-32</b>. The cow "walking" around the global origin. <a href="https://kitware.github.io/vtk-examples/site/Cxx/Rendering/WalkCow" title="WalkCow"> See WalkCow.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Rendering/WalkCow" title="WalkCow"> WalkCow.py</a>.</figcaption>
 </figure>
 
 <figure id="Figure 3-33">
@@ -935,7 +935,7 @@ There is one final and powerful operation that affects an actor's orientation. Y
    <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/Rendering/TestWalkCowB.png?raw=true" width="640" alt="Figure 3-33b">
    <figcaption style="color:blue">(b)</figcaption>
   </figure>
-  <figcaption style="color:blue"><b>Figure 3-33</b>. The cow rotating about a vector passing through her nose. (a) With origin (0,0,0). (b) With origin at (6.1,1.3,.02).<a href="../../Cxx/Rendering/WalkCowA" title="WalkCowA"> See WalkCowA.cxx</a> and <a href="../../Python/Rendering/WalkCowA" title="WalkCowA"> WalkCowA.py</a>.; (b).<a href="../../Cxx/Rendering/WalkCowB" title="WalkCowB"> See WalkCowB.cxx</a> and <a href="../../Python/Rendering/WalkCowB" title="WalkCowB"> WalkCowB.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 3-33</b>. The cow rotating about a vector passing through her nose. (a) With origin (0,0,0). (b) With origin at (6.1,1.3,.02).<a href="https://kitware.github.io/vtk-examples/site/Cxx/Rendering/WalkCowA" title="WalkCowA"> See WalkCowA.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Rendering/WalkCowA" title="WalkCowA"> WalkCowA.py</a>.; (b).<a href="https://kitware.github.io/vtk-examples/site/Cxx/Rendering/WalkCowB" title="WalkCowB"> See WalkCowB.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Rendering/WalkCowB" title="WalkCowB"> WalkCowB.py</a>.</figcaption>
 </figure>
 
 ## Assemblies and Other Types of vtkProp

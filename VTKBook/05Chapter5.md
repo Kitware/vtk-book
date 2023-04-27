@@ -499,7 +499,7 @@ Creation of datasets is a two step process. First the geometry and topology of t
   <figure id="Figure 5-17b">
     <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/GeometricObjects/TestCube.png?raw=true" width="640" alt="Figure 5-17">
   </figure>
-  <figcaption style="color:blue"><b>Figure 5-17</b>. Creation of polygonal cube. <a href="../../Cxx/GeometricObjects/Cube" title="Cube"> See Cube.cxx</a> and <a href="../../Python/GeometricObjects/Cube" title="Cube"> Cube.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 5-17</b>. Creation of polygonal cube. <a href="https://kitware.github.io/vtk-examples/site/Cxx/GeometricObjects/Cube" title="Cube"> See Cube.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/GeometricObjects/Cube" title="Cube"> Cube.py</a>.</figcaption>
 </figure>
 
 **Create a Polygonal Dataset.** In our first example we create a polygonal representation of a cube. The cube is defined by eight points and six quadrilateral faces. We also create eight scalar values associated with the eight vertices of the cube. **Figure 5-17** shows the key C++ code fragments used to create the data, and the resulting image.
@@ -529,7 +529,7 @@ The answer is no. Certain data objects in VTK are reference counted to conserve 
   <figure id="Figure 5-18b">
     <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/StructuredPoints/TestVol.png?raw=true" width="640" alt="Figure 5-18">
   </figure>
-  <figcaption style="color:blue"><b>Figure 5-18</b>. Creating a image data dataset. Scalar data is generated from the equation for a sphere. Volume dimensions are 26^3. <a href="../../Cxx/StructuredPoints/Vol" title="Vol"> See Vol.cxx</a> and <a href="../../Python/StructuredPoints/Vol" title="Vol"> Vol.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 5-18</b>. Creating a image data dataset. Scalar data is generated from the equation for a sphere. Volume dimensions are 26^3. <a href="https://kitware.github.io/vtk-examples/site/Cxx/StructuredPoints/Vol" title="Vol"> See Vol.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/StructuredPoints/Vol" title="Vol"> Vol.py</a>.</figcaption>
 </figure>
 
 In this example we create scalar data along with the image data dataset. The scalar values are computed from the implicit function for a sphere
@@ -569,7 +569,7 @@ x = r_i \cos\theta, y = r_i \sin\theta, z = z_i
   <figure id="Figure 5-19b">
     <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/StructuredGrid/TestSGrid.png?raw=true" width="640" alt="Figure 5-19">
   </figure>
-  <figcaption style="color:blue"><b>Figure 5-19</b>. Creating a structured grid dataset of a semicylinder. Vectors are created whose magnitude is proportional to radius and oriented in tangential direction.<a href="../../Cxx/StructuredGrid/SGrid" title="SGrid"> See SGrid.cxx</a> and <a href="../../Python/StructuredGrid/SGrid" title="SGrid"> SGrid.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 5-19</b>. Creating a structured grid dataset of a semicylinder. Vectors are created whose magnitude is proportional to radius and oriented in tangential direction.<a href="https://kitware.github.io/vtk-examples/site/Cxx/StructuredGrid/SGrid" title="SGrid"> See SGrid.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/StructuredGrid/SGrid" title="SGrid"> SGrid.py</a>.</figcaption>
 </figure>
 
 We arbitrarily choose the number of points in the tangential direction to be thirteen, the number of points in the radial direction to be eleven, and the number of points in the axis direction to be eleven (i.e., dimensions are $13 \times 11 \times 11$).
@@ -593,7 +593,7 @@ The creation of a structured grid dataset is partially explicit and partially im
   <figure id="Figure 5-20b">
     <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/RectilinearGrid/TestRGrid.png?raw=true" width="640" alt="Figure 5-20">
   </figure>
-  <figcaption style="color:blue"><b>Figure 5-20</b>. Creating a rectilinear grid dataset. The coordinates along each axis are defined using an instance of &#118;tkDataArray.<a href="../../Cxx/RectilinearGrid/RGrid" title="RGrid"> See RGrid.cxx</a> and <a href="../../Python/RectilinearGrid/RGrid" title="RGrid"> RGrid.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 5-20</b>. Creating a rectilinear grid dataset. The coordinates along each axis are defined using an instance of &#118;tkDataArray.<a href="https://kitware.github.io/vtk-examples/site/Cxx/RectilinearGrid/RGrid" title="RGrid"> See RGrid.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/RectilinearGrid/RGrid" title="RGrid"> RGrid.py</a>.</figcaption>
 </figure>
 
 For maximum flexibility when creating rectilinear grids, in VTK we use three vtkDataArray objects to define the axes arrays. This means that different native data type (e.g., unsigned char, int, float, and so on) can be used for each axes.
@@ -619,7 +619,7 @@ The topological dimension of the dataset is implied by the specified dimensions.
   <figure id="Figure 5-21b">
     <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/UnstructuredGrid/TestUGrid.png?raw=true" width="640" alt="Figure 5-21">
   </figure>
-  <figcaption style="color:blue"><b>Figure 5-21</b>. Creating a structured grid dataset of a semicylinder. Vectors are created whose magnitude is proportional to radius and oriented in tangential direction.<a href="../../Cxx/UnstructuredGrid/UGrid" title="UGrid"> See UGrid.cxx</a> and <a href="../../Python/UnstructuredGrid/UGrid" title="UGrid"> UGrid.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 5-21</b>. Creating a structured grid dataset of a semicylinder. Vectors are created whose magnitude is proportional to radius and oriented in tangential direction.<a href="https://kitware.github.io/vtk-examples/site/Cxx/UnstructuredGrid/UGrid" title="UGrid"> See UGrid.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/UnstructuredGrid/UGrid" title="UGrid"> UGrid.py</a>.</figcaption>
 </figure>
 
 To summarize the process of creating an instance of vtkUnstructuredGrid, we follow five steps. We assume the name of vtkUnstructuredGrid instance is ugrid.

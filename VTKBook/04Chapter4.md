@@ -36,7 +36,7 @@ In the examples that follow we will frequently use a simplified representation o
 <figure id="Figure 4-1">
  <figure id="Figure 4-1a">
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/Visualization/TestQuadricVisualization.png?raw=true" width="640" alt="Figure 4-1a">
-  <figcaption style="color:blue" (a)Quadric visualization <a></a> <a href="../../Cxx/Visualization/QuadricVisualization" title="QuadricVisualization"> See QuadricVisualization.cxx</a> and <a href="../../Python/Visualization/QuadricVisualization" title="QuadricVisualization"> QuadricVisualization.py</a>.</figcaption>
+  <figcaption style="color:blue" (a)Quadric visualization <a></a> <a href="https://kitware.github.io/vtk-examples/site/Cxx/Visualization/QuadricVisualization" title="QuadricVisualization"> See QuadricVisualization.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Visualization/QuadricVisualization" title="QuadricVisualization"> QuadricVisualization.py</a>.</figcaption>
   </figure>
   <figure id="Figure 4-1b">
     <img src="https://github.com/Kitware/vtk-book/releases/download/book-resources/Figure4-1b.png?raw=true" width="640" alt="Figure4-1b">
@@ -357,7 +357,7 @@ In the *Visualization Toolkit*, there are several importers and exporters. To se
   <figure id="Figure 4-13b">
     <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/IO/Test3DSImporter.png?raw=true" width="640" alt="Figure 4-13">
   </figure>
-  <figcaption style="color:blue"><b>Figure 4-13</b>. Importing and exporting files in VTK. An importer creates a  &#118;tkRenderWindow that describes the scene. Exporters use an instance of  &#118;tkRenderWindow to obtain a description of the scene. <a href="../../Cxx/IO/3DSImporter" title="3DSImporter"> See 3DSImporter.cxx</a> and <a href="../../Python/IO/3DSImporter" title="3DSImporter"> 3DSImporter.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 4-13</b>. Importing and exporting files in VTK. An importer creates a  &#118;tkRenderWindow that describes the scene. Exporters use an instance of  &#118;tkRenderWindow to obtain a description of the scene. <a href="https://kitware.github.io/vtk-examples/site/Cxx/IO/3DSImporter" title="3DSImporter"> See 3DSImporter.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/IO/3DSImporter" title="3DSImporter"> 3DSImporter.py</a>.</figcaption>
 </figure>
 
 **Figure 4-13** shows an image created from a *3D Studio* model and saved as a *Renderman* RIB file.
@@ -561,7 +561,7 @@ We will now demonstrate some of the features of the visualization pipeline with 
   <figure id="Figure 4-19">
     <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/Rendering/TestColoredSphere.png?raw=true" width="640" alt="Figure 4-19">
   </figure>
-  <figcaption style="color:blue"><b>Figure 4-19</b>. A simple sphere example. <a href="../../Cxx/Rendering/ColoredSphere" title="ColoredSphere"> See ColoredSphere.cxx</a> and <a href="../../Python/Rendering/ColoredSphere" title="ColoredSphere"> ColoredSphere.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 4-19</b>. A simple sphere example. <a href="https://kitware.github.io/vtk-examples/site/Cxx/Rendering/ColoredSphere" title="ColoredSphere"> See ColoredSphere.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Rendering/ColoredSphere" title="ColoredSphere"> ColoredSphere.py</a>.</figcaption>
 </figure>
 
 The execution of the pipeline occurs implicitly when we render the actor. Each actor asks its mapper to update itself. The mapper in turn asks its input to update itself. This process continues until a source object is encountered. Then the source will execute if modified since the last render.
@@ -585,7 +585,7 @@ The transform filter only operates on objects with explicit point coordinate rep
   <figure id="Figure 4-20">
     <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/Rendering/TestTransformSphere.png?raw=true" width="640" alt="Figure 4-20">
   </figure>
-  <figcaption style="color:blue"><b>Figure 4-20</b>. The addition of a transform filter to the previous example. <a href="../../Cxx/Rendering/TransformSphere" title="TransformSphere"> See TransformSphere.cxx</a> and <a href="../../Python/Rendering/TransformSphere" title="TransformSphere"> TransformSphere.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 4-20</b>. The addition of a transform filter to the previous example. <a href="https://kitware.github.io/vtk-examples/site/Cxx/Rendering/TransformSphere" title="TransformSphere"> See TransformSphere.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Rendering/TransformSphere" title="TransformSphere"> TransformSphere.py</a>.</figcaption>
 </figure>
 
 The C++ compiler enforces the proper connections of sources, filters, and mappers. To decide which objects are compatible, we check the type specification of the SetInput() method. If the input object returns an output object or a subclass of that type, the two objects are compatible and may be connected.
@@ -599,7 +599,7 @@ The C++ compiler enforces the proper connections of sources, filters, and mapper
   <figure id="Figure 4-21b">
     <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/Rendering/TestMace.png?raw=true" width="640" alt="Figure 4-21">
   </figure>
-  <figcaption style="color:blue"><b>Figure 4-21</b>. An example of multiple inputs and outputs.<a href="../../Cxx/Rendering/Mace" title="Mace"> See Mace.cxx</a> and <a href="../../Python/Rendering/Mace" title="Mace"> Mace.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 4-21</b>. An example of multiple inputs and outputs.<a href="https://kitware.github.io/vtk-examples/site/Cxx/Rendering/Mace" title="Mace"> See Mace.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Rendering/Mace" title="Mace"> Mace.py</a>.</figcaption>
 </figure>
 
 The visualization network branches at vtkGlyph3D. If either branch is modified, then this filter will re-execute. Network updates must branch in both directions, and both branches must be up to date when vtkGlyph3D executes. These requirements are enforced by the Update() method, and pose no problem to the implicit execution method.
@@ -613,7 +613,7 @@ The visualization network branches at vtkGlyph3D. If either branch is modified, 
   <figure id="Figure 4-22b">
     <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/Visualization/TestLoopShrink.png?raw=true" width="640" alt="Figure 4-22">
   </figure>
-  <figcaption style="color:blue"><b>Figure 4-22</b>. A network with a loop (LoopShrk.cxx). VTK 5.0 does not allow you to execute a looping visualization network; this was possible in previous versions of VTK.<a href="../../Cxx/Visualization/LoopShrink" title="LoopShrink"> See LoopShrink.cxx</a> and <a href="../../Python/Visualization/LoopShrink" title="LoopShrink"> LoopShrink.py</a>.</figcaption> </figure>
+  <figcaption style="color:blue"><b>Figure 4-22</b>. A network with a loop (LoopShrk.cxx). VTK 5.0 does not allow you to execute a looping visualization network; this was possible in previous versions of VTK.<a href="https://kitware.github.io/vtk-examples/site/Cxx/Visualization/LoopShrink" title="LoopShrink"> See LoopShrink.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Visualization/LoopShrink" title="LoopShrink"> LoopShrink.py</a>.</figcaption> </figure>
 
 After vtkSphereSource generates an initial geometry (in response to a render request), the input of vtkShrinkFilter is changed to the output of the vtkElevationFilter. Because of the feedback loop, vtkShrinkFilter will always re-execute. Thus, the behavior of the network is to re-execute each time a render is performed. Because the shrink filter is reapplied to the same data, the polygons become smaller and smaller and eventually disappear.
 
