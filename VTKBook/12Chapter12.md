@@ -117,7 +117,7 @@ iren->Start();
 
 <figure id="Figure 12-2">
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/Medical/TestMedicalDemo1.png?raw=true" width="640" alt="Figure 12-2">
-  <figcaption style="color:blue"><b>Figure 12-2</b>. The skin extracted from a CT dataset of the head. <a href="../../Cxx/Medical/MedicalDemo1" title="MedicalDemo1"> See MedicalDemo1.cxx</a> and <a href="../../Python/Medical/MedicalDemo1" title="MedicalDemo1"> MedicalDemo1.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 12-2</b>. The skin extracted from a CT dataset of the head. <a href="https://kitware.github.io/vtk-examples/site/Cxx/Medical/MedicalDemo1" title="MedicalDemo1"> See MedicalDemo1.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Medical/MedicalDemo1" title="MedicalDemo1"> MedicalDemo1.py</a>.</figcaption>
 </figure>
 
 To provide context for the isosurface an outline is created around the data. An initial view is set up  in a window size of $640 \times 480$ pixels. Since the dolly command moves the camera towards the data, the clipping planes are reset to insure that the isosurface is completely visible. **Figure 12-2** shows the resulting image of the patient's skin.
@@ -126,7 +126,7 @@ We can improve this visualization in a number of ways. First, we can choose a mo
 
 <figure id="Figure 12-3">
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/Medical/TestMedicalDemo2.png?raw=true" width="640" alt="Figure 12-3">
-  <figcaption style="color:blue"><b>Figure 12-3</b>. Skin and bone isosurfaces. <a href="../../Cxx/Medical/MedicalDemo2" title="MedicalDemo2"> See MedicalDemo2.cxx</a> and <a href="../../Python/Medical/MedicalDemo2" title="MedicalDemo2"> MedicalDemo2.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 12-3</b>. Skin and bone isosurfaces. <a href="https://kitware.github.io/vtk-examples/site/Cxx/Medical/MedicalDemo2" title="MedicalDemo2"> See MedicalDemo2.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Medical/MedicalDemo2" title="MedicalDemo2"> MedicalDemo2.py</a>.</figcaption>
 </figure>
 
 **Figure 12-3** shows the resulting image, and the following is the
@@ -185,7 +185,7 @@ vtkLookupTable *satLut = vtkLookupTable::New();
 
 <figure id="Figure 12-4">
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/Medical/TestMedicalDemo3.png?raw=true" width="640" alt="Figure 12-4">
-  <figcaption style="color:blue"><b>Figure 12-4</b>. Composite image of three planes and translucent skin. <a href="../../Cxx/Medical/MedicalDemo3" title="MedicalDemo3"> See MedicalDemo3.cxx</a> and <a href="../../Python/Medical/MedicalDemo3" title="MedicalDemo3"> MedicalDemo3.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 12-4</b>. Composite image of three planes and translucent skin. <a href="https://kitware.github.io/vtk-examples/site/Cxx/Medical/MedicalDemo3" title="MedicalDemo3"> See MedicalDemo3.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Medical/MedicalDemo3" title="MedicalDemo3"> MedicalDemo3.py</a>.</figcaption>
 </figure>
 
 The image data is mapped to colors using the filter vtkImageMapToColors in combination with the lookup tables created above. The actual display of the slice is performed with vtkImageActor (see ["Assemblies and Other Types of &#118;tkProp"](/VTKBook/03Chapter3.md#assemblies-and-other-types-of-vtkprop) in [Chapter 3](/VTKBook/03Chapter3) for more information). This class conveniently combines a quadrilateral, polygon plane with a texture map. vtkImageActor requires image data of type unsigned char, which the class vtkImageMapToColors conveniently provides. To avoid copying the data and to specify the 2D texture to use, the DisplayExtent of each vtkImageActor is set appropriately. The C++ code is as follows:
@@ -251,7 +251,7 @@ To demonstrate the processing of segmented data we will use a dataset derived fr
 
 <figure id="Figure 12-6">
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/Visualization/TestFrogSlice.png?raw=true" width="640" alt="Figure 12-6">
-  <figcaption style="color:blue"><b>Figure 12-6</b>. Photographic slice of frog (upper left), segmented frog (upper right) and composite of photo and segmentation (bottom). The purple color represents the stomach and the kidneys are yellow. See <a href="../../Python/Visualization/FrogSlice" title="FrogSlice"> FrogSlice.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 12-6</b>. Photographic slice of frog (upper left), segmented frog (upper right) and composite of photo and segmentation (bottom). The purple color represents the stomach and the kidneys are yellow. See <a href="https://kitware.github.io/vtk-examples/site/Python/Visualization/FrogSlice" title="FrogSlice"> FrogSlice.py</a>.</figcaption>
 </figure>
 
 Before we describe the process to go from binary labeled tissues to gray-scale data suitable for isosurface extraction, compare the two images of the frog's brain shown in **Figure 12-7**. On the left is a surface extracted using a binary labeling of the brain. The right image was created using the visualization pipeline that we will develop in this example.
@@ -271,7 +271,7 @@ SPACING = 1.5
 
 plus possibly many more parameters to control decimation, smoothing, and so forth. Working in C++, we would have to design the format of the file and write code to interpret the statements.
 
-We make the job easier here by using Python. Another decision is to separate the modelling from the rendering.  However, in order to simplify things we will be using one Python script,<a href="../../Python/Visualization/FrogReconstruction" title="FrogReconstruction"> FrogReconstruction.py</a>.
+We make the job easier here by using Python. Another decision is to separate the modelling from the rendering.  However, in order to simplify things we will be using one Python script,<a href="https://kitware.github.io/vtk-examples/site/Python/Visualization/FrogReconstruction" title="FrogReconstruction"> FrogReconstruction.py</a>.
 
 In the real world, our script would be modified to generate models in a "batch" mode. If this is done, we would run run one VTK Python script for each tissue. That script will create a `.vtk`  output file containing the polygonal representation of each tissue. Later, we would render the models with a separate script.
 
@@ -283,7 +283,7 @@ We use the convention that user-specified variables are in capital letters. Firs
 
 <figure id="Figure 12-7">
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Python/Visualization/TestFrogBrain.png?raw=true" width="640" alt="Figure 12-7">
-  <figcaption style="color:blue"><b>Figure 12-7</b>. The frog's brain. Model extracted without smoothing (left) and with smoothing (right). See <a href="../../Python/Visualization/FrogBrain" title="FrogBrain"> FrogBrain.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 12-7</b>. The frog's brain. Model extracted without smoothing (left) and with smoothing (right). See <a href="https://kitware.github.io/vtk-examples/site/Python/Visualization/FrogBrain" title="FrogBrain"> FrogBrain.py</a>.</figcaption>
 </figure>
 
 **Read the Segmented Volume Data**
@@ -552,12 +552,12 @@ This lengthy example shows the power of a comprehensive visualization system lik
 * We developed a generic approach that allows users to control the elements of the pipeline with a familiar scripting language, Python.
 * We can easily separate this script into a "batch" portion and an "interactive" portion.
 
-If `.vtk` files have been created we can use an alternative Python script called <a href="../../Python/Visualization/Frog" title="Frog"> Frog.py</a>. This takes the vtk models corresponding to the `.vtk` file and renders them.
+If `.vtk` files have been created we can use an alternative Python script called <a href="https://kitware.github.io/vtk-examples/site/Python/Visualization/Frog" title="Frog"> Frog.py</a>. This takes the vtk models corresponding to the `.vtk` file and renders them.
 
 These programs:
 
-* <a href="../../Python/Visualization/FrogReconstruction" title="FrogReconstruction"> FrogReconstruction.py</a>
-* <a href="../../Python/Visualization/Frog" title="Frog"> Frog.py</a>
+* <a href="https://kitware.github.io/vtk-examples/site/Python/Visualization/FrogReconstruction" title="FrogReconstruction"> FrogReconstruction.py</a>
+* <a href="https://kitware.github.io/vtk-examples/site/Python/Visualization/Frog" title="Frog"> Frog.py</a>
 
  allow the user specify what tissues to display and also provide some pre-defined views.
 
@@ -580,7 +580,7 @@ These programs:
  <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Python/Visualization/TestFrog-12-9d.png?raw=true" width="640" alt="Figure 12-9c">
  <figcaption style="color:blue">(d) A view from the top. How good is your biology?</figcaption>
 </figure>
-<figcaption style="color:blue"><b>Figure 12-9</b>. Various frog images. <a href="../../Python/Visualization/Frog" title="Frog"> See Frog.py</a>.</figcaption>
+<figcaption style="color:blue"><b>Figure 12-9</b>. Various frog images. <a href="https://kitware.github.io/vtk-examples/site/Python/Visualization/Frog" title="Frog"> See Frog.py</a>.</figcaption>
 </figure>
 
 **Other Frog-Related Information**
@@ -798,7 +798,7 @@ A legitimate complaint with **Figure 12-10** is that the changing width of the t
 
 <figure id="Figure 12-11">
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/VisualizationAlgorithms/TestStocks.png?raw=true" width="640" alt="Figure 12-11">
-  <figcaption style="color:blue"><b>Figure 12-11</b>. Two more views of the stock case study. Here the tube filter has been replaced by a ribbon filter followed with a linear extrusion filter.<a href="../../Cxx/VisualizationAlgorithms/Stocks" title="Stocks"> See Stocks.cxx</a> and <a href="../../Python/VisualizationAlgorithms/Stocks" title="Stocks"> Stocks.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 12-11</b>. Two more views of the stock case study. Here the tube filter has been replaced by a ribbon filter followed with a linear extrusion filter.<a href="https://kitware.github.io/vtk-examples/site/Cxx/VisualizationAlgorithms/Stocks" title="Stocks"> See Stocks.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/VisualizationAlgorithms/Stocks" title="Stocks"> Stocks.py</a>.</figcaption>
 </figure>
 
 ## 12.4 Implicit Modelling
@@ -923,7 +923,7 @@ These colors are then assigned to the appropriate actors.
 
 <figure id="Figure 12-13">
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/Visualization/TestBlobbyLogo.png?raw=true" width="640" alt="Figure 12-13">
-  <figcaption style="color:blue"><b>Figure 12-13</b>. A logo created with &#118;tkImplicitModeller.<a href="../../Cxx/Visualization/BlobbyLogo" title="BlobbyLogo"> See BlobbyLogo.cxx</a> and <a href="../../Python/Visualization/BlobbyLogo" title="BlobbyLogo"> BlobbyLogo.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 12-13</b>. A logo created with &#118;tkImplicitModeller.<a href="https://kitware.github.io/vtk-examples/site/Cxx/Visualization/BlobbyLogo" title="BlobbyLogo"> See BlobbyLogo.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Visualization/BlobbyLogo" title="BlobbyLogo"> BlobbyLogo.py</a>.</figcaption>
 </figure>
 
 ``` c++
@@ -1036,7 +1036,7 @@ ren1 AddActor fanActor
 
 <figure id="Figure 12-14">
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/VisualizationAlgorithms/TestLOxGrid.png?raw=true" width="640" alt="Figure 12-14">
-  <figcaption style="color:blue"><b>Figure 12-14</b>. Portion of computational grid for the LOx post.<a href="../../Cxx/VisualizationAlgorithms/LOxGrid" title="LOxGrid"> See LOxGrid.cxx</a> and <a href="../../Python/VisualizationAlgorithms/LOxGrid" title="LOxGrid"> LOxGrid.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 12-14</b>. Portion of computational grid for the LOx post.<a href="https://kitware.github.io/vtk-examples/site/Cxx/VisualizationAlgorithms/LOxGrid" title="LOxGrid"> See LOxGrid.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/VisualizationAlgorithms/LOxGrid" title="LOxGrid"> LOxGrid.py</a>.</figcaption>
 </figure>
 
 To display the scalar field using color mapping, we must change the actor's representation from wireframe to surface, turn on scalar visibility for each vtkPolyDataMapper, set each mapper's scalar range, and render again, producing the right image of **Figure 12-14**.
@@ -1077,14 +1077,14 @@ vtkActor tubesActor
 
 <figure id="Figure 12-15">
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/VisualizationAlgorithms/TestLOxSeeds.png?raw=true" width="640" alt="Figure 12-15">
-  <figcaption style="color:blue"><b>Figure 12-15</b>. Streamlines seeded with spherical cloud of points. Four separate cloud positions are shown. <a href="../../Cxx/VisualizationAlgorithms/LOxSeeds" title="LOxSeeds"> See LOxSeeds.cxx</a> and <a href="../../Python/VisualizationAlgorithms/LOxSeeds" title="LOxSeeds"> LOxSeeds.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 12-15</b>. Streamlines seeded with spherical cloud of points. Four separate cloud positions are shown. <a href="https://kitware.github.io/vtk-examples/site/Cxx/VisualizationAlgorithms/LOxSeeds" title="LOxSeeds"> See LOxSeeds.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/VisualizationAlgorithms/LOxSeeds" title="LOxSeeds"> LOxSeeds.py</a>.</figcaption>
 </figure>
 
 **Figure 12-15** shows streamlines seeded from four locations along the post. Notice how the structure of the flow begins to emerge as the starting positions for the streamlines are moved up and down in front of the post. This is particularly true if we do this interactively; the mind assembles the behavior of the streamlines into a global understanding of the flow field.
 
 <figure id="Figure 12-16">
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/VisualizationAlgorithms/TestLOx.png?raw=true" width="640" alt="Figure 12-16">
-  <figcaption style="color:blue"><b>Figure 12-16</b>. Streamtubes created by using the computational grid just in front of the post as a source for seeds.<a href="../../Cxx/VisualizationAlgorithms/LOx" title="LOx"> See LOx.cxx</a> and <a href="../../Python/VisualizationAlgorithms/LOx" title="LOx"> LOx.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 12-16</b>. Streamtubes created by using the computational grid just in front of the post as a source for seeds.<a href="https://kitware.github.io/vtk-examples/site/Cxx/VisualizationAlgorithms/LOx" title="LOx"> See LOx.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/VisualizationAlgorithms/LOx" title="LOx"> LOx.py</a>.</figcaption>
 </figure>
 
 For a final example, we use the computational grid to seed streamlines and then generate streamtubes as is shown in **Figure 12-16**. A nice feature of this approach is that we generate more streamlines in regions where the analyst constructed a denser grid. The only change we need to make is to replace the rake from the sphere source with a portion of the grid geometry.
@@ -1121,7 +1121,7 @@ The results of one such analysis are shown in **Figure 12-17**. The polymer was 
 
 <figure id="Figure 12-17">
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/Visualization/TestBlow.png?raw=true" width="640" alt="Figure 12-17">
-  <figcaption style="color:blue"><b>Figure 12-17</b>. Ten frames from a blow molding finite element analysis. Mold halves (shown in wireframe) are closed around a parison as the parison is inflated. Coloring indicates thickness-red areas are thinner than blue. <a href="../../Cxx/Visualization/Blow" title="Blow"> See Blow.cxx</a> and <a href="../../Python/Visualization/Blow" title="Blow"> Blow.py</a>.</figcaption>
+  <figcaption style="color:blue"><b>Figure 12-17</b>. Ten frames from a blow molding finite element analysis. Mold halves (shown in wireframe) are closed around a parison as the parison is inflated. Coloring indicates thickness-red areas are thinner than blue. <a href="https://kitware.github.io/vtk-examples/site/Cxx/Visualization/Blow" title="Blow"> See Blow.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Visualization/Blow" title="Blow"> Blow.py</a>.</figcaption>
 </figure>
 
 To generate these images, we used a Tcl script shown in **Figure 12-18** and **Figure 12-19**. The input data is in VTK format, so a vtkUnstructuredGridReader was used as a source object. The mesh displacement is accomplished using an instance of vtkWarpVector. At this point the pipeline splits. We wish to treat the mold and parison differently (different properties such as wireframe versus surface), but the data for both mold and parison is combined. Fortunately, we can easily separate the data using two instances of class vtkConnectivityFilter. One filter extracts the parison, while the other extracts both parts of the mold. Finally, to achieve a smooth surface appearance on the parison, we use a vtkPolyDataNormals filter. In order to use this filter, we have to convert the data type from vtkUnstructuredGrid (output of vtkConnectivityFilter ) to type vtkPolyData. The filter vtkGeometryFilter does this nicely.
@@ -1156,7 +1156,7 @@ In this example we will visualize the operation of the recursive Towers of Hanoi
  <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/Visualization/TestHanoi.png?raw=true" width="640" alt="Figure 12-20c">
 <figcaption style="color:blue">(c) Final</figcaption>
 </figure>
-<figcaption style="color:blue"><b>Figure 12-20</b>. Towers of Hanoi. (a) Initial configuration. (b) Intermediate configuration. (c) Final configuration. (a) <a href="../../Cxx/Visualization/HanoiInitial" title="HanoiInitial"> See HanoiInitial.cxx</a> and <a href="../../Python/Visualization/HanoiInitial" title="HanoiInitial"> HanoiInitial.py</a>.; (b).<a href="../../Cxx/Visualization/HanoiIntermediate" title="HanoiIntermediate"> See HanoiIntermediate.cxx</a> and <a href="../../Python/Visualization/HanoiIntermediate" title="HanoiIntermediate"> HanoiIntermediate.py</a>.; (c)<a href="../../Cxx/Visualization/Hanoi" title="Hanoi"> See Hanoi.cxx</a> and <a href="../../Python/Visualization/Hanoi" title="Hanoi"> Hanoi.py</a>.</figcaption>
+<figcaption style="color:blue"><b>Figure 12-20</b>. Towers of Hanoi. (a) Initial configuration. (b) Intermediate configuration. (c) Final configuration. (a) <a href="https://kitware.github.io/vtk-examples/site/Cxx/Visualization/HanoiInitial" title="HanoiInitial"> See HanoiInitial.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Visualization/HanoiInitial" title="HanoiInitial"> HanoiInitial.py</a>.; (b).<a href="https://kitware.github.io/vtk-examples/site/Cxx/Visualization/HanoiIntermediate" title="HanoiIntermediate"> See HanoiIntermediate.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Visualization/HanoiIntermediate" title="HanoiIntermediate"> HanoiIntermediate.py</a>.; (c)<a href="https://kitware.github.io/vtk-examples/site/Cxx/Visualization/Hanoi" title="Hanoi"> See Hanoi.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Visualization/Hanoi" title="Hanoi"> Hanoi.py</a>.</figcaption>
 </figure>
 
 <figure id="Figure 12-21">
