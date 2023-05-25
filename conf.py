@@ -31,7 +31,13 @@ myst_enable_extensions = [
 myst_heading_anchors = 7
 
 templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'README.md']
+exclude_patterns = [
+    "_build",
+    "Thumbs.db",
+    ".DS_Store",
+    "README.md",
+    "VTKBook/Figures/README.md",
+]
 
 
 
