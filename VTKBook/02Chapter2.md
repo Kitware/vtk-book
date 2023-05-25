@@ -1,3 +1,5 @@
+<!-- SPDX-FileCopyrightText: Copyright 2006 VTK Book Authors and Contributors -->
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
 # Chapter 2 - Object-Oriented Design
 
 **O**bject-oriented systems are becoming widespread in the computer industry for good reason. Object-oriented systems are more modular, easier to maintain, and easier to describe than traditional procedural systems. Since the *Visualization Toolkit* has been designed and implemented using object-oriented design, we devote this chapter to summarizing the concepts and practice of object-oriented design and implementation.

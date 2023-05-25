@@ -1,3 +1,5 @@
+<!-- SPDX-FileCopyrightText: Copyright 2006 VTK Book Authors and Contributors -->
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
 # Chapter 7 - Advanced Computer Graphics
 
 **C**hapter 3 introduced fundamental concepts of computer graphics. A major topic in that chapter was how to represent and render geometry using surface primitives such as points, lines, and polygons. In this chapter our primary focus is on volume graphics. Compared to surface graphics, volume graphics has a greater expressive range in its ability to render inhomogeneous materials, and is a dominant technique for visualizing 3D image (volume) datasets.

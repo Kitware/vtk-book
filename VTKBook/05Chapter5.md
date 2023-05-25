@@ -1,3 +1,5 @@
+<!-- SPDX-FileCopyrightText: Copyright 2006 VTK Book Authors and Contributors -->
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
 # Chapter 5 - Data Representation
 
 **I**n [Chapter 4 - The Visualization Pipeline](04Chapter4) we developed a pragmatic definition of the visualization process: mapping information into graphics primitives. We saw how this mapping proceeds through one or more steps, each step transforming data from one form, or data representation, into another. In this chapter we examine common data forms for visualization. The goal is to familiarize you with these forms, so that you can visualize your own data using the tools and techniques provided in this text.

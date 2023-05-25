@@ -1,3 +1,5 @@
+<!-- SPDX-FileCopyrightText: Copyright 2006 VTK Book Authors and Contributors -->
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
 # Chapter 11 - Visualization on the Web
 
 **T**he early 1990s established the widespread use and accessibility of the World Wide Web. Once a network used primarily by researchers and universities, the Web has become something that is used by people throughout the world. The effects of this transformation have been significant, ranging from personal home pages with static images and text, to professional Web pages embedding animation and virtual reality. This chapter discusses some of those changes and describes how the World Wide Web can be used to make visualization more accessible, interactive, and powerful. Topics covered include the advantages and disadvantages of client-side versus server-side visualization, VRML, and Java3D, interwoven with demonstration examples.

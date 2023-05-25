@@ -1,6 +1,9 @@
-# VTK Book  
+<!-- SPDX-FileCopyrightText: Copyright 2020 VTK Book Authors and Contributors -->
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+# VTK Book
 
 [![Documentation Status](https://readthedocs.org/projects/vtk-book/badge/?version=latest)](https://book.vtk.org/en/latest/?badge=latest)
+[![CC BY 4.0](https://img.shields.io/github/license/kitware/vtk-book)](https://creativecommons.org/licenses/by/4.0/)
 
 ## Citing
 
@@ -32,3 +35,13 @@ pip install -r requirements.txt
 
 Use `make html` in this directory to build the documentation.
 Open `_build/html/index.html` in your browser to inspect the result.
+
+## License
+
+The content of this repository is licensed under several licenses. We follow the [REUSE specification](https://reuse.software/) to indicate which license applies to the files specifically. Here are some general hints:
+
+* The VTK Book content, including all text, figures, and code examples, is licensed under `CC BY 4.0`
+
+* The website source code used to generate the page structure of the VTK Book website is licensed under `Apache-2.0`
+
+For more details on the licenses, please have a look at the file headers or associated `*.license` files. The terms of all used licenses are located in the [LICENSES](https://github.com/Kitware/vtk-book/tree/master/LICENSES) directory.

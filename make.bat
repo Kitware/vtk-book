@@ -1,3 +1,5 @@
+REM SPDX-FileCopyrightText: Copyright 2023 VTK Book Authors and Contributors
+REM SPDX-License-Identifier: Apache-2.0
 @ECHO OFF
 
 pushd %~dp0

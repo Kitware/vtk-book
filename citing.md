@@ -1,3 +1,5 @@
+<!-- SPDX-FileCopyrightText: Copyright 2023 VTK Book Authors and Contributors -->
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
 # Citing
 
 When citing VTK in your scientific research, please mention the following work to support increased visibility and dissemination of our software:

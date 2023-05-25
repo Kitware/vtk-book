@@ -1,5 +1,7 @@
-
+<!-- SPDX-FileCopyrightText: Copyright 2020 VTK Book Authors and Contributors -->
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
 # The Three Efforts
+
 There are three coordinated efforts ongoing each with a different goal. Currently, none of the efforts will rewrite sections of the fourth edition. These are the first steps to a possible fifth edition, but that effort will require significant resources.
 
 The printed and free online PDF of the VTK textbook is the gold standard for this edition. The online PDF is a low-resolution version that exhibits some difficulty converting equations. It is available as one, down-loadable PDF with no active links. FrameMaker produces the PDF from FrameMaker files capable of producing different PDF resolutions. Editing the FrameMaker files requires a license from Adobe. It is unlikely the VTK community will have access to these proprietary files. Major contributors include Will Schroeder and other Kitware employees. See the PDF [here](https://www.vtk.org/vtk-textbook/).
