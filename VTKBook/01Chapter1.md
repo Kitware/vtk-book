@@ -110,11 +110,11 @@ results.
 
 There are a number of approaches you can take to make effective use of this book. The particular approach depends on your skill level and goals. Three likely paths are as follows:
 
-*Novice.* You're a novice if you lack basic knowledge of graphics, visualization, or object-oriented principles. Start by reading [Chapter 2](/VTKBook/02Chapter2) if you are unfamiliar with object-oriented principles, [Chapter 3](/VTKBook/03Chapter3) if you are unfamiliar with computer graphics, and [Chapter 4](/VTKBook/04Chapter4) if you are unfamiliar with visualization. Continue by reading the application studies in [Chapter 12](/VTKBook/12Chapter12). You can then move on to the CD-ROM and try out some programming examples. Leave the more detailed treatment of algorithms and data representation until you are familiar with the basics and plan to develop your own applications.
+*Novice.* You're a novice if you lack basic knowledge of graphics, visualization, or object-oriented principles. Start by reading [Chapter 2](02Chapter2) if you are unfamiliar with object-oriented principles, [Chapter 3](03Chapter3) if you are unfamiliar with computer graphics, and [Chapter 4](04Chapter4) if you are unfamiliar with visualization. Continue by reading the application studies in [Chapter 12](12Chapter12). You can then move on to the CD-ROM and try out some programming examples. Leave the more detailed treatment of algorithms and data representation until you are familiar with the basics and plan to develop your own applications.
 
-*Hacker.* You're a hacker if you are comfortable writing your own code and editing other's. Review the examples in [Chapter 3](/VTKBook/03Chapter3), [Chapter 4](/VTKBook/04Chapter4), and [Chapter 12](/VTKBook/12Chapter12). At this point you will want to acquire the companion software guide to this text ( *The VTK User's Guide* ) or become familiar with the programming resources at http://www.vtk.org. Then retrieve the examples from the CD-ROM and start practicing.
+*Hacker.* You're a hacker if you are comfortable writing your own code and editing other's. Review the examples in [Chapter 3](03Chapter3), [Chapter 4](04Chapter4), and [Chapter 12](12Chapter12). At this point you will want to acquire the companion software guide to this text ( *The VTK User's Guide* ) or become familiar with the programming resources at http://www.vtk.org. Then retrieve the examples from the CD-ROM and start practicing.
 
-*Researcher/Educator.* You're a researcher if you develop computer graphics and/or visualization algorithms or if you are actively involved in using and evaluating such systems. You're an educator if you cover aspects of computer graphics and/or visualization within your courses. Start by reading [Chapter 2](/VTKBook/02Chapter2), [Chapter 3](/VTKBook/03Chapter3), and [Chapter 4](/VTKBook/04Chapter4). Select appropriate algorithms from the text and examine the associated source code. If you wish to extend the system, we recommend that you acquire the companion software guide to this text ( *The VTK User's* *Guide* ) or become familiar with the programming resources at http://www.vtk.org.
+*Researcher/Educator.* You're a researcher if you develop computer graphics and/or visualization algorithms or if you are actively involved in using and evaluating such systems. You're an educator if you cover aspects of computer graphics and/or visualization within your courses. Start by reading [Chapter 2](02Chapter2), [Chapter 3](03Chapter3), and [Chapter 4](04Chapter4). Select appropriate algorithms from the text and examine the associated source code. If you wish to extend the system, we recommend that you acquire the companion software guide to this text ( *The VTK User's* *Guide* ) or become familiar with the programming resources at http://www.vtk.org.
 
 ## 1.9 Software Considerations and Example Code
 
@@ -134,47 +134,47 @@ To find the example code you will want to search in one of three areas. The stan
 
 ## 1.10 Chapter-by-Chapter Overview
 
-### [Chapter 2](/VTKBook/02Chapter2): Object-Oriented Design
+### [Chapter 2](02Chapter2): Object-Oriented Design
 
 This chapter discusses some of the problems with developing large and/or complex software systems and describes how object-oriented design addresses many of these problems. This chapter defines the key terms used in object-oriented modelling and design and works through a real-world example. The chapter concludes with a brief look at some object-oriented languages and some of the issues associated with object-oriented visualization.
 
-### [Chapter 3](/VTKBook/03Chapter3): Computer Graphics Primer*
+### [Chapter 3](03Chapter3): Computer Graphics Primer*
 
 Computer graphics is the means by which our visualizations are created. This chapter covers the fundamental concepts of computer graphics from an application viewpoint. Common graphical entities such as cameras, lights, and geometric primitives are described along with some of the underlying physical equations that govern lighting and image generation. Issues related to currently available graphics hardware are presented, as they affect how and what we choose to render. Methods for interacting with data are introduced.
 
-### [Chapter 4](/VTKBook/04Chapter4): The Visualization Pipeline
+### [Chapter 4](04Chapter4): The Visualization Pipeline
 
 This chapter explains our methodology for transforming raw data into a meaningful representation that can than be rendered by the graphics system. We introduce the notion of a visualization pipeline, which is similar to a data flow diagram from software engineering. The differences between process objects and data objects are covered, as well as how we resolved issues between performance and memory usage. We explain the advantages to a pipeline network topology regarding execution ordering, result caching, and reference counting.
 
-### [Chapter 5](/VTKBook/05Chapter5): Basic Data Representation
+### [Chapter 5](05Chapter5): Basic Data Representation
 
 There are many types of data produced by the variety of fields that apply visualization. This chapter describes the data objects that we use to represent and access such data. A flexible design is introduced where the programmer can interact with most any type of data using one consistent interface. The three high level components of data (structure, cells, and data attributes) are introduced, and their specific subclasses and components are discussed.
 
-### [Chapter 6](/VTKBook/06Chapter6): Fundamental Algorithms
+### [Chapter 6](06Chapter6): Fundamental Algorithms
 
 Where the preceding chapter deals with data objects, this one introduces process objects. These objects encompass the algorithms that transform and manipulate data. This chapter looks at commonly used techniques for isocontour extraction, scalar generation, color mapping, and vector field display, among others. The emphasis of this chapter is to provide the reader with a basic understanding of the more common and important visualization algorithms.
 
-### [Chapter 7](/VTKBook/07Chapter7): Advanced Computer Graphics
+### [Chapter 7](07Chapter7): Advanced Computer Graphics
 
 This chapter covers advanced topics in computer graphics. The chapter begins by introducing transparency and texture mapping, two topics important to the main thrust of the chapter: volume rendering. Volume rendering is a powerful technique to see inside of 3D objects, and is used to visualize volumetric data. We conclude the chapter with other advanced topics such as stereoscopic rendering, special camera effects, and 3D widgets.
 
-### [Chapter 8](/VTKBook/08Chapter8): Advanced Data Representation
+### [Chapter 8](08Chapter8): Advanced Data Representation
 
 Part of the function of a data object is to store the data. The first chapter on data representation discusses this aspect of data objects. This chapter focuses on basic geometric and topological access methods, and computational operations implemented by the various data objects. The chapter covers such methods as coordinate transformations for data sets, interpolation functions, derivative calculations, topological adjacency operations, and geometric operations such as line intersection and searching.
 
-### [Chapter 9](/VTKBook/09Chapter9): Advanced Algorithms
+### [Chapter 9](09Chapter9): Advanced Algorithms
 
 This chapter is a continuation of *Fundamental Algorithms* and covers algorithms that are either more complex or less widely used. Scalar algorithms such as dividing cubes are covered along with vector algorithms such as stream ribbons. A large collection of modelling algorithms is discussed, including triangle strip generation, polygon decimation, feature extraction, and implicit modelling. We conclude with a look at some visualization algorithms that utilize texture mapping.
 
-### [Chapter 10](/VTKBook/10Chapter10): Image Processing
+### [Chapter 10](10Chapter10): Image Processing
 
 While 3D graphics and visualization is the focus of the book, image processing is an important tool for preprocessing and manipulating data. In this chapter we focus on several important image processing algorithms, as well as describe how we use a streaming data representation to process large datasets.
 
-### [Chapter 11](/VTKBook/11Chapter11): Visualization on the Web
+### [Chapter 11](11Chapter11): Visualization on the Web
 
 The Web is one of the best places to share your visualizations. In this chapter we show you how to write Java-based visualization applications, and how to create VRML (Virtual Reality Modelling Language) data files for inclusion in your own Web content.
 
-### [Chapter 12](/VTKBook/12Chapter12): Application
+### [Chapter 12](12Chapter12): Application
 
 In this chapter we tie the previous chapters together by working through a series of case studies from a variety of application areas. For each case, we briefly describe the application and what information we expect to obtain through the use of visualization. Then, we walk through the design and resulting source code to demonstrate the use of the tools described earlier in the text.
 

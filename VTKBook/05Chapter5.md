@@ -1,6 +1,6 @@
 # Chapter 5 - Data Representation
 
-**I**n [Chapter 4 - The Visualization Pipeline](/VTKBook/04Chapter4) we developed a pragmatic definition of the visualization process: mapping information into graphics primitives. We saw how this mapping proceeds through one or more steps, each step transforming data from one form, or data representation, into another. In this chapter we examine common data forms for visualization. The goal is to familiarize you with these forms, so that you can visualize your own data using the tools and techniques provided in this text.
+**I**n [Chapter 4 - The Visualization Pipeline](04Chapter4) we developed a pragmatic definition of the visualization process: mapping information into graphics primitives. We saw how this mapping proceeds through one or more steps, each step transforming data from one form, or data representation, into another. In this chapter we examine common data forms for visualization. The goal is to familiarize you with these forms, so that you can visualize your own data using the tools and techniques provided in this text.
 
 ## 5.1 Introduction
 To design representational schemes for data we need to know something about the data we might encounter. We also need to keep in mind design goals, so that we can design efficient data structures and access methods. The next two sections address these issues.
@@ -15,7 +15,7 @@ Consider visualizing the simple continuous function $y = x^2$. If we are using a
 
 Because of the discrete character of the data we do not know anything about regions in between data values. In our previous example, we know that data is generated from the function $y = x^2$, but, generally speaking, when we measure and even compute data, we cannot infer data values between points. This poses a serious problem, because an important visualization activity is to determine data values at arbitrary positions. For example, we might probe our data and desire data values even though the probe position does not fall on a known point.
 
-There is an obvious solution to this problem: interpolation. We presume a relationship between neighboring data values. Often this is a linear function, but we can use quadratic, cubic, spline, or other interpolation functions. [Chapter 8 - Advanced Data Representation](/VTKBook/08Chapter8) discusses interpolation functions in greater detail, but for now suffice it to say that interpolation functions generate data values in between known points.
+There is an obvious solution to this problem: interpolation. We presume a relationship between neighboring data values. Often this is a linear function, but we can use quadratic, cubic, spline, or other interpolation functions. [Chapter 8 - Advanced Data Representation](08Chapter8) discusses interpolation functions in greater detail, but for now suffice it to say that interpolation functions generate data values in between known points.
 
 A second important characteristic of visualization data is that its structure may be _regular_ or _irregular_ (alternatively, _structured_ or _unstructured_). Regular data has an inherent relationship between data points. For example, if we sample on an evenly spaced set of points, we do not need to store all the point coordinates, only the beginning position of the interval, the spacing between points, and the total number of points. The point positions are then known implicitly, which can be taken of advantage of to save computer memory.
 
@@ -27,7 +27,7 @@ Finally, data has a topological dimension. In our example $y = x^2$, the dimensi
 
 The dimension of the data is important because it implies appropriate methods for visualization and data representation. For example, in 1D we naturally use _x-y_ plots, bar charts, or pie charts, and store the data as a 1D list of values. For 2D data we might store the data in a matrix, and visualize it with a deformed surface plot (i.e., a height field - see Exercise 4.2).
 
-In this chapter and [Chapter 8 - Advanced Data Representation](/VTKBook/08Chapter8), we show how these characteristics: discrete, regular/irregular, and data dimension, shape our model of visualization data. Keep these features in mind as you read these chapters.
+In this chapter and [Chapter 8 - Advanced Data Representation](08Chapter8), we show how these characteristics: discrete, regular/irregular, and data dimension, shape our model of visualization data. Keep these features in mind as you read these chapters.
 
 <figure id="Figure 5-1">
   <img src="https://github.com/Kitware/vtk-book/releases/download/book-resources/Figure5-1.png?raw=true" width="640" alt="Figure5-1">
@@ -51,7 +51,7 @@ Visualizing data involves interfacing to external data, mapping into internal fo
 The remainder of this chapter describes common visualization data forms based on these design criteria. Our basic abstraction is the data object, a general term for the various concrete visualization data types which are the subclasses of data object.
 
 ##5.2 The Data Object
-The most general form of data found in VTK is the data object. A data object can be thought of as a collection of data without any form. Data objects represent the data that is processed by the visualization pipeline (see the previous chapter and [Figure 4-2](/VTKBook/04Chapter4.md#Figure 4-2)). Taken by themselves, data objects carry little useful information. It is only when they are organized into some structure that they provide a form that we can operate on with visualization algorithms.
+The most general form of data found in VTK is the data object. A data object can be thought of as a collection of data without any form. Data objects represent the data that is processed by the visualization pipeline (see the previous chapter and [Figure 4-2](04Chapter4.md#Figure 4-2)). Taken by themselves, data objects carry little useful information. It is only when they are organized into some structure that they provide a form that we can operate on with visualization algorithms.
 
 ## 5.3 The Dataset
 Data objects with an organizing _structure_ and associated _data attributes_ (**Figure 5-11**) form _datasets_. The dataset is an abstract form; we leave the representation and implementation of the structure to its concrete subclasses. Most algorithms (or process objects) in VTK operate on datasets.
@@ -87,15 +87,15 @@ $$
   <afigcaption style="color:blue"><b>Figure 5-3</b>. Example of a hexahedron cell. The topology is implicitly defined by the ordering of the point list. Physical generation of an image.</figcaption>
 </figure>
 
-The importance of "uses" and "use sets" will become evident in [Chapter 8 - Advanced Data Representation](/VTKBook/08Chapter8) when we explore the topology of datasets.
+The importance of "uses" and "use sets" will become evident in [Chapter 8 - Advanced Data Representation](08Chapter8) when we explore the topology of datasets.
 
 Although we define points in three dimensions, cells may vary in topological dimension. Vertices, lines, triangles, and tetrahedron are examples of topologically 0, 1, 2, and 3-D cells, respectively, embedded in three-dimensional geometric space. Cells can also be primary or composite. Composite cells consist of one or more primary cells, while primary cells cannot be decomposed into combinations of other primary cell types. A triangle strip, for example, consists of one or more triangles arranged in compact form. The triangle strip is a composite cell because it can be broken down into triangles, which are primary cells.
 
-Certainly there are an infinite variety of possible cell types. In the _Visualization Toolkit_ each cell type has been chosen based on application need. We have seen how some cell types: vertex, line, polygon, and triangle strip ([Figure 3-19](/VTKBook/03Chapter3.md#Figure 3-19)) are used to represent geometry to the graphics subsystem or library. Other cell types such as the tetrahedron and hexahedron are common in numerical simulation. The utility of each cell type will become evident through the practice of visualization throughout this book. A description of the cell types found in the _Visualization Toolkit_-including their classification as linear, nonlinear, or other-is given in the following sections.
+Certainly there are an infinite variety of possible cell types. In the _Visualization Toolkit_ each cell type has been chosen based on application need. We have seen how some cell types: vertex, line, polygon, and triangle strip ([Figure 3-19](03Chapter3.md#Figure 3-19)) are used to represent geometry to the graphics subsystem or library. Other cell types such as the tetrahedron and hexahedron are common in numerical simulation. The utility of each cell type will become evident through the practice of visualization throughout this book. A description of the cell types found in the _Visualization Toolkit_-including their classification as linear, nonlinear, or other-is given in the following sections.
 
 ### Linear Cells
 
-Linear cells are characterized by linear or constant interpolation functions (see ["Interpolation Functions"](/VTKBook/08Chapter8.md#82-interpolation-functions) in [Chapter 8](/VTKBook/08Chapter8) for more information). As a result, cells of dimension one or greater are characterized by straight edges. Thus any edge may be characterized by two vertex id's $(v_1,v_2)$. The following are the linear cells currently found in VTK.
+Linear cells are characterized by linear or constant interpolation functions (see ["Interpolation Functions"](08Chapter8.md#82-interpolation-functions) in [Chapter 8](08Chapter8) for more information). As a result, cells of dimension one or greater are characterized by straight edges. Thus any edge may be characterized by two vertex id's $(v_1,v_2)$. The following are the linear cells currently found in VTK.
 
 **Vertex.** The vertex is a primary zero-dimensional cell. It is defined by a single point.
 
@@ -115,7 +115,7 @@ Linear cells are characterized by linear or constant interpolation functions (se
 
 The ordering of the points defining the pixel is different from the quadrilateral cell. The points are ordered in the direction of increasing axis coordinate, starting with _x_, then _y_, then _z_. The pixel is a special case of the quadrilateral and is used to improve computational performance.
 
-One important note is that the definition of the pixel cell given here is different from the usual definition for a pixel. Normally pixels are thought of as constant-valued "picture-elements" in an image (see ["Graphics Hardware"]/VTKBook/03Chapter3.md#39-graphics-hardware) in [Chapter 3](/VTKBook/03Chapter3)). The definition given here implies that four picture elements form the four corner points of the pixel cell. We normally use the term pixel to describe a pixel cell, but the meaning of the term will vary depending on context.
+One important note is that the definition of the pixel cell given here is different from the usual definition for a pixel. Normally pixels are thought of as constant-valued "picture-elements" in an image (see ["Graphics Hardware"]03Chapter3.md#39-graphics-hardware) in [Chapter 3](03Chapter3)). The definition given here implies that four picture elements form the four corner points of the pixel cell. We normally use the term pixel to describe a pixel cell, but the meaning of the term will vary depending on context.
 
 **Polygon.** The polygon is a primary two-dimensional cell. The polygon is defined by an ordered list of three or more points lying in a plane. The polygon normal is implicitly defined by a counterclockwise ordering of its points using the right-hand rule.
 
@@ -139,7 +139,7 @@ Similar to pixels, our definition of a voxel cell differs from the conventional 
 
 ### NonLinear Types
 
-It is common in numerical analysis to use nonlinear cells, i.e., cell formulations that use nonlinear basis functions. These basis functions are generally formed by combinations of polynomials. Nonlinear cells provide more accurate interpolation functions (see ["Interpolation Functions"](/VTKBook/08Chapter8.md#82-interpolation-functions) in [Chapter 8](/VTKBook/08Chapter8) for more information) and better approximate curved geometry. However, the number of possible nonlinear basis functions is unlimited, which poses a combinatorial problem to any visualization system (i.e., it is not possible to implement all non-linear cell types). To address this problem, VTK takes a dual approach. First, VTK directly supports nonlinear cell types with quadratic interpolation functions(see **Figure 5-4**). Such cells are constructed by adding mid-edge nodes, and occasionally mid-face and interior nodes, requiring extending the connectivity list to reflect the addition of these extra entries. Second, VTK has a sophisticated cell adaptor framework, enabling users to interface any basis function to VTK as long as the basis function can be uniquely characterized in an r-s-t parametric coordinates system. (Note: we will describe the cell adaptor framework in more detail in [Chapter 8 - Advanced Data Representation](/VTKBook/08Chapter8).)
+It is common in numerical analysis to use nonlinear cells, i.e., cell formulations that use nonlinear basis functions. These basis functions are generally formed by combinations of polynomials. Nonlinear cells provide more accurate interpolation functions (see ["Interpolation Functions"](08Chapter8.md#82-interpolation-functions) in [Chapter 8](08Chapter8) for more information) and better approximate curved geometry. However, the number of possible nonlinear basis functions is unlimited, which poses a combinatorial problem to any visualization system (i.e., it is not possible to implement all non-linear cell types). To address this problem, VTK takes a dual approach. First, VTK directly supports nonlinear cell types with quadratic interpolation functions(see **Figure 5-4**). Such cells are constructed by adding mid-edge nodes, and occasionally mid-face and interior nodes, requiring extending the connectivity list to reflect the addition of these extra entries. Second, VTK has a sophisticated cell adaptor framework, enabling users to interface any basis function to VTK as long as the basis function can be uniquely characterized in an r-s-t parametric coordinates system. (Note: we will describe the cell adaptor framework in more detail in [Chapter 8 - Advanced Data Representation](08Chapter8).)
 
 <figure id="Figure 5-4">
   <img src="https://github.com/Kitware/vtk-book/releases/download/book-resources/Figure5-4.png?raw=true" width="640" alt="Figure5-4">
@@ -152,7 +152,7 @@ One significant difference between linear and nonlinear cells is the way they ar
 
 2. Develop custom rendering and visualization algorithms to operate directly on nonlinear cells.
 
-3. Program custom rendering operations in the graphics library. These issues are active topics in visualization research <em style="color:green;background-color: white">\[Schroeder05\]</em>. In VTK, tessellation methods are currently employed since once tessellated, a cell can be processed by existing linear algorithms. The difficulty with solutions 2) and 3) above is that the effort to create new rendering and visualization algorithms is significant, possibly requiring different solutions for each type of nonlinear cell. Furthermore, it is likely that the performance found in dedicated rendering hardware (e.g., processing linear cells) would far outstrip any software rendering solution for higher order cells. The difficulty with 1) above is that the tessellation must be performed carefully or unacceptable error can be introduced into visualization. Or, if the cell is over-tessellated, an excessive number of linear primitives will result. Future research points to developing adaptive methods that tessellate on a selected error metric (please see [Chapter 8 - Advanced Data Representation](/VTKBook/08Chapter8) for more information).
+3. Program custom rendering operations in the graphics library. These issues are active topics in visualization research <em style="color:green;background-color: white">\[Schroeder05\]</em>. In VTK, tessellation methods are currently employed since once tessellated, a cell can be processed by existing linear algorithms. The difficulty with solutions 2) and 3) above is that the effort to create new rendering and visualization algorithms is significant, possibly requiring different solutions for each type of nonlinear cell. Furthermore, it is likely that the performance found in dedicated rendering hardware (e.g., processing linear cells) would far outstrip any software rendering solution for higher order cells. The difficulty with 1) above is that the tessellation must be performed carefully or unacceptable error can be introduced into visualization. Or, if the cell is over-tessellated, an excessive number of linear primitives will result. Future research points to developing adaptive methods that tessellate on a selected error metric (please see [Chapter 8 - Advanced Data Representation](08Chapter8) for more information).
 
 VTK tessellates nonlinear quadratic cells using a fixed subdivision as shown in **Figure 5-5**. This generally works well for quadratic cells due to the lower order of interpolation, and the few number of points defining the cell.
 
@@ -164,7 +164,7 @@ VTK tessellates nonlinear quadratic cells using a fixed subdivision as shown in 
 
 <figure id="Figure 5-5">
   <img src="https://github.com/Kitware/vtk-book/releases/download/book-resources/Figure5-5.png?raw=true" width="640" alt="Figure5-5">
-  <figcaption style="color:blue"><b>Figure 5-5</b>. Decomposing quadratic nonlinear cells into linear cells. The quadratic tetrahedron is tessellated into six linear tetrahedron; the quadratic hexahedron is tessellated into eight linear hexahedra. Note that some tessellations require the addition of new points. In VTK, a cell adaptor framework is available for tessellating cells with basis functions of arbitrary complexity, see [Chapter 8 - Advanced Data Representation](/VTKBook/08Chapter8) for more information.
+  <figcaption style="color:blue"><b>Figure 5-5</b>. Decomposing quadratic nonlinear cells into linear cells. The quadratic tetrahedron is tessellated into six linear tetrahedron; the quadratic hexahedron is tessellated into eight linear hexahedra. Note that some tessellations require the addition of new points. In VTK, a cell adaptor framework is available for tessellating cells with basis functions of arbitrary complexity, see [Chapter 8 - Advanced Data Representation](08Chapter8) for more information.
  </figcaption>
 </figure>
 
@@ -199,7 +199,7 @@ Attribute data is information associated with the structure of the dataset. This
 
 Attribute data is often categorized into specific types of data. These categories have been created in response to common data forms. Visualization algorithms are also categorized according to the type of data they operate on.
 
-Single-valued functions, such as temperature or pressure, are examples of scalar data, which is one attribute type. More generally, attribute data can be treated as n-dimensional data arrays. For example, the single-valued function temperature can be treated as a 1 x 1 array, while velocity can be treated as a 3 x 1 array of components in the x, y, and z directions. This abstract model for data attribute can be extended throughout the visualization system. Some systems extend this model to include the structure of the data. For example, a 3D image dataset (i.e., a volume) can be represented as a 3D array of l x m x n data values. Unstructured data can be represented as a 3D vector of position, plus an array of connectivity. We refer to this general approach as the hyperdata model for visualization data (see ["Other Data Abstractions"](/VTKBook/05Chapter5.md#57-other-data-abstractions)).
+Single-valued functions, such as temperature or pressure, are examples of scalar data, which is one attribute type. More generally, attribute data can be treated as n-dimensional data arrays. For example, the single-valued function temperature can be treated as a 1 x 1 array, while velocity can be treated as a 3 x 1 array of components in the x, y, and z directions. This abstract model for data attribute can be extended throughout the visualization system. Some systems extend this model to include the structure of the data. For example, a 3D image dataset (i.e., a volume) can be represented as a 3D array of l x m x n data values. Unstructured data can be represented as a 3D vector of position, plus an array of connectivity. We refer to this general approach as the hyperdata model for visualization data (see ["Other Data Abstractions"](05Chapter5.md#57-other-data-abstractions)).
 
 In the following sections we describe data attributes using the simpler type-specific model (**Figure 5-6**). We also limit ourselves to three-dimensional structure, since the dataset structure and graphics are assumed to be three-dimensional.
 
@@ -219,7 +219,7 @@ Normals are direction vectors: that is, they are vectors of magnitude |n|=1. Nor
 
 Texture coordinates are used to map a point from Cartesian space into a 1-, 2-, or 3-dimensional texture space. The texture space is usually referred to as a texture map. Texture maps are regular arrays of color, intensity, and/or transparency values that provide extra detail to rendered objects.
 
-One application of texturing in two dimensions is to "paste" a photograph onto one or more polygons, yielding a detailed image without a large number of graphics primitives. (Texture mapping is covered in more detail in [Chapter 7 - Advanced Computer Graphics](/VTKBook/07Chapter7).)
+One application of texturing in two dimensions is to "paste" a photograph onto one or more polygons, yielding a detailed image without a large number of graphics primitives. (Texture mapping is covered in more detail in [Chapter 7 - Advanced Computer Graphics](07Chapter7).)
 
 ### Tensors
 
@@ -277,7 +277,7 @@ Unstructured points are points irregularly located in space. There is no topolog
 
 Unstructured points are a simple but important type of dataset. Often data has no inherent structure, and part of the visualization task is to discover or create it. For example, consider a piston in a car instrumented with temperature gauges. The number of gauges and their location is chosen at a finite set of points, resulting in temperature values at "unrelated" (at least in terms of visualization topology) positions on the surface of the piston. To visualize the surface temperature, we have to create an interpolation surface and scheme to fill in intermediate values.
 
-Unstructured points serve to represent such unstructured data. Typically, this data form is transformed into another more structured form for the purposes of visualization. Algorithms for transforming unstructured points into other forms are described in ["Visualizing Unstructured Points"](/VTKBook/09Chapter9.md#visualizing-unstructured-points) in [Chapter 9](/VTKBook/09Chapter9).
+Unstructured points serve to represent such unstructured data. Typically, this data form is transformed into another more structured form for the purposes of visualization. Algorithms for transforming unstructured points into other forms are described in ["Visualizing Unstructured Points"](09Chapter9.md#visualizing-unstructured-points) in [Chapter 9](09Chapter9).
 
 ### Unstructured Grid
 
@@ -433,13 +433,13 @@ The vtkCellTypes is an array of supplemental information. For each cell, an inte
 
 Besides representing cell type, this design also enables random access to cells. Because the length of a cell connectivity list varies, the vtkCellArray class cannot locate a particular cell without traversing its data structure from the origin. With the added class vtkCellTypes, however, it is possible to directly access a cell with a single dereference (i.e., using the offset value).
 
-The vtkCellTypes may also be added to the vtkPolyData data representation - and indeed it has. However, our reasons for this addition are not to represent type explicitly, but rather to provide random access to the cells and enable many topological operations. We will expand on this idea in [Chapter 8 - Advanced Data Representation](/VTKBook/08Chapter8).
+The vtkCellTypes may also be added to the vtkPolyData data representation - and indeed it has. However, our reasons for this addition are not to represent type explicitly, but rather to provide random access to the cells and enable many topological operations. We will expand on this idea in [Chapter 8 - Advanced Data Representation](08Chapter8).
 
-**Object Model.** The five datasets are implemented as shown in **Figure 5-14**. As this object diagram illustrates, these concrete datasets are subclasses of the abstract class vtkDataSet. Two additional classes are introduced as well. The class vtkStructuredData contributes instance variables and methods for structured data. vtkStructuredData is not in an inheritance relationship with the datasets; rather the structured datasets shown delegate to it in order to implement some of their methods. (This was done to avoid multiple inheritance.) Subclasses of the class vtkPointSet represent their points explicitly, that is, through an instance of vtkPoints or its subclasses. vtkPointSet provides methods and instance variables to manipulate the point data, as well as a general searching capability to find points and cells. (See ["Searching"](/VTKBook/08Chapter8.md#87-searching) in [Chapter 8](/VTKBook/08Chapter8) for more information.)
+**Object Model.** The five datasets are implemented as shown in **Figure 5-14**. As this object diagram illustrates, these concrete datasets are subclasses of the abstract class vtkDataSet. Two additional classes are introduced as well. The class vtkStructuredData contributes instance variables and methods for structured data. vtkStructuredData is not in an inheritance relationship with the datasets; rather the structured datasets shown delegate to it in order to implement some of their methods. (This was done to avoid multiple inheritance.) Subclasses of the class vtkPointSet represent their points explicitly, that is, through an instance of vtkPoints or its subclasses. vtkPointSet provides methods and instance variables to manipulate the point data, as well as a general searching capability to find points and cells. (See ["Searching"](08Chapter8.md#87-searching) in [Chapter 8](08Chapter8) for more information.)
 
 <figure id="Figure 5-13">
   <img src="https://github.com/Kitware/vtk-book/releases/download/book-resources/Figure5-13.png?raw=true" width="640" alt="Figure5-13">
-  <figcaption style="color:blue"><b>Figure 5-13</b>. The data structure of the class &#118;tkUnstructuredGrid. (This is a subset of the complete structure. See [Chapter 8 - Advanced Data Representation](/VTKBook/08Chapter8) for complete details.)
+  <figcaption style="color:blue"><b>Figure 5-13</b>. The data structure of the class &#118;tkUnstructuredGrid. (This is a subset of the complete structure. See [Chapter 8 - Advanced Data Representation](08Chapter8) for complete details.)
  </figcaption>
 </figure>
 
@@ -457,7 +457,7 @@ The vtkCellTypes may also be added to the vtkPolyData data representation - and 
 
 In the _Visualization Toolkit_ each cell type has been implemented by creating specific classes. Each cell is a subclass of the abstract type vtkCell. Cell topology is represented by a list of ordered point ids, and cell geometry is represented by a list of point coordinates. The object diagram for vtkCell and its subclasses is shown in **Figure 5-15**.
 
-The abstract class vtkCell specifies methods that each cell must implement. These methods provide a defined interface to the cell's geometry and topology. Additional methods perform computation on the cell. These methods will be discussed in detail in [Chapter 8 - Advanced Data Representation](/VTKBook/08Chapter8).
+The abstract class vtkCell specifies methods that each cell must implement. These methods provide a defined interface to the cell's geometry and topology. Additional methods perform computation on the cell. These methods will be discussed in detail in [Chapter 8 - Advanced Data Representation](08Chapter8).
 
 ### Data Attributes
 
@@ -574,7 +574,7 @@ x = r_i \cos\theta, y = r_i \sin\theta, z = z_i
 
 We arbitrarily choose the number of points in the tangential direction to be thirteen, the number of points in the radial direction to be eleven, and the number of points in the axis direction to be eleven (i.e., dimensions are $13 \times 11 \times 11$).
 
-Vectors are generated tangential to the cylinder and of magnitude proportional to the radius. To display the data we draw small, oriented lines at each point as shown in **Figure 5-19**. (This technique is called a _hedgehog_. See ["Hedgehogs and Oriented Glyphs"](/VTKBook/06Chapter6.md#hedgehogs-and-oriented-glyphs) in [Chapter 6](/VTKBook/06Chapter6) for more information.)
+Vectors are generated tangential to the cylinder and of magnitude proportional to the radius. To display the data we draw small, oriented lines at each point as shown in **Figure 5-19**. (This technique is called a _hedgehog_. See ["Hedgehogs and Oriented Glyphs"](06Chapter6.md#hedgehogs-and-oriented-glyphs) in [Chapter 6](06Chapter6) for more information.)
 
 The creation of a structured grid dataset is partially explicit and partially implicit. Geometry is created explicitly be creating an instance of vtkPoints, while the topology is created implicitly by specifying dataset dimensions. If the name of the instance of vtkStructuredGrid is sgrid, the following three steps are used to create it.
 
