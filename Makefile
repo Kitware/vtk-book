@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright 2023 VTK Book Authors and Contributors
+# SPDX-License-Identifier: Apache-2.0
+
 # Minimal makefile for Sphinx documentation
 #
 

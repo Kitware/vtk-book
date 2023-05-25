@@ -1,3 +1,5 @@
+<!-- SPDX-FileCopyrightText: Copyright 2006 VTK Book Authors and Contributors -->
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
 # Chapter 8 - Advanced Data Representation
 
 **T**his chapter examines advanced topics in data representation. Topics include topological and geometric relationships and computational methods for cells and datasets.

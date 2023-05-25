@@ -1,0 +1,14 @@
+VTK Book content and the website source code for the page structure are
+separately licensed.
+
+The VTK Book content, including all text, figures, and code examples, is
+licensed under:
+
+  SPDX-License-Identifier: CC-BY-4.0
+
+The website source code used to generate the page structure of the VTK Book
+website is licensed under:
+
+  SPDX-License-Identifier: Apache-2.0
+
+All contributions to the VTK Book are subject to this COPYING file.
