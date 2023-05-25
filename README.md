@@ -1,5 +1,6 @@
 # VTK Book  
 
+[![Documentation Status](https://readthedocs.org/projects/vtk-book/badge/?version=latest)](https://book.vtk.org/en/latest/?badge=latest)
 
 
 ## Build environment
