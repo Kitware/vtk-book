@@ -31,11 +31,9 @@ myst_heading_anchors = 7
 
 templates_path = ["_templates"]
 exclude_patterns = [
-    "_build",
     "Thumbs.db",
     ".DS_Store",
-    "README.md",
-    "VTKBook/Figures/README.md",
+    "Figures/README.md",
 ]
 
 # -- Options for HTML output -------------------------------------------------
