@@ -26,7 +26,6 @@ myst_enable_extensions = [
     "amsmath",
     "dollarmath", # support latex equation inside $ $
     "linkify", # convert bare links to hyperlinks
-    "sphinxcontrib.bibtex",
 ]
 myst_heading_anchors = 7
 
