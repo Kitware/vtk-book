@@ -6,8 +6,10 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
+from datetime import date
+
 project = 'VTK Book'
-copyright = '2023, VTK Book Authors and Contributors'
+copyright = f'1993-{date.today().year}, VTK Book Authors and Contributors'
 author = 'VTK Book Authors and Contributors'
 
 # -- General configuration ---------------------------------------------------
