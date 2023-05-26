@@ -349,7 +349,7 @@ Attentive readers will have noticed that the subdivision scheme described previo
 
 By definition, these conditions are directly related to critical points, since an extremum of a differentiable function over an open domain is necessarily a critical point. Linear meshes assume that all extrema of the scalar field occur at element vertices, but in general when using a higher-order basis this is not the case, and extrema can be found interior to a cell.
 
-To address this problem, a pre-triangulation of the basis must be performed. The pre-triangulation must identify all critical points in the interior, on the faces, or on the edge of a cell, and then insert these points into the triangulation. For example, an initial triangulation based on the vertices of the higher-order cell can be performed first, followed by insertion into the triangulation using a method such as Delaunay triangulation or equivalent (see ["Triangulation Techniques"](09Chapter9.md#Chapter 9 - Triangulation Techniques) in [Chapter 9](09Chapter9)). The pre-triangulation can then be followed by the standard edge-based algorithm presented previously.
+To address this problem, a pre-triangulation of the basis must be performed. The pre-triangulation must identify all critical points in the interior, on the faces, or on the edge of a cell, and then insert these points into the triangulation. For example, an initial triangulation based on the vertices of the higher-order cell can be performed first, followed by insertion into the triangulation using a method such as Delaunay triangulation or equivalent (see {ref}`"Triangulation Techniques" <chapter-9-triangulation-techniques>` in [Chapter 9](09Chapter9)). The pre-triangulation can then be followed by the standard edge-based algorithm presented previously.
 
 ## 8.4 Coordinate Transformation
 
@@ -1146,7 +1146,7 @@ The class vtkWorldPointPicker returns the (x,y,z) coordinate value of a pick in 
 
 By default picking is performed with the class vtkPropPicker. This class uses hardware-accelerated picking so it is generally faster than software based picking. Unlike the other hardware accelerated class (vtkWorldPointPicker), it returns the instance of vtkProp that was picked as well as the (x,y,z) world coordinate value
 
-Figure8-39 summarizes the five concrete picking classes. Picking is built into the vtkRenderWindowInteractor class using the "p" key (see ["RenderWindowInteractor"](03Chapter3#Chapter 3 - Introducing RenderWindowInteractor) in [Chapter 3](03Chapter3)). By default a vtkPropPicker is created and used, but you are free to specify your own picker type.
+Figure8-39 summarizes the five concrete picking classes. Picking is built into the vtkRenderWindowInteractor class using the "p" key (see {ref}`"RenderWindowInteractor" <chapter-3-introducing-renderwindowinteractor>` in [Chapter 3](03Chapter3)). By default a vtkPropPicker is created and used, but you are free to specify your own picker type.
 
 ### Examples
 
@@ -1216,7 +1216,8 @@ The picking process is conveniently managed in vtkRenderWindowInteractor. This o
   <figcaption style="color:blue"><b>Figure 8-41</b>. Models created using linear and rotational extrusion. (a) <a href="https://kitware.github.io/vtk-examples/site/Cxx/Visualization/AlphaFrequency" title="AlphaFrequency"> See AlphaFrequency.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Visualization/AlphaFrequency" title="AlphaFrequency"> AlphaFrequency.py</a>.; (b).<a href="https://kitware.github.io/vtk-examples/site/Cxx/Modelling/Bottle" title="Bottle"> See Bottle.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Modelling/Bottle" title="Bottle"> Bottle.py</a>.; (c)<a href="https://kitware.github.io/vtk-examples/site/Cxx/Modelling/Spring" title="Spring"> See Spring.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Modelling/Spring" title="Spring"> Spring.py</a>.</figcaption>
 </figure>
 
-**<b id="Chapter 8 - Point Probe">Point Probe</b>.** In this example we will show how to build a point probe using the dataset and cell operations described in this chapter. A point probe is defined as follows. Given a (x,y,z) point coordinate, find the cell coordinates (i.e., cell id, subcell id, and parametric coordinates) and the interpolation weights. Once the interpolation weights are found, we can then compute local data values at (x,y,z).
+{#chapter-8-point-probe}
+**Point Probe.** In this example we will show how to build a point probe using the dataset and cell operations described in this chapter. A point probe is defined as follows. Given a (x,y,z) point coordinate, find the cell coordinates (i.e., cell id, subcell id, and parametric coordinates) and the interpolation weights. Once the interpolation weights are found, we can then compute local data values at (x,y,z).
 
 The point probe is implemented using the dataset operation FindCell(). This method requires a point specified in global coordinates (our (x,y,z) value) and a tolerance. The tolerance is often necessary because of numerical precision or when picking near the surface of 3D cells, or on 0D, 1D, and 2D cells. The FindCell() operation returns the information we require, plus the interpolation weights of the cell containing our point probe. To determine the data value at our probe point, we need to retrieve the data values on the cell points. We can then use the interpolation functions of Equation 8-4 to determine the probe scalar value.
 

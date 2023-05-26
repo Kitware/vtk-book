@@ -109,7 +109,8 @@ Linear cells are characterized by linear or constant interpolation functions (se
 
 **Triangle.** The triangle is a primary two-dimensional cell. The triangle is defined by a counterclockwise ordered list of three points. The order of the points specifies the direction of the surface normal using the right-hand rule.
 
-**<b id="Chapter 5 - Triangle Strip">Triangle Strip</b>.** The triangle strip is a composite two-dimensional cell consisting of one or more triangles. The points defining the triangle strip need not lie in a plane. The triangle strip is defined by an ordered list of _n+2_ points, where _n_ is the number of triangles. The ordering of the points is such that each set of three points _(i,i+1,i+2_) with $0 \leq i \leq n$ defines a triangle.
+{#chapter-5-triangle-strip}
+**Triangle Strip.** The triangle strip is a composite two-dimensional cell consisting of one or more triangles. The points defining the triangle strip need not lie in a plane. The triangle strip is defined by an ordered list of _n+2_ points, where _n_ is the number of triangles. The ordering of the points is such that each set of three points _(i,i+1,i+2_) with $0 \leq i \leq n$ defines a triangle.
 
 **Quadrilateral.** The quadrilateral is a primary two-dimensional cell. It is defined by an ordered list of four points lying in a plane. The quadrilateral is convex and its edges must not intersect. The points are ordered counterclockwise around the quadrilateral, defining a surface normal using the right-hand rule.
 
@@ -117,7 +118,7 @@ Linear cells are characterized by linear or constant interpolation functions (se
 
 The ordering of the points defining the pixel is different from the quadrilateral cell. The points are ordered in the direction of increasing axis coordinate, starting with _x_, then _y_, then _z_. The pixel is a special case of the quadrilateral and is used to improve computational performance.
 
-One important note is that the definition of the pixel cell given here is different from the usual definition for a pixel. Normally pixels are thought of as constant-valued "picture-elements" in an image (see ["Graphics Hardware"]03Chapter3.md#39-graphics-hardware) in [Chapter 3](03Chapter3)). The definition given here implies that four picture elements form the four corner points of the pixel cell. We normally use the term pixel to describe a pixel cell, but the meaning of the term will vary depending on context.
+One important note is that the definition of the pixel cell given here is different from the usual definition for a pixel. Normally pixels are thought of as constant-valued "picture-elements" in an image (see ["Graphics Hardware"](03Chapter3.md#39-graphics-hardware) in [Chapter 3](03Chapter3)). The definition given here implies that four picture elements form the four corner points of the pixel cell. We normally use the term pixel to describe a pixel cell, but the meaning of the term will vary depending on context.
 
 **Polygon.** The polygon is a primary two-dimensional cell. The polygon is defined by an ordered list of three or more points lying in a plane. The polygon normal is implicitly defined by a counterclockwise ordering of its points using the right-hand rule.
 

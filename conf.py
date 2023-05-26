@@ -27,6 +27,7 @@ extensions = [
 
 myst_enable_extensions = [
     "amsmath",
+    "attrs_block",
     "dollarmath",  # support latex equation inside $ $
     "linkify",  # convert bare links to hyperlinks
 ]

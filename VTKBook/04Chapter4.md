@@ -548,7 +548,7 @@ This global variable is set as follows. Given the data object O, (or the output 
 
 vtkObjectBase is the base object for almost all inheritance hierarchies found in VTK. vtkObjectBase implements data object reference counting (see ["Reference Counting & Garbage Collection"](#reference-counting--garbage-collection)). Subclasses of vtkObjectBase may be shared by other objects, without duplicating memory. It also defines an API for objects to print information about themselves.
 
-vtkObject is a subclass of vtkObjectBase. It provides methods and instance variables to control run-time debugging and maintains internal object modification time. In particular, the method Modified() is used to update the modification time, and the method GetMTime() is used to retrieve it. vtkObject also provides a framework for the event callbacks that we saw in the previous chapter (see ["Events and Observers"](03Chapter3#Chapter 3 - Events and Observers) in [Chapter 3](03Chapter3)).
+vtkObject is a subclass of vtkObjectBase. It provides methods and instance variables to control run-time debugging and maintains internal object modification time. In particular, the method Modified() is used to update the modification time, and the method GetMTime() is used to retrieve it. vtkObject also provides a framework for the event callbacks that we saw in the previous chapter (see {ref}`"Events and Observers" <chapter-3-events-and-observers>` in [Chapter 3](03Chapter3)).
 
 Note that we do not always include vtkObject and vtkObjectBase in object diagrams to conserve space. Refer to the source code for a definitive statement.
 

@@ -1107,7 +1107,7 @@ vtkTubeFilter tubes
 mapTubes SetInputConnection [tubes GetOutputPort]
 ```
 
-There are a number of other methods we could use to visualize this data. A 3D widget such as the vtkLineWidget could be used to seed the streamlines interactively (see ["3D Widgets and User Interaction"](07Chapter7.md#718-3d-widgets-and-user-interaction) in [Chapter 7](07Chapter7)). As we saw in ["Point Probe"](08Chapter8#Chapter 8 - Point Probe) in [Chapter 8](08Chapter8), probing the data for numerical values is a valuable technique. In particular, if the probe is a line we can use it in combination with vtkXYPlotActor to graph the variation of data value along the line. Another useful visualization would be to identify regions of vorticity. We could use **Equation9-12** in conjunction with an isocontouring algorithm (e.g., vtkContourFilter ) to creates isosurfaces of large helical-density.
+There are a number of other methods we could use to visualize this data. A 3D widget such as the vtkLineWidget could be used to seed the streamlines interactively (see ["3D Widgets and User Interaction"](07Chapter7.md#718-3d-widgets-and-user-interaction) in [Chapter 7](07Chapter7)). As we saw in {ref}`"Point Probe" <chapter-8-point-probe>` in [Chapter 8](08Chapter8), probing the data for numerical values is a valuable technique. In particular, if the probe is a line we can use it in combination with vtkXYPlotActor to graph the variation of data value along the line. Another useful visualization would be to identify regions of vorticity. We could use **Equation9-12** in conjunction with an isocontouring algorithm (e.g., vtkContourFilter ) to creates isosurfaces of large helical-density.
 
 ## 12.6 Finite Element Analysis
 
