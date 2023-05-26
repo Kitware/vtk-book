@@ -72,7 +72,7 @@ An *object* is an abstraction that models the state and behavior of entities in 
 
 **Figure 2-1** is an example of the abstraction that occurs when we map the state and behavior of a system component to an object. Here, the object is a particular type of tree: a pin oak. In this application we desire to simulate the growth of various types of trees over the course of a season. For our purpose we have decided that the important state variables are the tree's age, trunk diameter, height, and habit (i.e., growing form). To capture the behavior of the pin oak we have methods to simulate growth and seasonal effects corresponding to spring, summer, fall, and winter. There are also methods (not shown) for setting and getting current state variables.
 
-<figure id="Figure 2-1">
+<figure id="Figure-2-1">
   <img src="https://github.com/Kitware/vtk-book/releases/download/book-resources/Figure2-1.png?raw=true" width="640" alt="Figure2-1">
   <figcaption style="color:blue"><b>Figure 2-1</b>. Mapping a real-world object into an object abstraction. The real-world objects are various types of trees. One of these objects (a pin oak tree) is mapped into the computer object we call PinOak.</figcaption>
 </figure>
@@ -119,7 +119,7 @@ Earlier we created an object corresponding to a pin oak tree. The properties of 
 
 Organizing objects into an inheritance hierarchy provides many benefits. Properties of a general classification are also properties of its sub-classification. For example, we know that all species of genus *Quercus* form acorns. From the software point of view this means any instance variables and methods of a *superclass* are automatically inherited by its *subclass*. This allows us to make changes to a number of objects simultaneously by modifying their superclass. Furthermore, if we desire to add a new class (say a red oak tree) to the hierarchy we can do so without duplicating existing functionality. We need only differentiate the new class from the others by adding new instance variables or overloading existing methods.
 
-<figure id="Figure 2-2">
+<figure id="Figure-2-2">
   <img src="https://github.com/Kitware/vtk-book/releases/download/book-resources/Figure2-2.png?raw=true" width="640" alt="Figure2-2">
   <figcaption style="color:blue"><b>Figure 2-2</b>. Inheritance hierarchy for pin oak tree.</figcaption>
 </figure>
@@ -165,7 +165,7 @@ The first object in the class hierarchy is locator. This abstract class specifie
 
 Later, during implementation, we will convert these object models into software objects. The particular computer language we choose for implementation will dictate the details of the conversion.
 
-<figure id="Figure 2-3">
+<figure id="Figure-2-3">
   <img src="https://github.com/Kitware/vtk-book/releases/download/book-resources/Figure2-3.png?raw=true" width="640" alt="Figure2-3">
   <figcaption style="color:blue"><b>Figure 2-3</b>. Object model for locator devices.</figcaption>
 </figure>
