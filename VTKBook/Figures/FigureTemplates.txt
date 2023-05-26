@@ -4,11 +4,11 @@ Code to hide vtk objects in Figures
 Template for example references to the VTK Book figures.
 
 !!! info
-    See [Figure YY](XXChapterXX/#Figure YY/) in [Chapter XX](/XXChapterXX) in the [VTK Textbook](01Chapter1/).
+    See [Figure YY](XXChapterXX/#Figure-YY/) in [Chapter XX](/XXChapterXX) in the [VTK Textbook](01Chapter1/).
 
 Template for manually created figures
 
-<figure id="Figure NUMBER">
+<figure id="Figure-NUMBER">
   <img src="https://github.com/Kitware/vtk-book/releases/download/book-resources/FigureNUMBER.png?raw=true" width="640" alt="FigureNUMBER">
   <figcaption style="color:blue"><b>Figure NUMBER</b>. Physical generation of an image.</figcaption>
 </figure>
@@ -17,19 +17,19 @@ Templates for automaticaly created figures
 
 One figure
 
-<figure id="Figure NUMBER">
+<figure id="Figure-NUMBER">
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/KIT/TestONE.png?raw=true" width="640" alt="Figure NUMBER">
   <figcaption style="color:blue"><b>Figure NUMBER</b>. Contouring examples. <a href="../../Cxx/KIT/ONE" title="ONE"> See ONE.cxx</a> and <a href="../../Python/KIT/ONE" title="ONE"> ONE.py</a>.</figcaption>
 </figure>
 
 Two figures a,b
 
-<figure id="Figure NUMBER">
- <figure id="Figure NUMBERa">
+<figure id="Figure-NUMBER">
+ <figure id="Figure-NUMBERa">
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/KIT/TestONE.png?raw=true" width="640" alt="Figure NUMBERa">
   <figcaption style="color:blue">(a)</figcaption>
  </figure>
-<figure id="Figure NUMBERb">
+<figure id="Figure-NUMBERb">
  <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/KIT/TestTWO.png?raw=true" width="640" alt="Figure NUMBERb">
  <figcaption style="color:blue">(b)</figcaption>
 </figure>
@@ -38,16 +38,16 @@ Two figures a,b
 
 Three figures a,b,c
 
-<figure id="Figure NUMBER">
- <figure id="Figure NUMBERa">
+<figure id="Figure-NUMBER">
+ <figure id="Figure-NUMBERa">
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/KIT/TestONE.png?raw=true" width="640" alt="Figure NUMBERa">
   <figcaption style="color:blue">(a)</figcaption>
  </figure>
- <figure id="Figure NUMBERb">
+ <figure id="Figure-NUMBERb">
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/KIT/TestTWO.png?raw=true" width="640" alt="Figure NUMBERb">
   <figcaption style="color:blue">(b)</figcaption>
  </figure>
-  <figure id="Figure NUMBERc"> <figure>
+  <figure id="Figure-NUMBERc"> <figure>
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/KIT/TestTHREE.png?raw=true" width="640" alt="Figure NUMBERc">
   <figcaption style="color:blue">(c)</figcaption>
  </figure>
@@ -56,20 +56,20 @@ Three figures a,b,c
 
 Four Figures a,b,c,d
 
-<figure id="Figure NUMBER">
- <figure id="Figure NUMBERa">
+<figure id="Figure-NUMBER">
+ <figure id="Figure-NUMBERa">
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/KIT/TestONE.png?raw=true" width="640" alt="Figure NUMBERa">
   <figcaption style="color:blue">(a)</figcaption>
  </figure>
- <figure id="Figure NUMBERb">
+ <figure id="Figure-NUMBERb">
    <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/KIT/TestTWO.png?raw=true" width="640" alt="Figure NUMBERb">
  <figcaption style="color:blue">(b)</figcaption>
  </figure>
- <figure id="Figure NUMBERc">
+ <figure id="Figure-NUMBERc">
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/KIT/TestTHREE.png?raw=true" width="640" alt="Figure NUMBERc">
  <figcaption style="color:blue">(c)</figcaption>
  </figure>
- <figure id="Figure NUMBERd">
+ <figure id="Figure-NUMBERd">
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/KIT/TestFOUR.png?raw=true" width="640" alt="Figure NUMBERd">
   <figcaption style="color:blue">(d)</figcaption>
  </figure>
