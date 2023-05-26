@@ -390,7 +390,8 @@ Subsampling modifies the topology of a dataset. When points or cells are not sel
 
 A related technique is _data masking_. In data masking we select every nth cell that at a minimum leaves one or more topological "holes" in the dataset. Masking also may change the topology of the dataset, since partial selections of cells from structured datasets can only be represented using unstructured grids. Masking is typically used to improve interactive performance or to quickly process portions of data.
 
-**<b id="Chapter 9 - Thresholding">Thresholding</b>.** Thresholding extracts portions of a dataset data based on attribute values. For example, we may select all cells having a point with scalar value between (0,1) or all points having a velocity magnitude greater than 1.0.
+{#chapter-9-thresholding}
+**Thresholding.** Thresholding extracts portions of a dataset data based on attribute values. For example, we may select all cells having a point with scalar value between (0,1) or all points having a velocity magnitude greater than 1.0.
 
 Scalar thresholding is easily implemented. The threshold is either a single value that scalar values are greater than or less than, or a range of values. Cells or points whose associated scalar values satisfy the threshold criteria can be extracted. Other dataset attribute types such as vectors, normals, or tensors can be extracted in similar fashion by converting the type to a single scalar value. For example, vectors can be extracted using vector magnitude, and tensors using matrix determinate.
 
@@ -426,7 +427,7 @@ One important application of probing converts irregular or unstructured data to 
 
 ### Triangle Strip Generation
 
-Triangle strips are compact representations of triangle polygons as described in ["Triangle Strip"](05Chapter5.md#Chapter 5 - Triangle Strip) in [Chapter 5](05Chapter5). Many rendering libraries include triangle strips as graphics primitives because they are a high-performance alternative to general polygon rendering.
+Triangle strips are compact representations of triangle polygons as described in {ref}`"Triangle Strip" <chapter-5-triangle-strip>` in [Chapter 5](05Chapter5). Many rendering libraries include triangle strips as graphics primitives because they are a high-performance alternative to general polygon rendering.
 
 Visualization and graphics data is often represented with triangles. Marching cubes, for example, generates thousands and potentially millions of triangles to represent an isosurface. To achieve greater performance in our visualizations, we can convert triangle polygons into triangle strips. Or, if data is represented using polygons, we can first triangulate the polygons and then create triangle strips.
 
@@ -752,7 +753,8 @@ Unlike image data and structured grids, or even unstructured grids, unstructured
 
 There are several approaches available to build topological structure given a random set of points. One common approach samples unstructured points into an image dataset, and then visualizes the data using standard volume or surface-based rendering techniques. Another approach creates n-dimensional triangulations from the unstructured points, thereby creating topological structure. These and other common techniques are described in the following sections.
 
-**<b id="Chapter 9 - Splatting Techniques">Splatting Techniques</b>.** Splatting techniques build topological structure by sampling unstructured points into a image dataset (**Figure 9-36**). The sampling is performed by creating special influence, or splatting, functions SF(x,y,z) that distribute the data value of each unstructured point over the surrounding region. To sample the unstructured points, each point is inserted into a image dataset SP, and the data values are distributed through SP using the splatting functions SF(x,y,z). Once the topological structure is built, any image-based visualization technique can be used (including volume rendering).
+{#chapter-9-splatting-techniques}
+**Splatting Techniques.** Splatting techniques build topological structure by sampling unstructured points into a image dataset (**Figure 9-36**). The sampling is performed by creating special influence, or splatting, functions SF(x,y,z) that distribute the data value of each unstructured point over the surrounding region. To sample the unstructured points, each point is inserted into a image dataset SP, and the data values are distributed through SP using the splatting functions SF(x,y,z). Once the topological structure is built, any image-based visualization technique can be used (including volume rendering).
 
 A common splatting function is a uniform Gaussian distribution centered at a point pi. The function is conveniently cast into the form
 
@@ -842,7 +844,8 @@ As a result, Shepard's method is overly constrained in the region around each po
 
 Shepard's method is an example of a basis function method. That is, the interpolation function F(p) consists of a sum of functions centered at each data point, pi. Other basis function methods have been developed as described by Nielson <em style="color:green;background-color: white">\[Nielson91\]</em>. They vary in localization of the basis functions and the sophistication of the interpolation function. Localization of basis functions means that their effect is isolated to a small region. Examples of more sophisticated basis functions include quadratic polynomials and cubic splines. Please see the references for more information.
 
-**<b id="Chapter 9 - Triangulation Techniques">Triangulation techniques</b>** build topology directly from unstructured points. The points are triangulated to create a topological structure consisting of n-dimensional simplices that completely bound the points and linear combinations of the points (the so-called convex hull). The result of triangulation is a set of triangles (2D) or tetrahedra (3D), depending upon the dimension of the input data <em style="color:green;background-color: white">\[Lawson86\]</em>.
+{#chapter-9-triangulation-techniques}
+**Triangulation techniques** build topology directly from unstructured points. The points are triangulated to create a topological structure consisting of n-dimensional simplices that completely bound the points and linear combinations of the points (the so-called convex hull). The result of triangulation is a set of triangles (2D) or tetrahedra (3D), depending upon the dimension of the input data <em style="color:green;background-color: white">\[Lawson86\]</em>.
 
 <figure id="Figure-9-39">
   <img src="https://github.com/Kitware/vtk-book/releases/download/book-resources/Figure9-39.png?raw=true" width="640" alt="Figure9-39">
@@ -891,7 +894,7 @@ Another useful multivariable technique uses glyphs. This technique associates a 
 
 Texturing is a common tool in computer graphics used to introduce detail without the high cost of graphics primitives. As we suggested in [Chapter 7 - Advanced Computer Graphics](07Chapter7), texture mapping can also be used to visualize data. We explore a few techniques in the following sections.
 
-**Texture Thresholding.** We saw earlier how to threshold data based on scalar values (see ["Thresholding"](#Chapter 9 - Thresholding) in this Chapter). We refer to this approach as geometric thresholding because structural components of a dataset (e.g., points and cells) are extracted based on data value. In contrast, we can use texture mapping techniques to achieve similar results. We call this technique texture thresholding.
+**Texture Thresholding.** We saw earlier how to threshold data based on scalar values (see ["Thresholding"](#chapter-9-thresholding) in this Chapter). We refer to this approach as geometric thresholding because structural components of a dataset (e.g., points and cells) are extracted based on data value. In contrast, we can use texture mapping techniques to achieve similar results. We call this technique texture thresholding.
 
 Texture thresholding conceals features we do not want to see and accentuates features that we want to see. There are many variations on this theme. A feature can be concealed by making it transparent or translucent, by reducing its intensity, or using muted colors. A feature can be accentuated by making it opaque, increasing its intensity, or adding bright color. In the following paragraphs we describe a technique that combines intensity and transparency.
 
@@ -1035,7 +1038,7 @@ Other visualization systems treat this problem differently. In these systems a d
 
 To demonstrate these ideas we will refer to **Figure 9-50**. This is an example of multidimensional financial data. The data reflects parameters associated with monetary loans. In the file financial.txt there are six different variables: TIME_LATE, MONTHLY_PAYMENT, UNPAID_PRINCIPLE, LOAN_AMOUNT, INTEREST_RATE, and MONTHLY_INCOME. (Note: this is simulated data, don't make financial decisions based upon this!)
 
-We will use Gaussian splatting to visualize this data (see ["Splatting Techniques"](#Chapter 9 - Splatting Techniques) in this Chapter).
+We will use Gaussian splatting to visualize this data (see ["Splatting Techniques"](#chapter-9-splatting-techniques) in this Chapter).
 
 <figure id="Figure-9-50">
  <figure id="Figure-9-50a">
