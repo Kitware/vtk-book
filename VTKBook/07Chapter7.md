@@ -984,7 +984,12 @@ There are a variety of 3D widgets in VTK all of which function in a similar fash
 
 The widget interfaces with the application through the command/observer event handling mechanism (see {ref}`"Events and Observers" <chapter-3-events-and-observers>`). 3D widgets invoke several events, the most important being the StartInteractionEvent, InteractionEvent, and EndInteractionEvent. These events are typically invoked, for example, on mouse down, mouse move, and mouse up, respectively. In the example shown here, Tcl procedures are tied to the StartInteractionEvent and InteractionEvent using the AddObserver() method to produce streamlines as the widget is manipulated. Note that the streamline is seeded with a polygonal dataset each time an InteractionEvent is invoked using the GetPolyData() method. The pipeline update mechanism then automatically executes on the next render since the input to the streamline is modified.
 
-{ref}`Figure 7-39 <Figure-7-39>` Using the vtkLineWidget to produce streamtubes in the combustor dataset. The StartInteractionEvent turns the visibility of the streamlines on; the InteractionEvent causes the streamlines to regenerate themselves ( LineWidget.tcl ).
+{#Figure-7-39 .figure-target}
+&nbsp;
+<figure>
+  <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/VisualizationAlgorithms/TestStreamlinesWithLineWidget.png?raw=true" width="640" alt="Figure 7-39">
+  <figcaption style="color:blue"><b>Figure 7-39</b>. Using the vtkLineWidget to produce streamtubes in the combustor dataset. The StartInteractionEvent turns the visibility of the streamlines on; the InteractionEvent causes the streamlines to regenerate themselves. See <a href="https://kitware.github.io/vtk-examples/site/Cxx/VisualizationAlgorithms/StreamlinesWithLineWidget" title="StreamlinesWithLineWidget">StreamlinesWithLineWidget.cxx</a> or <a href="https://kitware.github.io/vtk-examples/site/Python/VisualizationAlgorithms/StreamlinesWithLineWidget" title="StreamlinesWithLineWidget">StreamlinesWithLineWidget.py</a>.</figcaption>
+</figure>
 
 ## 7.20 Chapter Summary
 
