@@ -582,7 +582,7 @@ Until now, we have used the terms metadata and information objects rather inform
 
 The importance of the information objects in VTK is that they are flexible (e.g., new key-value pairs can be easily added) and extensible. That is, readers, filters and mappers can add new information to the containers without requiring the API of the pipeline-related classes to change.
 
-** Pipeline Execution Models.** In VTK, the fundamental pipeline update mechanism is based on the request. A request is the basic pipeline operation (or "pipeline pass") that generally asks for particular piece of information to be propagated through the pipeline. An execution model is a set of requests defined by a specific executive. Refer to {ref}`Figure 4-18 <Figure-4-18>` in the following description of the execution process.
+**Pipeline Execution Models.** In VTK, the fundamental pipeline update mechanism is based on the request. A request is the basic pipeline operation (or "pipeline pass") that generally asks for particular piece of information to be propagated through the pipeline. An execution model is a set of requests defined by a specific executive. Refer to {ref}`Figure 4-18 <Figure-4-18>` in the following description of the execution process.
 
 {#Figure-4-18 .figure-target}
 &nbsp;
@@ -619,7 +619,7 @@ Note that we do not always include vtkObject and vtkObjectBase in object diagram
 
 We will now demonstrate some of the features of the visualization pipeline with four examples. Some of the objects used here will be unfamiliar to you. Please overlook missing details until we cover the information later in the book. The goal here is to provide a flavor and familiarity with the software architecture and its use.
 
-** Simple Sphere.** The first example demonstrates a simple visualization pipeline. A polygonal representation of a sphere is created with the source object (vtkSphereSource). The sphere is passed through a filter (vtkElevationFilter) that computes the height of each point of the sphere above a plane. The plane is perpendicular to the z-axis, and passes through the point (0,0,-1). The data is finally mapped (vtkDataSetMapper) through a lookup table. The mapping process converts height value into colors, and interfaces the sphere geometry to the rendering library. The mapper is assigned to an actor, and then the actor is displayed. The visualization network, a portion of code, and output image are shown in {ref}`Figure 4-19 <Figure-4-19>`.
+**Simple Sphere.** The first example demonstrates a simple visualization pipeline. A polygonal representation of a sphere is created with the source object (vtkSphereSource). The sphere is passed through a filter (vtkElevationFilter) that computes the height of each point of the sphere above a plane. The plane is perpendicular to the z-axis, and passes through the point (0,0,-1). The data is finally mapped (vtkDataSetMapper) through a lookup table. The mapping process converts height value into colors, and interfaces the sphere geometry to the rendering library. The mapper is assigned to an actor, and then the actor is displayed. The visualization network, a portion of code, and output image are shown in {ref}`Figure 4-19 <Figure-4-19>`.
 
 {#Figure-4-19 .figure-target}
 &nbsp;
