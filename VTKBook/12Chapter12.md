@@ -185,7 +185,9 @@ vtkLookupTable *satLut = vtkLookupTable::New();
   satLut->SetValueRange (1, 1);
 ```
 
-<figure id="Figure-12-4">
+{#Figure-12-4 .figure-target}
+&nbsp;
+<figure>
   <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/Medical/TestMedicalDemo3.png?raw=true" width="640" alt="Figure 12-4">
   <figcaption style="color:blue"><b>Figure 12-4</b>. Composite image of three planes and translucent skin. <a href="https://kitware.github.io/vtk-examples/site/Cxx/Medical/MedicalDemo3" title="MedicalDemo3"> See MedicalDemo3.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Medical/MedicalDemo3" title="MedicalDemo3"> MedicalDemo3.py</a>.</figcaption>
 </figure>

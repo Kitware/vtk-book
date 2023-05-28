@@ -180,7 +180,9 @@ The weighted distance squared interpolation functions work well in practice. How
 
 **Voxel.** **Figure 8-10** shows the parametric coordinate system and interpolation functions for a voxel cell type. The voxel is described using the three parametric coordinates $(r,s,t)$. Note that the voxel edges are constrained to lie parallel to the global coordinate axes. These are often referred to as tri-linear interpolation functions.
 
-<figure id="Figure-8-10">
+{#Figure-8-10 .figure-target}
+&nbsp;
+<figure>
   <img src="https://github.com/Kitware/vtk-book/releases/download/book-resources/Figure8-10.png?raw=true width="640" alt="Figure8-10">
   <figcaption style="color:blue"><b>Figure 8-10</b>. Parametric coordinate system and interpolation functions for a voxel.</figcaption>
 </figure>
