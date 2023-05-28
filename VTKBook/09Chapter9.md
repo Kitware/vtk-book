@@ -1418,7 +1418,7 @@ J. Wixom and W. J. Gordon. "On Shepard's Method of Metric Interpolation to Scatt
 <em style="color:green;background-color: white">\[Yamrom95\]</em>
 B. Yamrom and K. M. Martin. "Vector Field Animation with Texture Maps." IEEE Computer Graphics and Applications. 15(2):22-24, 1995.
 
-##9.9 Exercises
+## 9.9 Exercises
 9.1 Describe an approach to adapt dividing cubes to other 3D cell types. Can your method be adapted to 1D and 2D cells?
 
 9.2 Discuss the advantages and disadvantages of representing surfaces with points versus polygons.
