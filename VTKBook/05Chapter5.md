@@ -58,7 +58,7 @@ The remainder of this chapter describes common visualization data forms based on
 The most general form of data found in VTK is the data object. A data object can be thought of as a collection of data without any form. Data objects represent the data that is processed by the visualization pipeline (see the previous chapter and {ref}`Figure 4-2 <Figure-4-2>`). Taken by themselves, data objects carry little useful information. It is only when they are organized into some structure that they provide a form that we can operate on with visualization algorithms.
 
 ## 5.3 The Dataset
-Data objects with an organizing _structure_ and associated _data attributes_ (**Figure 5-11**) form _datasets_. The dataset is an abstract form; we leave the representation and implementation of the structure to its concrete subclasses. Most algorithms (or process objects) in VTK operate on datasets.
+Data objects with an organizing _structure_ and associated _data attributes_ ({ref}`Figure 5-11 <Figure-5-11>`) form _datasets_. The dataset is an abstract form; we leave the representation and implementation of the structure to its concrete subclasses. Most algorithms (or process objects) in VTK operate on datasets.
 
 The structure has two parts: _topology_ and _geometry_. Topology is the set of properties invariant under certain geometric transformations <em style="color:green;background-color: white">\[Weiler86\]</em>. Here we consider the transformations: rotation, translation, and nonuniform scaling. Geometry is the instantiation of the topology, the specification of position in 3D space. For example, saying that a polygon is a "triangle," specifies topology. By providing point coordinates, we specify geometry.
 
@@ -70,9 +70,9 @@ The definition of the structure of a dataset as a collection of cells and points
 
 ## 5.4 Cell Types
 
-A dataset consists of one or more cells (**Figure 5-2** and **Figure 5-4**). Cells are the fundamental building blocks of visualization systems. Cells are defined by specifying a _type_ in combination with an ordered list of points. The ordered list, often referred to as the _connectivity list_, combined with the type specification, implicitly defines the topology of the cell. The _x-y-z_ point coordinates define the cell geometry.
+A dataset consists of one or more cells ({ref}`Figure 5-2 <Figure-5-2>` and {ref}`Figure 5-4 <Figure-5-4>`). Cells are the fundamental building blocks of visualization systems. Cells are defined by specifying a _type_ in combination with an ordered list of points. The ordered list, often referred to as the _connectivity list_, combined with the type specification, implicitly defines the topology of the cell. The _x-y-z_ point coordinates define the cell geometry.
 
-**Figure 5-3** shows one cell type, a hexahedron. The ordered list is a sequence of point ids that index into a point coordinate list. The topology of this cell is implicitly known: we know that (8,10) is one of the 12 edges of the hexahedron, and that (8,10,22,21) is one of its six faces.
+{ref}`Figure 5-3 <Figure-5-3>` shows one cell type, a hexahedron. The ordered list is a sequence of point ids that index into a point coordinate list. The topology of this cell is implicitly known: we know that (8,10) is one of the 12 edges of the hexahedron, and that (8,10,22,21) is one of its six faces.
 
 Mathematically, we represent a cell by the symbol $C_i$. Then the cell is an ordered set of points $C_1 = {p_1, p_2,..., p_n}$ with $p_i \in P$ is a set of _n_-dimensional points (here $n=3$). The number of points _n_ using the cell is the _size_ of the cell.
 $U(p_i)$ is the collection of all cells using $p_i$:
@@ -130,25 +130,25 @@ One important note is that the definition of the pixel cell given here is differ
 
 The polygon may be non-convex, but may not have internal loops, and it cannot self-intersect. The polygon has _n_ edges, where _n_ is the number of points in the polygon.
 
-**Tetrahedron.** The tetrahedron is a primary three-dimensional cell. The tetrahedron is defined by a list of four non-planar points. The tetrahedron has six edges and four triangular faces as shown in **Figure 5-2**.
+**Tetrahedron.** The tetrahedron is a primary three-dimensional cell. The tetrahedron is defined by a list of four non-planar points. The tetrahedron has six edges and four triangular faces as shown in {ref}`Figure 5-2 <Figure-5-2>`.
 
-**Hexahedron.** The hexahedron is a primary three-dimensional cell consisting of six quadrilateral faces, twelve edges, and eight vertices. The hexahedron is defined by an ordered list of eight points as shown in **Figure 5-2**. The faces and edges must not intersect any other faces and edges, and the hexahedron must be convex.
+**Hexahedron.** The hexahedron is a primary three-dimensional cell consisting of six quadrilateral faces, twelve edges, and eight vertices. The hexahedron is defined by an ordered list of eight points as shown in {ref}`Figure 5-2 <Figure-5-2>`. The faces and edges must not intersect any other faces and edges, and the hexahedron must be convex.
 
-**Voxel.** The voxel is a primary three-dimensional cell. The voxel is topologically equivalent to the hexahedron with additional geometric constraints. Each face of the voxel is perpendicular to one of the coordinate _x-y-z_ axes. The defining point list is ordered in the direction of increasing coordinate value as shown in **Figure 5-2**. The voxel is a special case of the hexahedron and is used to improve computational performance.
+**Voxel.** The voxel is a primary three-dimensional cell. The voxel is topologically equivalent to the hexahedron with additional geometric constraints. Each face of the voxel is perpendicular to one of the coordinate _x-y-z_ axes. The defining point list is ordered in the direction of increasing coordinate value as shown in {ref}`Figure 5-2 <Figure-5-2>`. The voxel is a special case of the hexahedron and is used to improve computational performance.
 
 Similar to pixels, our definition of a voxel cell differs from the conventional definition of the term voxel. Typically, a voxel is referred to as a constant-valued "volume element". Using our definition, eight volume elements form the eight corner points of the voxel cell. We normally use the term voxel to describe a voxel cell, but the meaning of the term will vary depending on the context.
 
-**Wedge.** The wedge is a primary three-dimensional cell consisting of three quadrilateral faces, two triangular faces, nine edges, and six vertices. The wedge is defined by an ordered list of six points as shown in **Figure 5-2**. The faces and edges must not intersect any other faces and edges, and the wedge must be convex.
+**Wedge.** The wedge is a primary three-dimensional cell consisting of three quadrilateral faces, two triangular faces, nine edges, and six vertices. The wedge is defined by an ordered list of six points as shown in {ref}`Figure 5-2 <Figure-5-2>`. The faces and edges must not intersect any other faces and edges, and the wedge must be convex.
 
-**Pyramid.** The pyramid is a primary three-dimensional cell consisting of one quadrilateral face, four triangular faces, eight edges, and five vertices. The pyramid is defined by an ordered list of five points as shown in **Figure 5-2**. The four points defining the quadrilateral base plane must be convex; the fifth apex point must not be co-planar with the base points.
+**Pyramid.** The pyramid is a primary three-dimensional cell consisting of one quadrilateral face, four triangular faces, eight edges, and five vertices. The pyramid is defined by an ordered list of five points as shown in {ref}`Figure 5-2 <Figure-5-2>`. The four points defining the quadrilateral base plane must be convex; the fifth apex point must not be co-planar with the base points.
 
-**Pentagonal Prism.** The pentagonal prism is a primary three-dimensional cell consisting of five quadrilateral faces, two pentagonal faces, fifteen edges, and ten vertices. The pentagonal prism is defined by an ordered list of ten points as shown in **Figure 5-2**. The faces and edges must not intersect any other faces and edges and the pentagon must be convex.
+**Pentagonal Prism.** The pentagonal prism is a primary three-dimensional cell consisting of five quadrilateral faces, two pentagonal faces, fifteen edges, and ten vertices. The pentagonal prism is defined by an ordered list of ten points as shown in {ref}`Figure 5-2 <Figure-5-2>`. The faces and edges must not intersect any other faces and edges and the pentagon must be convex.
 
-**Hexagonal Prism.** The hexagonal prism is a primary three-dimensional cell consisting of six quadrilateral faces, two hexagonal faces, eighteen edges, and twelve vertices. The hexagonal prism is defined by an ordered list of twelve points as shown in **Figure 5-2**. The faces and edges must not intersect any other faces and edges and the hexagon must be convex.
+**Hexagonal Prism.** The hexagonal prism is a primary three-dimensional cell consisting of six quadrilateral faces, two hexagonal faces, eighteen edges, and twelve vertices. The hexagonal prism is defined by an ordered list of twelve points as shown in {ref}`Figure 5-2 <Figure-5-2>`. The faces and edges must not intersect any other faces and edges and the hexagon must be convex.
 
 ### NonLinear Types
 
-It is common in numerical analysis to use nonlinear cells, i.e., cell formulations that use nonlinear basis functions. These basis functions are generally formed by combinations of polynomials. Nonlinear cells provide more accurate interpolation functions (see ["Interpolation Functions"](08Chapter8.md#82-interpolation-functions) in [Chapter 8](08Chapter8) for more information) and better approximate curved geometry. However, the number of possible nonlinear basis functions is unlimited, which poses a combinatorial problem to any visualization system (i.e., it is not possible to implement all non-linear cell types). To address this problem, VTK takes a dual approach. First, VTK directly supports nonlinear cell types with quadratic interpolation functions(see **Figure 5-4**). Such cells are constructed by adding mid-edge nodes, and occasionally mid-face and interior nodes, requiring extending the connectivity list to reflect the addition of these extra entries. Second, VTK has a sophisticated cell adaptor framework, enabling users to interface any basis function to VTK as long as the basis function can be uniquely characterized in an r-s-t parametric coordinates system. (Note: we will describe the cell adaptor framework in more detail in [Chapter 8 - Advanced Data Representation](08Chapter8).)
+It is common in numerical analysis to use nonlinear cells, i.e., cell formulations that use nonlinear basis functions. These basis functions are generally formed by combinations of polynomials. Nonlinear cells provide more accurate interpolation functions (see ["Interpolation Functions"](08Chapter8.md#82-interpolation-functions) in [Chapter 8](08Chapter8) for more information) and better approximate curved geometry. However, the number of possible nonlinear basis functions is unlimited, which poses a combinatorial problem to any visualization system (i.e., it is not possible to implement all non-linear cell types). To address this problem, VTK takes a dual approach. First, VTK directly supports nonlinear cell types with quadratic interpolation functions(see {ref}`Figure 5-4 <Figure-5-4>`). Such cells are constructed by adding mid-edge nodes, and occasionally mid-face and interior nodes, requiring extending the connectivity list to reflect the addition of these extra entries. Second, VTK has a sophisticated cell adaptor framework, enabling users to interface any basis function to VTK as long as the basis function can be uniquely characterized in an r-s-t parametric coordinates system. (Note: we will describe the cell adaptor framework in more detail in [Chapter 8 - Advanced Data Representation](08Chapter8).)
 
 {#Figure-5-4 .figure-target}
 &nbsp;
@@ -165,13 +165,13 @@ One significant difference between linear and nonlinear cells is the way they ar
 
 3. Program custom rendering operations in the graphics library. These issues are active topics in visualization research <em style="color:green;background-color: white">\[Schroeder05\]</em>. In VTK, tessellation methods are currently employed since once tessellated, a cell can be processed by existing linear algorithms. The difficulty with solutions 2) and 3) above is that the effort to create new rendering and visualization algorithms is significant, possibly requiring different solutions for each type of nonlinear cell. Furthermore, it is likely that the performance found in dedicated rendering hardware (e.g., processing linear cells) would far outstrip any software rendering solution for higher order cells. The difficulty with 1) above is that the tessellation must be performed carefully or unacceptable error can be introduced into visualization. Or, if the cell is over-tessellated, an excessive number of linear primitives will result. Future research points to developing adaptive methods that tessellate on a selected error metric (please see [Chapter 8 - Advanced Data Representation](08Chapter8) for more information).
 
-VTK tessellates nonlinear quadratic cells using a fixed subdivision as shown in **Figure 5-5**. This generally works well for quadratic cells due to the lower order of interpolation, and the few number of points defining the cell.
+VTK tessellates nonlinear quadratic cells using a fixed subdivision as shown in {ref}`Figure 5-5 <Figure-5-5>`. This generally works well for quadratic cells due to the lower order of interpolation, and the few number of points defining the cell.
 
-**Quadratic Edge.** The quadratic edge is a primary one-dimensional cell. It is defined by three points. The first two points define the endpoints of the edge; the third point is located in the center of the edge as shown in **Figure 5-4**. The direction along the line is from the first point to the second point.
+**Quadratic Edge.** The quadratic edge is a primary one-dimensional cell. It is defined by three points. The first two points define the endpoints of the edge; the third point is located in the center of the edge as shown in {ref}`Figure 5-4 <Figure-5-4>`. The direction along the line is from the first point to the second point.
 
-**Quadratic Triangle.** The quadratic triangle is a primary two-dimensional cell. It is defined by six points. The first three points are located at the vertices of the triangle; the next three are located in the middle of each of the three edges as shown in **Figure 5-4**.
+**Quadratic Triangle.** The quadratic triangle is a primary two-dimensional cell. It is defined by six points. The first three points are located at the vertices of the triangle; the next three are located in the middle of each of the three edges as shown in {ref}`Figure 5-4 <Figure-5-4>`.
 
-**Quadratic Linear Quadrilateral.** The quadratic linear quadrilateral is a primary two-dimensional cell. It is defined by six points. The first four points are located at the vertices of the quadrilateral; the next two are located in the middle of each of the first and third edge as shown in **Figure 5-4**.
+**Quadratic Linear Quadrilateral.** The quadratic linear quadrilateral is a primary two-dimensional cell. It is defined by six points. The first four points are located at the vertices of the quadrilateral; the next two are located in the middle of each of the first and third edge as shown in {ref}`Figure 5-4 <Figure-5-4>`.
 
 {#Figure-5-5 .figure-target}
 &nbsp;
@@ -181,25 +181,25 @@ VTK tessellates nonlinear quadratic cells using a fixed subdivision as shown in 
  </figcaption>
 </figure>
 
-**Quadratic Quadrilateral.** The quadratic quadrilateral is a primary two-dimensional cell. It is defined by eight points. The first four points are located at the vertices of the quadrilateral; the next four are located in the middle of each of the four edges as shown in **Figure 5-4**.
+**Quadratic Quadrilateral.** The quadratic quadrilateral is a primary two-dimensional cell. It is defined by eight points. The first four points are located at the vertices of the quadrilateral; the next four are located in the middle of each of the four edges as shown in {ref}`Figure 5-4 <Figure-5-4>`.
 
-**Bi-Quadratic Quadrilateral.** The bi-quadratic quadrilateral is a primary two-dimensional cell. It is defined by nine points. The first four points are located at the vertices of the quadrilateral; the next four are located in the middle of each of the four edges; and the last one is located at the center of the quadrilateral as shown in **Figure 5-4**.
+**Bi-Quadratic Quadrilateral.** The bi-quadratic quadrilateral is a primary two-dimensional cell. It is defined by nine points. The first four points are located at the vertices of the quadrilateral; the next four are located in the middle of each of the four edges; and the last one is located at the center of the quadrilateral as shown in {ref}`Figure 5-4 <Figure-5-4>`.
 
-**Quadratic Tetrahedron.** The quadratic tetrahedron is a primary three-dimensional cell. It is defined by ten points. The first four points are located at the vertices of the tetrahedron; the next six are located in the middle of each of the six edges as shown in **Figure 5-4**.
+**Quadratic Tetrahedron.** The quadratic tetrahedron is a primary three-dimensional cell. It is defined by ten points. The first four points are located at the vertices of the tetrahedron; the next six are located in the middle of each of the six edges as shown in {ref}`Figure 5-4 <Figure-5-4>`.
 
-**Quadratic Pyramid.** The quadratic pyramid is a primary three-dimensional cell. It is defined by thirteen points. The first five points are located at the vertices of the pyramid; the next eight are located in the middle of each of the eight edges as shown in **Figure 5-4**.
+**Quadratic Pyramid.** The quadratic pyramid is a primary three-dimensional cell. It is defined by thirteen points. The first five points are located at the vertices of the pyramid; the next eight are located in the middle of each of the eight edges as shown in {ref}`Figure 5-4 <Figure-5-4>`.
 
-**Quadratic Linear Wedge.** The quadratic linear wedge is a primary three-dimensional cell. It is defined by twelve points. The first six points are located at the vertices of the wedge; the next six are located in the middle of each of the six edges that belong to a triangle face as shown in **Figure 5-4**.
+**Quadratic Linear Wedge.** The quadratic linear wedge is a primary three-dimensional cell. It is defined by twelve points. The first six points are located at the vertices of the wedge; the next six are located in the middle of each of the six edges that belong to a triangle face as shown in {ref}`Figure 5-4 <Figure-5-4>`.
 
-**Quadratic Wedge.** The quadratic wedge is a primary three-dimensional cell. It is defined by fifteen points. The first six points are located at the vertices of the wedge; the next nine are located in the middle of each of the nine edges as shown in **Figure 5-4**.
+**Quadratic Wedge.** The quadratic wedge is a primary three-dimensional cell. It is defined by fifteen points. The first six points are located at the vertices of the wedge; the next nine are located in the middle of each of the nine edges as shown in {ref}`Figure 5-4 <Figure-5-4>`.
 
-**Bi-Quadratic Wedge.** The bi-quadratic wedge is a primary three-dimensional cell. It is defined by eighteen points. The first six points are located at the vertices of the wedge; the next nine are located in the middle of each of the nine edges; and the next three are located in the center of each quadrilateral faces as shown in **Figure 5-4**.
+**Bi-Quadratic Wedge.** The bi-quadratic wedge is a primary three-dimensional cell. It is defined by eighteen points. The first six points are located at the vertices of the wedge; the next nine are located in the middle of each of the nine edges; and the next three are located in the center of each quadrilateral faces as shown in {ref}`Figure 5-4 <Figure-5-4>`.
 
-**Quadratic Hexahedron.** The quadratic hexahedron is a primary three-dimensional cell. It is defined by twenty points. The first eight points are located at the vertices of the hexahedron; the next twelve are located in the middle of each of the twelve edges as shown in **Figure 5-4**.
+**Quadratic Hexahedron.** The quadratic hexahedron is a primary three-dimensional cell. It is defined by twenty points. The first eight points are located at the vertices of the hexahedron; the next twelve are located in the middle of each of the twelve edges as shown in {ref}`Figure 5-4 <Figure-5-4>`.
 
-**Bi-Quadratic Hexahedron.** The bi-quadratic hexahedron is a primary three-dimensional cell. It is defined by twenty-four points. The first eight points are located at the vertices of the hexahedron; the next twelve are located in the middle of each of the twelve edges; and the next four points are located in the center of the first four faces as shown in **Figure 5-4**.
+**Bi-Quadratic Hexahedron.** The bi-quadratic hexahedron is a primary three-dimensional cell. It is defined by twenty-four points. The first eight points are located at the vertices of the hexahedron; the next twelve are located in the middle of each of the twelve edges; and the next four points are located in the center of the first four faces as shown in {ref}`Figure 5-4 <Figure-5-4>`.
 
-**Tri-Quadratic Hexahedron.** The tri-quadratic hexahedron is a primary three-dimensional cell. It is defined by twenty-seven points. The first eight points are located at the vertices of the hexahedron; the next twelve are located in the middle of each of the twelves edges; the next six are located in the center of each faces; and the last one is located in the center of the hexahedron as shown in **Figure 5-4**.
+**Tri-Quadratic Hexahedron.** The tri-quadratic hexahedron is a primary three-dimensional cell. It is defined by twenty-seven points. The first eight points are located at the vertices of the hexahedron; the next twelve are located in the middle of each of the twelves edges; the next six are located in the center of each faces; and the last one is located in the center of the hexahedron as shown in {ref}`Figure 5-4 <Figure-5-4>`.
 
 ## 5.5 Attribute Data
 
@@ -216,7 +216,7 @@ Attribute data is often categorized into specific types of data. These categorie
 
 Single-valued functions, such as temperature or pressure, are examples of scalar data, which is one attribute type. More generally, attribute data can be treated as n-dimensional data arrays. For example, the single-valued function temperature can be treated as a 1 x 1 array, while velocity can be treated as a 3 x 1 array of components in the x, y, and z directions. This abstract model for data attribute can be extended throughout the visualization system. Some systems extend this model to include the structure of the data. For example, a 3D image dataset (i.e., a volume) can be represented as a 3D array of l x m x n data values. Unstructured data can be represented as a 3D vector of position, plus an array of connectivity. We refer to this general approach as the hyperdata model for visualization data (see ["Other Data Abstractions"](05Chapter5.md#57-other-data-abstractions)).
 
-In the following sections we describe data attributes using the simpler type-specific model (**Figure 5-6**). We also limit ourselves to three-dimensional structure, since the dataset structure and graphics are assumed to be three-dimensional.
+In the following sections we describe data attributes using the simpler type-specific model ({ref}`Figure 5-6 <Figure-5-6>`). We also limit ourselves to three-dimensional structure, since the dataset structure and graphics are assumed to be three-dimensional.
 
 ### Scalars
 
@@ -244,7 +244,7 @@ General tensor visualization is an area of current research. Efforts thus far ha
 
 ## 5.6 Types of Datasets
 
-A dataset consists of an organizing structure plus associated attribute data. The structure has both topological and geometric properties and is composed of one or more points and cells. The type of a dataset is derived from the organizing structure, and specifies the relationship that the cells and points have with one another. Common dataset types are shown in **Figure 5-7**.
+A dataset consists of an organizing structure plus associated attribute data. The structure has both topological and geometric properties and is composed of one or more points and cells. The type of a dataset is derived from the organizing structure, and specifies the relationship that the cells and points have with one another. Common dataset types are shown in {ref}`Figure 5-7 <Figure-5-7>`.
 A dataset is characterized according to whether its structure is regular or irregular. A dataset is regular if there is a single mathematical relationship within the composing points and cells. If the points are regular, then the geometry of the dataset is regular. If the topological relationship of cells is regular, then the topology of the dataset is regular. Regular (or structured) data can be implicitly represented, at great savings in memory and computation. Irregular (or unstructured) data must be explicitly represented, since there is no inherent pattern that can be compactly described. Unstructured data tends to be more general, but requires greater memory and computational resources.
 
 ### Polygonal Data
@@ -355,11 +355,11 @@ Contiguous arrays also can be easily transmitted across a network, particularly 
 
 An important design decision was to not represent data using arrays of objects (e.g., a separate class for cells and/or points). Our experience has shown that such designs severely impact performance due to the cost of construction and deletion. Instead, we focus on designing classes at a higher level of abstraction. From the perspective of performance, the object-oriented approach serves best at the application level, not at the level of implementation.
 
-The class vtkFloatArray is an example of a contiguous array. We will use this class to describe how contiguous arrays are implemented in VTK. As shown in **Figure 5-8**, the instance variable Array is a pointer to memory of type float. The allocated length of the array is given by Size. The array is dynamic, so an attempt to insert data beyond the allocated size automatically generates a Resize() operation. When resized, the array approximately doubles in size each time. The MaxId field is an integer offset defining the end of inserted data. If no data has been inserted, then MaxId is equal to -1. Otherwise, MaxId is an integer value where 0 \leq MaxId < Size.
+The class vtkFloatArray is an example of a contiguous array. We will use this class to describe how contiguous arrays are implemented in VTK. As shown in {ref}`Figure 5-8 <Figure-5-8>`, the instance variable Array is a pointer to memory of type float. The allocated length of the array is given by Size. The array is dynamic, so an attempt to insert data beyond the allocated size automatically generates a Resize() operation. When resized, the array approximately doubles in size each time. The MaxId field is an integer offset defining the end of inserted data. If no data has been inserted, then MaxId is equal to -1. Otherwise, MaxId is an integer value where 0 \leq MaxId < Size.
 
 ### The Tuple Abstraction
 
-Many visualization data are defined by multiple component values. An _x-y-z_ coordinate triplet or RGBA color pixel value are two such examples. To represent such data in a contiguous data array, the tuple data abstraction is introduced. As **Figure 5-8** illustrates, the contiguous array is grouped into smaller subarrays with NumberOfComponents components. These subarrays are called tuples, and for a given array the tuple size, or NumberOfComponents, is constant for all tuples as shown in **Figure 5-9**.
+Many visualization data are defined by multiple component values. An _x-y-z_ coordinate triplet or RGBA color pixel value are two such examples. To represent such data in a contiguous data array, the tuple data abstraction is introduced. As {ref}`Figure 5-8 <Figure-5-8>` illustrates, the contiguous array is grouped into smaller subarrays with NumberOfComponents components. These subarrays are called tuples, and for a given array the tuple size, or NumberOfComponents, is constant for all tuples as shown in {ref}`Figure 5-9 <Figure-5-9>`.
 
 ### Representing Data With Data Arrays
 
@@ -376,7 +376,7 @@ Attribute data and points, as well as several other data objects, are represente
 
 Visualization data comes in many forms-floating point, integer, byte, and double precision-to name just a few simple types. More complex types such as character strings or multidimensional identifiers also are possible. Given this variety of types, how do we represent and manipulate such data using data arrays? The answer is to provide run-time solutions via abstract data objects, and compile-time solutions using templated C++ code.
 
-Abstract data objects are objects that provide uniform methods to create, manipulate, and delete data using dynamic binding. In C++ we use the virtual keyword to declare methods as dynamically bound. Dynamic binding allows us to execute a method belonging to a concrete object by manipulating that object's abstract superclass (see **Figure 5-10**).
+Abstract data objects are objects that provide uniform methods to create, manipulate, and delete data using dynamic binding. In C++ we use the virtual keyword to declare methods as dynamically bound. Dynamic binding allows us to execute a method belonging to a concrete object by manipulating that object's abstract superclass (see {ref}`Figure 5-10 <Figure-5-10>`).
 
 Consider the abstract class vtkDataArray. We can access the data value at associated point id 129 by executing the method double s = GetTuple1(129). Since the virtual GetTuple1() method returns a floating-point data value, each subclass of vtkDataArray must also return a floating-point value. Although the subclass is free to represent data in any possible form, it must transform its data representation into a floating-point value. This process may be as simple as a cast from a built-in type to floating-point value, or it may be a complex mapping of data. For example, if our data consists of character strings, we could conceivably create an alphabetical list and map the string into a location in the list, and then cast the location into a double value.
 
@@ -419,7 +419,7 @@ Using compile-time oriented methods such as templates avoids the need to cast ea
 
 ### Data Object Representation
 
-Data objects are implemented in VTK as an array of vtkDataArrays as shown in **Figure 5-11**. vtkDataObject is an general representation of visualization data. It serves to encapsulate instance variables and methods for visualization network execution (see previous chapter), as well as representing data. Internally, data is represented with an instance of the class vtkFieldData. Very few algorithms directly operate on data objects; rather most algorithms require the specification of an organizing structure in order to process the data. The dataset specifies that organizing structure as described in the following section.
+Data objects are implemented in VTK as an array of vtkDataArrays as shown in {ref}`Figure 5-11 <Figure-5-11>`. vtkDataObject is an general representation of visualization data. It serves to encapsulate instance variables and methods for visualization network execution (see previous chapter), as well as representing data. Internally, data is represented with an instance of the class vtkFieldData. Very few algorithms directly operate on data objects; rather most algorithms require the specification of an organizing structure in order to process the data. The dataset specifies that organizing structure as described in the following section.
 
 ### Dataset Representation
 
@@ -439,7 +439,7 @@ The abstract data class vtkPoints is used to represent the point coordinates. vt
 
 **&#118;tkPolyData.** Unlike vtkImageData and vtkStructuredGrid, the topology of vtkPolyData is not regular, so both the topology and geometry of the dataset must be explicitly represented. The point data in vtkPolyData is represented using the vtkPoints class similar to vtkStructuredGrid.
 
-The _Visualization Toolkit_ uses the class vtkCellArray to explicitly represent cell topology. This class is a list of connectivity for each cell. The structure of the list is a sequence of integer numbers (**Figure 5-12**). The first number in the list is a count (the number of points in the cell connectivity), and the next series of numbers is the cell connectivity. (Each number in the connectivity list is an index into an instance of a point coordinate list.) Sequences of count followed by the connectivity list are repeated until each cell is enumerated. Additional information such as the number of cells in the list and current position in the list (for traversal purposes) is also maintained by vtkCellArray.
+The _Visualization Toolkit_ uses the class vtkCellArray to explicitly represent cell topology. This class is a list of connectivity for each cell. The structure of the list is a sequence of integer numbers ({ref}`Figure 5-12 <Figure-5-12>`). The first number in the list is a count (the number of points in the cell connectivity), and the next series of numbers is the cell connectivity. (Each number in the connectivity list is an index into an instance of a point coordinate list.) Sequences of count followed by the connectivity list are repeated until each cell is enumerated. Additional information such as the number of cells in the list and current position in the list (for traversal purposes) is also maintained by vtkCellArray.
 
 {#Figure-5-12 .figure-target}
 &nbsp;
@@ -456,13 +456,13 @@ Our design of the vtkPolyData class is based on two important requirements. Firs
 
 Another distinguishing characteristic of vtkUnstructuredGrid is that we represent type information differently. In vtkPolyData we categorized cells into four separate lists, thereby representing cell type indirectly. In vtkUnstructuredGrid we add the additional class vtkCellTypes to represent cell type explicitly.
 
-The vtkCellTypes is an array of supplemental information. For each cell, an integer flag defines the cell type. Another variable is used to record the location of the cell definition in the corresponding vtkCellArray (**Figure 5-13**).
+The vtkCellTypes is an array of supplemental information. For each cell, an integer flag defines the cell type. Another variable is used to record the location of the cell definition in the corresponding vtkCellArray ({ref}`Figure 5-13 <Figure-5-13>`).
 
 Besides representing cell type, this design also enables random access to cells. Because the length of a cell connectivity list varies, the vtkCellArray class cannot locate a particular cell without traversing its data structure from the origin. With the added class vtkCellTypes, however, it is possible to directly access a cell with a single dereference (i.e., using the offset value).
 
 The vtkCellTypes may also be added to the vtkPolyData data representation - and indeed it has. However, our reasons for this addition are not to represent type explicitly, but rather to provide random access to the cells and enable many topological operations. We will expand on this idea in [Chapter 8 - Advanced Data Representation](08Chapter8).
 
-**Object Model.** The five datasets are implemented as shown in **Figure 5-14**. As this object diagram illustrates, these concrete datasets are subclasses of the abstract class vtkDataSet. Two additional classes are introduced as well. The class vtkStructuredData contributes instance variables and methods for structured data. vtkStructuredData is not in an inheritance relationship with the datasets; rather the structured datasets shown delegate to it in order to implement some of their methods. (This was done to avoid multiple inheritance.) Subclasses of the class vtkPointSet represent their points explicitly, that is, through an instance of vtkPoints or its subclasses. vtkPointSet provides methods and instance variables to manipulate the point data, as well as a general searching capability to find points and cells. (See ["Searching"](08Chapter8.md#87-searching) in [Chapter 8](08Chapter8) for more information.)
+**Object Model.** The five datasets are implemented as shown in {ref}`Figure 5-14 <Figure-5-14>`. As this object diagram illustrates, these concrete datasets are subclasses of the abstract class vtkDataSet. Two additional classes are introduced as well. The class vtkStructuredData contributes instance variables and methods for structured data. vtkStructuredData is not in an inheritance relationship with the datasets; rather the structured datasets shown delegate to it in order to implement some of their methods. (This was done to avoid multiple inheritance.) Subclasses of the class vtkPointSet represent their points explicitly, that is, through an instance of vtkPoints or its subclasses. vtkPointSet provides methods and instance variables to manipulate the point data, as well as a general searching capability to find points and cells. (See ["Searching"](08Chapter8.md#87-searching) in [Chapter 8](08Chapter8) for more information.)
 
 {#Figure-5-13 .figure-target}
 &nbsp;
@@ -488,7 +488,7 @@ The vtkCellTypes may also be added to the vtkPolyData data representation - and 
 
 ### Cell Representation
 
-In the _Visualization Toolkit_ each cell type has been implemented by creating specific classes. Each cell is a subclass of the abstract type vtkCell. Cell topology is represented by a list of ordered point ids, and cell geometry is represented by a list of point coordinates. The object diagram for vtkCell and its subclasses is shown in **Figure 5-15**.
+In the _Visualization Toolkit_ each cell type has been implemented by creating specific classes. Each cell is a subclass of the abstract type vtkCell. Cell topology is represented by a list of ordered point ids, and cell geometry is represented by a list of point coordinates. The object diagram for vtkCell and its subclasses is shown in {ref}`Figure 5-15 <Figure-5-15>`.
 
 The abstract class vtkCell specifies methods that each cell must implement. These methods provide a defined interface to the cell's geometry and topology. Additional methods perform computation on the cell. These methods will be discussed in detail in [Chapter 8 - Advanced Data Representation](08Chapter8).
 
@@ -513,7 +513,7 @@ One difficulty with maintaining both cell data and point data representations is
   <figcaption style="color:blue"><b>Figure 5-16</b>.Inheritance hierarchy for representing dataset attributes.</figcaption>
 </figure>
 
-To represent dataset attributes we use the organizing classes vtkPointData and vtkCellData, both of which are subclasses of the class vtkFieldData as shown in **Figure 5-16**. The class vtkDataSetAttributes serves to coordinate the movement of data from one process object to the next. It provides methods for copying, interpolating, and moving data between input and output.
+To represent dataset attributes we use the organizing classes vtkPointData and vtkCellData, both of which are subclasses of the class vtkFieldData as shown in {ref}`Figure 5-16 <Figure-5-16>`. The class vtkDataSetAttributes serves to coordinate the movement of data from one process object to the next. It provides methods for copying, interpolating, and moving data between input and output.
 
 Another important feature of vtkDataSetAttributes is that it provides the ability to assign a data array to represent a particular data attribute. For example, the method SetScalars() is used to specify which data array is to be treated as the scalars in the field.
 
@@ -545,7 +545,7 @@ Creation of datasets is a two step process. First the geometry and topology of t
   <figcaption style="color:blue"><b>Figure 5-17</b>. Creation of polygonal cube. <a href="https://kitware.github.io/vtk-examples/site/Cxx/GeometricObjects/Cube" title="Cube"> See Cube.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/GeometricObjects/Cube" title="Cube"> Cube.py</a>.</figcaption>
 </figure>
 
-**Create a Polygonal Dataset.** In our first example we create a polygonal representation of a cube. The cube is defined by eight points and six quadrilateral faces. We also create eight scalar values associated with the eight vertices of the cube. **Figure 5-17** shows the key C++ code fragments used to create the data, and the resulting image.
+**Create a Polygonal Dataset.** In our first example we create a polygonal representation of a cube. The cube is defined by eight points and six quadrilateral faces. We also create eight scalar values associated with the eight vertices of the cube. {ref}`Figure 5-17 <Figure-5-17>` shows the key C++ code fragments used to create the data, and the resulting image.
 
 The geometry of the cube is defined using an instance of the class vtkPoints. By default, the underlying type of vtkPoints is a vtkFloatArray. The topology of the cube (i.e., polygons) is defined with an instance of the class vtkCellArray. These define the points and polygons of the cube, respectively. Scalar data is represented by an instance of the class vtkIntArray.
 
@@ -594,7 +594,7 @@ $$
 
 with the radius R = 0.4. The scalar data is stored in an instance of vtkFloatArray and assigned to the point attribute data of the dataset.
 
-To complete this example, a contour filter is used to generate a surface of scalar value $F(x, y, z) = 0$. Note that this functionality (in a more general form) is available from the source object vtkSampleFunction in combination with vtkSphere. **Figure 5-18** shows the key C++ code fragment used to create the data and contour the scalar field, and the resulting image.
+To complete this example, a contour filter is used to generate a surface of scalar value $F(x, y, z) = 0$. Note that this functionality (in a more general form) is available from the source object vtkSampleFunction in combination with vtkSphere. {ref}`Figure 5-18 <Figure-5-18>` shows the key C++ code fragment used to create the data and contour the scalar field, and the resulting image.
 
 Image data datasets are easy to construct because both the geometry and topology are implicitly defined. If the name of the instance of vtkImageData is vol, we can summarize the steps to create the dataset as follows:
 
@@ -637,7 +637,7 @@ $$
 
 We arbitrarily choose the number of points in the tangential direction to be thirteen, the number of points in the radial direction to be eleven, and the number of points in the axis direction to be eleven (i.e., dimensions are $13 \times 11 \times 11$).
 
-Vectors are generated tangential to the cylinder and of magnitude proportional to the radius. To display the data we draw small, oriented lines at each point as shown in **Figure 5-19**. (This technique is called a _hedgehog_. See ["Hedgehogs and Oriented Glyphs"](06Chapter6.md#hedgehogs-and-oriented-glyphs) in [Chapter 6](06Chapter6) for more information.)
+Vectors are generated tangential to the cylinder and of magnitude proportional to the radius. To display the data we draw small, oriented lines at each point as shown in {ref}`Figure 5-19 <Figure-5-19>`. (This technique is called a _hedgehog_. See ["Hedgehogs and Oriented Glyphs"](06Chapter6.md#hedgehogs-and-oriented-glyphs) in [Chapter 6](06Chapter6) for more information.)
 
 The creation of a structured grid dataset is partially explicit and partially implicit. Geometry is created explicitly be creating an instance of vtkPoints, while the topology is created implicitly by specifying dataset dimensions. If the name of the instance of vtkStructuredGrid is sgrid, the following three steps are used to create it.
 
@@ -669,7 +669,7 @@ The creation of a structured grid dataset is partially explicit and partially im
 
 For maximum flexibility when creating rectilinear grids, in VTK we use three vtkDataArray objects to define the axes arrays. This means that different native data type (e.g., unsigned char, int, float, and so on) can be used for each axes.
 
-To summarize the process of creating an instance of vtkRectilinearGrid, we follow four steps. In this example (shown in **Figure 5-20**), we assume that the name of the vtkRectilinearGrid instance is rgrid.
+To summarize the process of creating an instance of vtkRectilinearGrid, we follow four steps. In this example (shown in {ref}`Figure 5-20 <Figure-5-20>`), we assume that the name of the vtkRectilinearGrid instance is rgrid.
 
 1. Create the dataset geometry by creating three instances of vtkDataArray, one for each of the _x-y-z_ coordinate axes. We will assume that the number of values in each scalar is $n_x$, $n_y$, and $n_z$.
 
@@ -681,7 +681,7 @@ To summarize the process of creating an instance of vtkRectilinearGrid, we follo
 
 The topological dimension of the dataset is implied by the specified dimensions. For example, if any of the dimensions $(n_x, n_y, n_z)$ is equal to one, the topological dimension of the dataset is two. If two of the three dimensions $(n_x, n_y, n_z)$ are equal to one, the topological dimension of the dataset is one.
 
-**Create an Unstructured Grid Dataset.** Unstructured grid datasets are the most general dataset type in both topology and geometry. In this example we "artificially" create an unstructured grid using an instance of vtkUnstructuredGrid (**Figure 5-21**). The grid contains examples of each cell type except for pixels and voxels. (Pixels and voxels are generally used internally to process image data datasets. They can be explicitly created and manipulated as long as the required relationship of point geometry is observed.) Creating the dataset structure requires creating points to define the geometry and various cells to define the topology. (Note that in the finite element world we would refer to these as nodes and elements.)
+**Create an Unstructured Grid Dataset.** Unstructured grid datasets are the most general dataset type in both topology and geometry. In this example we "artificially" create an unstructured grid using an instance of vtkUnstructuredGrid ({ref}`Figure 5-21 <Figure-5-21>`). The grid contains examples of each cell type except for pixels and voxels. (Pixels and voxels are generally used internally to process image data datasets. They can be explicitly created and manipulated as long as the required relationship of point geometry is observed.) Creating the dataset structure requires creating points to define the geometry and various cells to define the topology. (Note that in the finite element world we would refer to these as nodes and elements.)
 
 {#Figure-5-21 .figure-target}
 &nbsp;

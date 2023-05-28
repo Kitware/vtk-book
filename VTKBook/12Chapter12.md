@@ -17,7 +17,7 @@ Radiology is a medical discipline that deals with images of human anatomy. These
   <figcaption style="color:blue"><b>Figure 12-1</b>. A CT slice through a human head.</figcaption>
 </figure>
 
-This case study deals with CT data. Computed tomography measures the attenuation of X-rays as they pass through the body. A CT image consists of levels of gray that vary from black (for air), to gray (for soft tissue), to white (for bone). **Figure 12-1** shows a CT cross section through a head. This slice is taken perpendicular to the spine approximately through the middle of the ears.  The gray boundary around the head clearly shows the ears and bridge of the nose. The dark regions on the interior of the slice are the nasal passages and ear canals. The bright areas are bone. This study contains 93 such slices, spaced 1.5 mm apart. Each slice has $256*^2$ pixels spaced 0.8 mm apart with 12 bits of gray level.
+This case study deals with CT data. Computed tomography measures the attenuation of X-rays as they pass through the body. A CT image consists of levels of gray that vary from black (for air), to gray (for soft tissue), to white (for bone). {ref}`Figure 12-1 <Figure-12-1>` shows a CT cross section through a head. This slice is taken perpendicular to the spine approximately through the middle of the ears.  The gray boundary around the head clearly shows the ears and bridge of the nose. The dark regions on the interior of the slice are the nasal passages and ear canals. The bright areas are bone. This study contains 93 such slices, spaced 1.5 mm apart. Each slice has $256*^2$ pixels spaced 0.8 mm apart with 12 bits of gray level.
 
 Our challenge is to take this gray scale data (over 12 megabytes) and convert it into information that will aid the surgeon. Fortunately, our visualization toolkit has just the right techniques. We will use isocontouring techniques to extract the skin and bone surfaces and display orthogonal cross-sections to put the isosurface in context. From experience we know that a density value of 500 will define the air/skin boundary, and a value of 1150 will define the soft tissue/bone boundary. In VTK terminology, medical imaging slice data is image data. Recall from Chapter 5 that for image data, the topology and geometry of the data is implicitly known, requiring only dimensions, an origin, and the data spacing.
 
@@ -126,7 +126,7 @@ iren->Start();
   <figcaption style="color:blue"><b>Figure 12-2</b>. The skin extracted from a CT dataset of the head. <a href="https://kitware.github.io/vtk-examples/site/Cxx/Medical/MedicalDemo1" title="MedicalDemo1"> See MedicalDemo1.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Medical/MedicalDemo1" title="MedicalDemo1"> MedicalDemo1.py</a>.</figcaption>
 </figure>
 
-To provide context for the isosurface an outline is created around the data. An initial view is set up  in a window size of $640 \times 480$ pixels. Since the dolly command moves the camera towards the data, the clipping planes are reset to insure that the isosurface is completely visible. **Figure 12-2** shows the resulting image of the patient's skin.
+To provide context for the isosurface an outline is created around the data. An initial view is set up  in a window size of $640 \times 480$ pixels. Since the dolly command moves the camera towards the data, the clipping planes are reset to insure that the isosurface is completely visible. {ref}`Figure 12-2 <Figure-12-2>` shows the resulting image of the patient's skin.
 
 We can improve this visualization in a number of ways. First, we can choose a more appropriate color (and other surface properties) for the skin. We use the vtkProperty method SetDiffuseColor() to set the skin color to a fleshy tone. We also add a specular component to the skin surface. Next, we can add additional isosurfaces corresponding to various anatomical features. Here we choose to extract the bone surface by adding an additional pipeline segment. This consists of the filters vtkMarchingCubes, vtkPolyDataMapper, and vtkActor, just as we did with the skin. Finally, to improve rendering performance on our system, we create triangle strips from the output of the contouring process. This requires adding vtkStripper.
 
@@ -137,7 +137,7 @@ We can improve this visualization in a number of ways. First, we can choose a mo
   <figcaption style="color:blue"><b>Figure 12-3</b>. Skin and bone isosurfaces. <a href="https://kitware.github.io/vtk-examples/site/Cxx/Medical/MedicalDemo2" title="MedicalDemo2"> See MedicalDemo2.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Medical/MedicalDemo2" title="MedicalDemo2"> MedicalDemo2.py</a>.</figcaption>
 </figure>
 
-**Figure 12-3** shows the resulting image, and the following is the
+{ref}`Figure 12-3 <Figure-12-3>` shows the resulting image, and the following is the
 C++ code for the pipeline.
 
 ``` c++
@@ -236,7 +236,7 @@ aRenderer->AddActor(bone);
 aRenderer->AddActor(skin);
 ```
 
-**Figure 12-4** shows the resulting composite image.
+{ref}`Figure 12-4 <Figure-12-4>` shows the resulting composite image.
 
 In this example, the actor named skin is rendered last because we are using a translucent surface. Recall from ["Transparency and Alpha Values"](07Chapter7.md#71-transparency-and-alpha-values) in [Chapter 7](07Chapter7) that we must order the polygons  composing transparent surfaces for proper results. We render the skin last by adding it to aRenderer's actor list last.
 
@@ -246,7 +246,7 @@ We need to make one last point about processing medical imaging data. Medical im
 
 The previous example described how to create models from gray-scale medical imaging data. The techniques for extracting bone and skin models is straightforward compared to the task of generating models of other soft tissue. The reason is that magnetic resonance and, to some extent, computed tomography, generates similar gray-scale values for different tissue types. For example, the liver and kidney in a medical computed tomography volume often have overlapping intensities. Likewise, many different tissues in the brain have overlapping intensities when viewed with magnetic resonance imaging. To deal with these problems researchers apply a process called *segmentation* to identify different tissues. These processes vary in sophistication from almost completely automatic methods to manual tracing of images. Segmentation continues to be a hot research area. Although the segmentation process itself is beyond the scope of this text, in this case study we show how to process segmented medical data.
 
-For our purposes we assume that someone (or many graduate students) have laboriously labeled each pixel in each slice of a volume of data with a tissue identifier. This identifier is an integer number that describes which tissue class each pixel belongs to. For example, we may be given a series of MRI slices of the knee with tissue numbers defining the meniscus, femur, muscles, and so forth. **Figure 12-5** shows two representations of a slice from a volume acquired from a patient's knee. The image on the left is the original MRI slice; the image on the right contains tissue labels for a number of important organs. The bottom image is a composite of the two images.
+For our purposes we assume that someone (or many graduate students) have laboriously labeled each pixel in each slice of a volume of data with a tissue identifier. This identifier is an integer number that describes which tissue class each pixel belongs to. For example, we may be given a series of MRI slices of the knee with tissue numbers defining the meniscus, femur, muscles, and so forth. {ref}`Figure 12-5 <Figure-12-5>` shows two representations of a slice from a volume acquired from a patient's knee. The image on the left is the original MRI slice; the image on the right contains tissue labels for a number of important organs. The bottom image is a composite of the two images.
 
 {#Figure-12-5 .figure-target}
 &nbsp;
@@ -259,7 +259,7 @@ Notice the difference in the information presented by each representation. The o
 
 **The Virtual Frog**
 
-To demonstrate the processing of segmented data we will use a dataset derived from a frog. This data was prepared at Lawrence Berkeley National Laboratories and is included with their permission on the CD-ROM accompanying this book. The data was acquired by physically slicing the frog and photographing the slices. The original segmented data is in the form of tissue masks with one file per tissue. There are 136 slices per tissue and 15 different tissues. Each slice is 470 by 500 pixels. (To accommodate the volume readers we have in VTK, we processed the mask files and combined them all in one file for each slice.) We used integer numbers 1-15 to represent the 15 tissues. **Figure 12-6** shows an original slice, a labeled slice, and a composite of the two representations.
+To demonstrate the processing of segmented data we will use a dataset derived from a frog. This data was prepared at Lawrence Berkeley National Laboratories and is included with their permission on the CD-ROM accompanying this book. The data was acquired by physically slicing the frog and photographing the slices. The original segmented data is in the form of tissue masks with one file per tissue. There are 136 slices per tissue and 15 different tissues. Each slice is 470 by 500 pixels. (To accommodate the volume readers we have in VTK, we processed the mask files and combined them all in one file for each slice.) We used integer numbers 1-15 to represent the 15 tissues. {ref}`Figure 12-6 <Figure-12-6>` shows an original slice, a labeled slice, and a composite of the two representations.
 
 {#Figure-12-6 .figure-target}
 &nbsp;
@@ -268,7 +268,7 @@ To demonstrate the processing of segmented data we will use a dataset derived fr
   <figcaption style="color:blue"><b>Figure 12-6</b>. Photographic slice of frog (upper left), segmented frog (upper right) and composite of photo and segmentation (bottom). The purple color represents the stomach and the kidneys are yellow. See <a href="https://kitware.github.io/vtk-examples/site/Python/Visualization/FrogSlice" title="FrogSlice"> FrogSlice.py</a>.</figcaption>
 </figure>
 
-Before we describe the process to go from binary labeled tissues to gray-scale data suitable for isosurface extraction, compare the two images of the frog's brain shown in **Figure 12-7**. On the left is a surface extracted using a binary labeling of the brain. The right image was created using the visualization pipeline that we will develop in this example.
+Before we describe the process to go from binary labeled tissues to gray-scale data suitable for isosurface extraction, compare the two images of the frog's brain shown in {ref}`Figure 12-7 <Figure-12-7>`. On the left is a surface extracted using a binary labeling of the brain. The right image was created using the visualization pipeline that we will develop in this example.
 
 **Developing a Strategy**
 
@@ -291,7 +291,7 @@ In the real world, our script would be modified to generate models in a "batch" 
 
 **Overview of the Pipeline**
 
-**Figure 12-8** shows the design of the pipeline. This generic pipeline has been developed over the years in our laboratory and in the Brigham and Women's Hospital Surgical Planning Lab. We find that it produces reasonable models from segmented datasets. Do not be intimidated by the number of filters (twelve in all). Before we developed VTK, we did similar processing with a hodgepodge of programs all written with different interfaces. We used intermediate files to pass data from one filter to the next. The new pipeline, implemented in VTK, is more efficient in time and computing resources.
+{ref}`Figure 12-8 <Figure-12-8>` shows the design of the pipeline. This generic pipeline has been developed over the years in our laboratory and in the Brigham and Women's Hospital Surgical Planning Lab. We find that it produces reasonable models from segmented datasets. Do not be intimidated by the number of filters (twelve in all). Before we developed VTK, we did similar processing with a hodgepodge of programs all written with different interfaces. We used intermediate files to pass data from one filter to the next. The new pipeline, implemented in VTK, is more efficient in time and computing resources.
 
 We use the convention that user-specified variables are in capital letters. First we show the elements of the pipeline and subsequently show sample functions that extract 3D models of the frog's tissues.
 
@@ -810,11 +810,11 @@ The first part of this script consists of the standard procedure for renderer an
 
 The next group of lines creates the required objects to read in the data, pass it through a tube filter and a transform filter, and finally display the result. The tube filter uses the scalar data (stock volume in this example) to determine the radius of the tube. The mapper also uses the scalar data to determine the coloring of the tube. The transform filter uses a transform object to set the stock's position based on the value of the variable zpos. For each stock, we will increment zpos by 10, effectively shifting the next stock over 10 units from the current stock. This prevents the stocks from being stacked on top of each other. We also use the transform to compress the x-axis to make the data easier to view. Next, we add this stock as an input to the append filter and add the actors and followers to the renderer. The last line of the procedure sets the follower's camera to be the active camera of the renderer.
 
-Back in the main body of the Tcl script, we invoke the AddStock procedure four times with four different stocks. Finally, we add the outline actor and customize the renderer and camera to  four different stocks. Finally, we add the outline actor and customize the renderer and camera to produce a nice initial view. Two different views of the result are displayed in **Figure 12-10**. The top image shows a history of stock closing prices for our four stocks. The color and width of these lines correspond to the volume of the stock on that day. The lower image more clearly illustrates the changes in stock volume by looking at the data from above.
+Back in the main body of the Tcl script, we invoke the AddStock procedure four times with four different stocks. Finally, we add the outline actor and customize the renderer and camera to  four different stocks. Finally, we add the outline actor and customize the renderer and camera to produce a nice initial view. Two different views of the result are displayed in {ref}`Figure 12-10 <Figure-12-10>`. The top image shows a history of stock closing prices for our four stocks. The color and width of these lines correspond to the volume of the stock on that day. The lower image more clearly illustrates the changes in stock volume by looking at the data from above.
 
-**Figure 12-10** Two views from the stock visualization script. The top shows closing price over time; the bottom shows volume over time ( stocks.tcl ).
+{ref}`Figure 12-10 <Figure-12-10>` Two views from the stock visualization script. The top shows closing price over time; the bottom shows volume over time ( stocks.tcl ).
 
-A legitimate complaint with **Figure 12-10** is that the changing width of the tube makes it more difficult to see the true shape of the price verses the time curve. We can solve this problem by using a ribbon filter followed by a linear extrusion filter, instead of the tube filter. The ribbon filter will create a ribbon whose width will vary in proportion to the scalar value of the data. We then use  the linear extrusion filter to extrude this ribbon along the *y*-axis so that it has a constant thickness. The resulting views are shown in **Figure 12-11**.
+A legitimate complaint with {ref}`Figure 12-10 <Figure-12-10>` is that the changing width of the tube makes it more difficult to see the true shape of the price verses the time curve. We can solve this problem by using a ribbon filter followed by a linear extrusion filter, instead of the tube filter. The ribbon filter will create a ribbon whose width will vary in proportion to the scalar value of the data. We then use  the linear extrusion filter to extrude this ribbon along the *y*-axis so that it has a constant thickness. The resulting views are shown in {ref}`Figure 12-11 <Figure-12-11>`.
 
 {#Figure-12-11 .figure-target}
 &nbsp;
@@ -970,7 +970,7 @@ KTransform->RotateY (-40);
 logo->SetPosition(0,0,6);
 ```
 
-An image made from the techniques described in this section is shown in **Figure 12-13**  Note that the image on the left has been augmented with a texture map.
+An image made from the techniques described in this section is shown in {ref}`Figure 12-13 <Figure-12-13>`  Note that the image on the left has been augmented with a texture map.
 
 ## 12.5 Computational Fluid Dynamics
 
@@ -991,7 +991,7 @@ of the liquid oxygen.
 
 We start by exploring the scalar and vector fields in the data. By calculating the magnitude of the velocity vectors, we derive a scalar field. This study has a particularly interesting vector field around the post. We seed the field with multiple starting points (using points arranged along a curve, referred to as a *rake*) and experiment with parameters for the streamlines. Streampolygons are particularly appropriate here and do a nice job of showing the flow downstream from the post. We animate the streamline creation by moving the seeding line or rake back and forth behind the post.
 
-Following our own advice, we first display the computational grid. The following Tcl code produced the right image of **Figure 12-14**.
+Following our own advice, we first display the computational grid. The following Tcl code produced the right image of {ref}`Figure 12-14 <Figure-12-14>`.
 
 ``` tcl
 # read data
@@ -1067,7 +1067,7 @@ ren1 AddActor fanActor
   <figcaption style="color:blue"><b>Figure 12-14</b>. Portion of computational grid for the LOx post.<a href="https://kitware.github.io/vtk-examples/site/Cxx/VisualizationAlgorithms/LOxGrid" title="LOxGrid"> See LOxGrid.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/VisualizationAlgorithms/LOxGrid" title="LOxGrid"> LOxGrid.py</a>.</figcaption>
 </figure>
 
-To display the scalar field using color mapping, we must change the actor's representation from wireframe to surface, turn on scalar visibility for each vtkPolyDataMapper, set each mapper's scalar range, and render again, producing the right image of **Figure 12-14**.
+To display the scalar field using color mapping, we must change the actor's representation from wireframe to surface, turn on scalar visibility for each vtkPolyDataMapper, set each mapper's scalar range, and render again, producing the right image of {ref}`Figure 12-14 <Figure-12-14>`.
 
 ``` tcl
 postActor SetRepresentationToSurface
@@ -1110,7 +1110,7 @@ vtkActor tubesActor
   <figcaption style="color:blue"><b>Figure 12-15</b>. Streamlines seeded with spherical cloud of points. Four separate cloud positions are shown. <a href="https://kitware.github.io/vtk-examples/site/Cxx/VisualizationAlgorithms/LOxSeeds" title="LOxSeeds"> See LOxSeeds.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/VisualizationAlgorithms/LOxSeeds" title="LOxSeeds"> LOxSeeds.py</a>.</figcaption>
 </figure>
 
-**Figure 12-15** shows streamlines seeded from four locations along the post. Notice how the structure of the flow begins to emerge as the starting positions for the streamlines are moved up and down in front of the post. This is particularly true if we do this interactively; the mind assembles the behavior of the streamlines into a global understanding of the flow field.
+{ref}`Figure 12-15 <Figure-12-15>` shows streamlines seeded from four locations along the post. Notice how the structure of the flow begins to emerge as the starting positions for the streamlines are moved up and down in front of the post. This is particularly true if we do this interactively; the mind assembles the behavior of the streamlines into a global understanding of the flow field.
 
 {#Figure-12-16 .figure-target}
 &nbsp;
@@ -1119,7 +1119,7 @@ vtkActor tubesActor
   <figcaption style="color:blue"><b>Figure 12-16</b>. Streamtubes created by using the computational grid just in front of the post as a source for seeds.<a href="https://kitware.github.io/vtk-examples/site/Cxx/VisualizationAlgorithms/LOx" title="LOx"> See LOx.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/VisualizationAlgorithms/LOx" title="LOx"> LOx.py</a>.</figcaption>
 </figure>
 
-For a final example, we use the computational grid to seed streamlines and then generate streamtubes as is shown in **Figure 12-16**. A nice feature of this approach is that we generate more streamlines in regions where the analyst constructed a denser grid. The only change we need to make is to replace the rake from the sphere source with a portion of the grid geometry.
+For a final example, we use the computational grid to seed streamlines and then generate streamtubes as is shown in {ref}`Figure 12-16 <Figure-12-16>`. A nice feature of this approach is that we generate more streamlines in regions where the analyst constructed a denser grid. The only change we need to make is to replace the rake from the sphere source with a portion of the grid geometry.
 
 ``` tcl
 vtkStructuredGridGeometryFilter seedsComp
@@ -1147,9 +1147,9 @@ In the extrusion blow molding process, a material is extruded through an annular
 
 Designing the parison die and molds is not easy. Improper design results in large variations in the wall thickness. In some cases the part may fail in thin-walled regions. As a result, analysis tools based on finite element techniques have been developed to assist in the design of molds and dies.
 
-The results of one such analysis are shown in **Figure 12-17**. The polymer was molded using an isothermal, nonlinear-elastic, incompressible (rubber-like) material. Triangular membrane finite elements were used to model the parison, while a combination of triangular and quadrilateral finite elements were used to model the mold. The mold surface is assumed to be rigid, and the parison is assumed to attach to the mold upon contact. Thus the thinning of the parison is controlled by its stretching during inflation and the sequence in which it contacts the mold.
+The results of one such analysis are shown in {ref}`Figure 12-17 <Figure-12-17>`. The polymer was molded using an isothermal, nonlinear-elastic, incompressible (rubber-like) material. Triangular membrane finite elements were used to model the parison, while a combination of triangular and quadrilateral finite elements were used to model the mold. The mold surface is assumed to be rigid, and the parison is assumed to attach to the mold upon contact. Thus the thinning of the parison is controlled by its stretching during inflation and the sequence in which it contacts the mold.
 
-**Figure 12-17** illustrates 10 steps of one analysis. The color of the parison indicates its thickness. Using a rainbow scale, red areas are thinnest while blue regions are thickest. Our visualization shows clearly one problem with the analysis technique we are using. Note that while the nodes (i.e., points) of the finite element mesh are prevented from passing through the mold, the interior of the triangular elements are not. This is apparent from the occlusion of the mold wireframe by the parison mesh.
+{ref}`Figure 12-17 <Figure-12-17>` illustrates 10 steps of one analysis. The color of the parison indicates its thickness. Using a rainbow scale, red areas are thinnest while blue regions are thickest. Our visualization shows clearly one problem with the analysis technique we are using. Note that while the nodes (i.e., points) of the finite element mesh are prevented from passing through the mold, the interior of the triangular elements are not. This is apparent from the occlusion of the mold wireframe by the parison mesh.
 
 {#Figure-12-17 .figure-target}
 &nbsp;
@@ -1158,7 +1158,7 @@ The results of one such analysis are shown in **Figure 12-17**. The polymer was 
   <figcaption style="color:blue"><b>Figure 12-17</b>. Ten frames from a blow molding finite element analysis. Mold halves (shown in wireframe) are closed around a parison as the parison is inflated. Coloring indicates thickness-red areas are thinner than blue. <a href="https://kitware.github.io/vtk-examples/site/Cxx/Visualization/Blow" title="Blow"> See Blow.cxx</a> and <a href="https://kitware.github.io/vtk-examples/site/Python/Visualization/Blow" title="Blow"> Blow.py</a>.</figcaption>
 </figure>
 
-To generate these images, we used a Tcl script shown in **Figure 12-18** and **Figure 12-19**. The input data is in VTK format, so a vtkUnstructuredGridReader was used as a source object. The mesh displacement is accomplished using an instance of vtkWarpVector. At this point the pipeline splits. We wish to treat the mold and parison differently (different properties such as wireframe versus surface), but the data for both mold and parison is combined. Fortunately, we can easily separate the data using two instances of class vtkConnectivityFilter. One filter extracts the parison, while the other extracts both parts of the mold. Finally, to achieve a smooth surface appearance on the parison, we use a vtkPolyDataNormals filter. In order to use this filter, we have to convert the data type from vtkUnstructuredGrid (output of vtkConnectivityFilter ) to type vtkPolyData. The filter vtkGeometryFilter does this nicely.
+To generate these images, we used a Tcl script shown in {ref}`Figure 12-18 <Figure-12-18>` and {ref}`Figure 12-19 <Figure-12-19>`. The input data is in VTK format, so a vtkUnstructuredGridReader was used as a source object. The mesh displacement is accomplished using an instance of vtkWarpVector. At this point the pipeline splits. We wish to treat the mold and parison differently (different properties such as wireframe versus surface), but the data for both mold and parison is combined. Fortunately, we can easily separate the data using two instances of class vtkConnectivityFilter. One filter extracts the parison, while the other extracts both parts of the mold. Finally, to achieve a smooth surface appearance on the parison, we use a vtkPolyDataNormals filter. In order to use this filter, we have to convert the data type from vtkUnstructuredGrid (output of vtkConnectivityFilter ) to type vtkPolyData. The filter vtkGeometryFilter does this nicely.
 
 ## 12.7 Algorithm Visualization
 
@@ -1171,7 +1171,7 @@ Visualization can be used to display algorithms and data structures. Representin
   <figcaption style="color:blue"><b>Figure 12-18</b>. Tcl script to generate blow molding image. Network topology and initial portion of script are shown (Part one of two)</figcaption>
 </figure>
 
-In this example we will visualize the operation of the recursive Towers of Hanoi puzzle. In this puzzle there are three pegs ( **Figure 12-20** ). In the initial position there are one or more disks (or pucks) of varying diameter on the pegs. The disks are sorted according to disk diameter, so that the largest disk is on the bottom, followed by the next largest, and so on. The goal of the puzzle is to extract mold from mesh using connectivity vtkConnectivityFilter move the disks from one peg to another, moving the disks one at a time, and never placing a larger disk on top of a smaller disk.
+In this example we will visualize the operation of the recursive Towers of Hanoi puzzle. In this puzzle there are three pegs ( {ref}`Figure 12-20 <Figure-12-20>` ). In the initial position there are one or more disks (or pucks) of varying diameter on the pegs. The disks are sorted according to disk diameter, so that the largest disk is on the bottom, followed by the next largest, and so on. The goal of the puzzle is to extract mold from mesh using connectivity vtkConnectivityFilter move the disks from one peg to another, moving the disks one at a time, and never placing a larger disk on top of a smaller disk.
 
 {#Figure-12-19 .figure-target}
 &nbsp;
@@ -1215,7 +1215,7 @@ In this example we will visualize the operation of the recursive Towers of Hanoi
 
 The classical solution to this puzzle is based on a divide-and-conquer approach <em style="color:green;background-color: white">\[AhoHopUll83]</em>. The problem of moving *n* disks from the initial peg to the second peg can be thought of as solving two subproblems of size *n--1*. First move *n--1* disks from the initial peg to the third peg. Then move the *nth* disk to the second peg. Finally, move the *n--1* disks on the third peg back to the second peg.
 
-The solution to this problem can be elegantly implemented using recursion. We have shown portions of the C++ code in **Figure 12-21** and **Figure 12-22**. In the first part of the solution (which is not shown in **Figure 12-21** ) the table top, pegs, and disks are created using the two classes vtkPlaneSource and vtkCylinderSource. The function Hanoi() is then called to begin the recursion. The routine MovePuck() is responsible for moving a disk from one peg to another. It has been jazzed up to move the disk in small, user-specified increments, and to flip the disc over as it moves from one peg to the next. This gives a pleasing visual effect and adds the element of fun to the visualization.
+The solution to this problem can be elegantly implemented using recursion. We have shown portions of the C++ code in {ref}`Figure 12-21 <Figure-12-21>` and {ref}`Figure 12-22 <Figure-12-22>`. In the first part of the solution (which is not shown in {ref}`Figure 12-21 <Figure-12-21>` ) the table top, pegs, and disks are created using the two classes vtkPlaneSource and vtkCylinderSource. The function Hanoi() is then called to begin the recursion. The routine MovePuck() is responsible for moving a disk from one peg to another. It has been jazzed up to move the disk in small, user-specified increments, and to flip the disc over as it moves from one peg to the next. This gives a pleasing visual effect and adds the element of fun to the visualization.
 
 Because of the clear relationship between algorithm and physical reality, the Towers of Hanoi puzzle is relatively easy to visualize. A major challenge facing visualization researchers is to visualize more abstract information, such as information on the Internet, the structure of documents, or the effectiveness of advertising/entertainment in large market segments. This type of visualization, known as information visualization, is likely to emerge in the future as an important research challenge.
 
