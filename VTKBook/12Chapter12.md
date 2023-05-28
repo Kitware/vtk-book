@@ -812,7 +812,12 @@ The next group of lines creates the required objects to read in the data, pass i
 
 Back in the main body of the Tcl script, we invoke the AddStock procedure four times with four different stocks. Finally, we add the outline actor and customize the renderer and camera to  four different stocks. Finally, we add the outline actor and customize the renderer and camera to produce a nice initial view. Two different views of the result are displayed in {ref}`Figure 12-10 <Figure-12-10>`. The top image shows a history of stock closing prices for our four stocks. The color and width of these lines correspond to the volume of the stock on that day. The lower image more clearly illustrates the changes in stock volume by looking at the data from above.
 
-{ref}`Figure 12-10 <Figure-12-10>` Two views from the stock visualization script. The top shows closing price over time; the bottom shows volume over time ( stocks.tcl ).
+{#Figure-12-10 .figure-target}
+&nbsp;
+<figure>
+  <img src="https://raw.githubusercontent.com/Kitware/vtk-examples/gh-pages/src/Testing/Baseline/Cxx/VisualizationAlgorithms/TestStocks.png?raw=true" width="640" alt="Figure 12-10">
+  <figcaption style="color:blue"><b>Figure 12-11</b>. Two views from the stock visualization script. The top shows closing price over time; the bottom shows volume over time. See <a href="https://kitware.github.io/vtk-examples/site/Cxx/VisualizationAlgorithms/Stocks" title="Stocks">Stocks.cxx</a> or <a href="https://kitware.github.io/vtk-examples/site/Python/VisualizationAlgorithms/Stocks" title="Stocks"> Stocks.py</a>.</figcaption>
+</figure>
 
 A legitimate complaint with {ref}`Figure 12-10 <Figure-12-10>` is that the changing width of the tube makes it more difficult to see the true shape of the price verses the time curve. We can solve this problem by using a ribbon filter followed by a linear extrusion filter, instead of the tube filter. The ribbon filter will create a ribbon whose width will vary in proportion to the scalar value of the data. We then use  the linear extrusion filter to extrude this ribbon along the *y*-axis so that it has a constant thickness. The resulting views are shown in {ref}`Figure 12-11 <Figure-12-11>`.
 
