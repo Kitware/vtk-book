@@ -415,7 +415,9 @@ A polygon is built by connecting a series of points or vertices as shown in **Fi
   <figcaption style="color:blue"><b>Figure 3-18</b>. Typical graphics interface hierarchy.</figcaption>
 </figure>
 
-<figure id="Figure-3-19">
+{#Figure-3-19 .figure-target}
+&nbsp;
+<figure>
   <img src="https://github.com/Kitware/vtk-book/releases/download/book-resources/Figure3-19.png?raw=true" width="640" alt="Figure 3-19">
   <figcaption style="color:blue"><b>Figure 3-19</b>. Graphics primitives.</figcaption>
 </figure>

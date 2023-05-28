@@ -59,7 +59,9 @@ The functional model describes the flow of data in our visualization,
 the object model describes which modules operate on it. But what *are*
 the objects in the system? At first glance, we have two choices (**Figure 4-2**).
 
-<figure id="Figure-4-2">
+{#Figure-4-2 .figure-target}
+&nbsp;
+<figure>
   <img src="https://github.com/Kitware/vtk-book/releases/download/book-resources/Figure4-2.png?raw=true" width="640" alt="Figure4-2">
   <figcaption style="color:blue"><b>Figure 4-2</b>. Object model design choices. One basic choice is to combine processes and data stores into a single object. This is the usual object-oriented choice. Another choice creates separate data objects and process objects.</figcaption>
 </figure>
