@@ -96,7 +96,7 @@ Clipping is a common graphics operation that limits the extent of a polygon so t
 We can do clipping with arbitrary implicit functions using a variation of the "marching" primitives discussed in ["Contouring"](06Chapter6.md#contouring) in [Chapter 6](06Chapter6). We illustrate the technique for triangles.
 
 Recall that marching triangles transforms triangles into lines that approximate a scalar value called the isovalue. This is accomplished using the inside/outside relationship that each vertex has with respect to some scalar value. For our purposes here, we use a scalar value that represents the signed distance of the triangle vertex to a plane. This infinite plane, described by an implicit function of the form $F(x, y, z) = n_{xx} + n_{yy} + n_{zz} - d = 0$, partitions space into two infinite half spaces. All points with negative scalar values lie on one side of the plane and all with positive values lie on the other side. {ref}`Figure 9-6 <Figure-9-6>` shows a finite plane represented by a grid of triangles. The thick line shows the infinite plane defined by $F(x,y,z) = x + y + z - c = 0$. The cut algorithm described in ["Cutting"](06Chapter6.md#cutting) in [Chapter 6](06Chapter6) creates a set of lines using the contour operations specific to each cell primitive. In this example, the triangle's contour operator extracts lines that lie on the intersection of the infinite plane and the triangles that comprise the finite plane. The contour operation for a triangle uses the eight cases shown in {ref}`Figure 9-7 <Figure-9-7>` to contour or "cut" each triangle appropriately.
-`
+
 {#Figure-9-5 .figure-target}
 &nbsp;
 <figure>
