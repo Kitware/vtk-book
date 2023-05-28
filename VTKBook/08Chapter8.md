@@ -205,7 +205,7 @@ The weighted distance squared interpolation functions work well in practice. How
   <figcaption style="color:blue"><b>Figure 8-10</b>. Parametric coordinate system and interpolation functions for a voxel.</figcaption>
 </figure>
 
-** Hexahedron.** {ref}`Figure 8-11 <Figure-8-11>` shows the parametric coordinate system and interpolation functions for a hexahedron cell type. The hexahedron is described using the three parametric coordinates $(r,s,t)$.
+**Hexahedron.** {ref}`Figure 8-11 <Figure-8-11>` shows the parametric coordinate system and interpolation functions for a hexahedron cell type. The hexahedron is described using the three parametric coordinates $(r,s,t)$.
 
 {#Figure-8-11 .figure-target}
 &nbsp;
