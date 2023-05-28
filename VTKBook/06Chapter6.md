@@ -881,7 +881,7 @@ Since mappers take datasets as input, type enforcement is required. Each mapper 
 
 Although writers and mappers do not create visualization data, they both have methods similar to the RequestData() method of the sources and filters. Each subclass of vtkMapper must implement the Render() method. This method is exchanged by the graphics system actors and its associated mappers during the rendering process. The effect of the method is to map its input dataset to the appropriate rendering library/system. Subclasses of the class vtkWriter must implement the WriteData() method. This method causes the writer to write its input dataset to disk (or other I/O device).
 
-###Color Maps
+### Color Maps
 
 Color maps are created in the _Visualization Toolkit_ using instances of the class vtkLookupTable. This class allows you to create a lookup table using HSVA (e.g., hue, saturation, value, and alpha opacity value) specification. Although we discussed the HSV color system in [Chapter 3 - Computer Graphics Primer](03Chapter3), we haven't yet defined alpha opacity. We shall do so in [Chapter 7 - Advanced Computer Graphics](07Chapter7), but until then consider the alpha value to be the opacity of an object. Alpha values of one indicate that the object is opaque, while alpha values of zero indicate that the object is transparent.
 

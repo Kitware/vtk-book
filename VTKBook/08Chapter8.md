@@ -1342,7 +1342,7 @@ Basic topology references are available from a number of sources. Two good descr
 
 There are extensive references regarding spatial search structures. Samet <em style="color:green;background-color: white">\[Samet90\]</em> provides a general overview of some. Octrees were originally developed by Meagher <em style="color:green;background-color: white">\[Meagher82\]</em> for 3D imaging. See <em style="color:green;background-color: white">\[Williams83\]</em>, <em style="color:green;background-color: white">\[Bentley75\]</em>, and <em style="color:green;background-color: white">\[Quinlan94\]</em> for information about MIP maps, kd-trees, and binary sphere trees, respectively.
 
-##8.14 References
+## 8.14 References
 <em style="color:green;background-color: white">\[Baumgart74\]</em> B. G. Baumgart. "Geometric Modeling for Computer Vision." Ph.D. thesis, Stanford University, Palo Alto, CA, 1974.
 
 <em style="color:green;background-color: white">\[Bentley75\]</em> J. L. Bentley. "Multidimensional Binary Search Trees Used for Associative Search." Communications of the ACM. 18(9):509-516, 1975.

@@ -54,7 +54,7 @@ Visualizing data involves interfacing to external data, mapping into internal fo
 
 The remainder of this chapter describes common visualization data forms based on these design criteria. Our basic abstraction is the data object, a general term for the various concrete visualization data types which are the subclasses of data object.
 
-##5.2 The Data Object
+## 5.2 The Data Object
 The most general form of data found in VTK is the data object. A data object can be thought of as a collection of data without any form. Data objects represent the data that is processed by the visualization pipeline (see the previous chapter and {ref}`Figure 4-2 <Figure-4-2>`). Taken by themselves, data objects carry little useful information. It is only when they are organized into some structure that they provide a form that we can operate on with visualization algorithms.
 
 ## 5.3 The Dataset
@@ -715,7 +715,7 @@ To summarize the process of creating an instance of vtkUnstructuredGrid, we foll
 
 The creation of unstructured grid datasets is somewhat different from the creation of the other dataset types. This is because of the unstructured nature of the data, and the complex nature of the internal data structures.
 
-##5.9 Chapter Summary
+## 5.9 Chapter Summary
 
 A dataset represents visualization data. The dataset has an organizing structure, with topological and geometric components, and associated attribute data. The structure of a dataset consists of cells (topology) and points (geometry). An important characteristic of the structure is whether its geometry and topology are regular or irregular (or equivalently, structured or unstructured). Regular data is more compact and usually more computationally efficient than irregular data. However, irregular data is more flexible in representation capability than regular data.
 
@@ -723,7 +723,7 @@ Important dataset types include polygonal data, rectilinear grid, image data, st
 
 Attribute data consists of scalars, vectors, tensors, texture coordinates, and normals. Other arrays may also be includes as part of attribute data since it is a type of field data. In the _Visualization Toolkit_, attribute data is associated with both the dataset point and cells.
 
-##5.10 Bibliographic Notes
+## 5.10 Bibliographic Notes
 A variety of representation schemes have been proposed for each dataset type described here. These schemes vary depending on design goals. For example, even the simple volume representation has been implemented with other more complex schemes such as run-length encoding and octrees <em style="color:green;background-color: white">\[Bloomenthal88\]</em>. A description of more general representation schemes is available in <em style="color:green;background-color: white">\[Haber91\]</em>, the AVS field model <em style="color:green;background-color: white">\[AVS89\]</em>, and the compact cell structure <em style="color:green;background-color: white">\[Schroeder94\]</em>. An overview of dataset types can be found in <em style="color:green;background-color: white">\[Gelberg90\]</em>. Some structures for those mathematically oriented can be found in <em style="color:green;background-color: white">\[Brisson90\]</em> and <em style="color:green;background-color: white">\[Poluzzi93\]</em>. Haimes <em style="color:green;background-color: white">\[VISUAL3\]</em> describes an efficient data structure for unstructured grid visualization.
 
 If you are interested in more details on finite element methods see the classic Zienkiewicz <em style="color:green;background-color: white">\[Zienkiewicz87\]</em> or <em style="color:green;background-color: white">\[Gallagher75\]</em>. Information about both finite difference and finite element methods is available in <em style="color:green;background-color: white">\[Lapidus82\]</em>.
@@ -758,7 +758,7 @@ If you are interested in more details on finite element methods see the classic 
 
 <em style="color:green;background-color: white">\[Zienkiewicz87\]</em> O. C. Zienkiewicz and R. L. Taylor. The Finite Element Method, vol. 1. McGraw-Hill Book Co., New York, 4th ed. 1987.
 
-##5.12 Exercises
+## 5.12 Exercises
 
 5.1 Consider a pixmap of dimensions 1002. Compare the memory requirements to represent this data using:
 
