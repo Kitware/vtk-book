@@ -23,10 +23,9 @@ extensions = [
 ]
 
 myst_enable_extensions = [ 
-  "linkify", # convert bare links to hyperlinks
-  "dollarmath", # support latex equation inside $ $
-  "amsmath",
-
+    "amsmath",
+    "dollarmath", # support latex equation inside $ $
+    "linkify", # convert bare links to hyperlinks
 ]
 myst_heading_anchors = 7
 
