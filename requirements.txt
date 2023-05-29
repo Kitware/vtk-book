@@ -1,4 +1,4 @@
-sphinx-book-theme
 myst-parser[linkify]
 pygments
 sphinx
+sphinx-book-theme
