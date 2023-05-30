@@ -9,7 +9,7 @@
 from datetime import date
 
 project = "VTK Book"
-copyright = f"1993-{date.today().year}, VTK Book Authors and Contributors"
+copyright = f"2006-{date.today().year}, VTK Book Authors and Contributors"
 author = "VTK Book Authors and Contributors"
 
 # -- General configuration ---------------------------------------------------
