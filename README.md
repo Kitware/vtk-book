@@ -3,7 +3,7 @@
 # VTK Book
 
 [![Documentation Status](https://readthedocs.org/projects/vtk-book/badge/?version=latest)](https://book.vtk.org/en/latest/?badge=latest)
-[![CC BY 4.0](https://img.shields.io/github/license/kitware/vtk-book)](https://creativecommons.org/licenses/by/4.0/)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 ## Citing
 
