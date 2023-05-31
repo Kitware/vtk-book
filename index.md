@@ -1,3 +1,5 @@
+<!-- SPDX-FileCopyrightText: Copyright 2016 VTK Book Authors and Contributors -->
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
 # VTK Book
 
 We are pleased to provide an update on efforts to update the online
