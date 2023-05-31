@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright 2016 VTK Book Authors and Contributors
+# SPDX-License-Identifier: CC-BY-4.0
+
 Code to hide vtk objects in Figures
 &#118;
 
