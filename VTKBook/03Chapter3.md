@@ -132,10 +132,10 @@ Of the many different types of lights used in computer graphics, we will discuss
 
 As rays of light travel through space, some of them intersect our actors. When this happens, the rays of light interact with the surface of the actor to produce a color. Part of this resulting color is actually not due to direct light, but rather from *ambient* light that is being reflected or scattered from other objects. An ambient lighting model accounts for this and is a simple approximation of the complex scattering of light that occurs in the real world. It applies the intensity curve of the light source to the color of the object, also expressed as an intensity curve. The result is the color of the light we see when we look at that object. With such a model, it is important to realize that a white light shining on a blue ball is indistinguishable from a blue light shining on a white ball. The ambient lighting equation is
 
-$$
+\begin{gather*}
 R_a = L_c \cdot O_a
 \bf\tag{3-1}
-$$
+\end{gather*}
 
 where $R_a$ is the resulting intensity curve due to ambient lighting, $L_c$ is the intensity curve of the ambient light, and $O_a$ is the color curve of the object. To help keep the equations simple we assume that all of the direction vectors are normalized (i.e., have a magnitude of one).
 
@@ -150,20 +150,20 @@ Two components of the resulting color depend on direct lighting. *Diffuse lighti
 
 The contribution from diffuse lighting is expressed in **Equation3-2** and illustrated in {ref}`Figure 3-8 <Figure-3-8>`.
 
-$$
+\begin{gather*}
 R_d = L_cO_d[\overrightarrow{O}_n \cdot (-\overrightarrow{L}_n)]
 \bf\tag{3-2}
-$$
+\end{gather*}
 
 where $R_d$ is the resulting intensity curve due to diffuse lighting, $L_c$ is the intensity curve for the light, and $O_c$ is the color curve for the object. Notice that the diffuse light is a function of the relative angle between incident light vector and the surface normal of the object. As a result diffuse lighting is independent of viewer position.
 
 *Specular* lighting represents direct reflections of a light source off a shiny object. {ref}`Figure 3-10 <Figure-3-10>` shows a diffusely lit ball with varying specular reflection. The specular intensity (which varies between the top and bottom rows) controls the intensity of the specular lighting. The specular power, *O_{sp}*, indicates how shiny an object is, more specifically it indicates how quickly specular sp reflections diminish as the reflection angles deviate from a perfect reflection. Higher values indicate a faster dropoff, and therefore a shinier surface. Referring to {ref}`Figure 3-9 <Figure-3-9>`, the equation for specular lighting is
 
-$$
-R_s . = L_cO_s[\overrightarrow{S} \cdot (-\overrightarrow{C}_n)] ^{O_{sp}}\\
+\begin{gather*}
+R_s . = L_cO_s[\overrightarrow{S} \cdot (-\overrightarrow{C}_n)] ^{O_{sp}} \\
 \overrightarrow{S} = 2[\overrightarrow{O}_n \cdot (-\overrightarrow{L}_n)]\overrightarrow{O}_n + \overrightarrow{L}_n
-\bf\tag{3-3}
-$$
+\tag{3-3}
+\end{gather*}
 
 where $\vec{C_n}$ is the direction of projection for the camera and is the $\vec{S}$ is the direction of specular reflection.
 
@@ -183,10 +183,11 @@ where $\vec{C_n}$ is the direction of projection for the camera and is the $\vec
 
 We have presented the equations for the different lighting models independently. We can apply all lighting models simultaneously or in combination. **Equation3-4** combines ambient, diffuse and specular lighting into one equation.
 
-$$
+\begin{gather*}
 R_c = O_{ai}O_{ac}L_c - O_{di}O_{dc}L_c(\overrightarrow{O}_n \cdot \overrightarrow{L}_n) + O_{si}O_{sc}L_c[\overrightarrow{S} \cdot(-\overrightarrow{C}_n)]^{O_{sp}}
 \bf\tag{3-4}
-$$
+\end{gather*}
+
 
 The result is a color at a point on the surface of the object. The constants $O_{ai}$, $O_{di}$, and $O_{si}$ control the relative amounts of ambient, diffuse and specular lighting for an object. The constants $O_{ac}$, $O_{dc}$ and $O_{sc}$ specify the colors to be used for each type of lighting. These six constants along with the specular power are part of the surface material properties. (Other properties such as transparency will be covered in later sections of the text.) Different combinations of these property values can simulate dull plastic and polished metal. The equation assumes an infinite point light source as described in ["Lights"](#33-lights). However the equation can be easily modified to incorporate other types of directional lighting.
 
@@ -266,28 +267,26 @@ When we create images with computer graphics, we project objects defined in thre
 
 The usual way of representing a point in 3D is the three element Cartesian vector $(x, y, z)$. Homogeneous coordinates are represented by a four element vector $( x_h, y_h, z_h, w_h)$. The conversion between Cartesian coordinates and homogeneous coordinates is given by:
 
-$$
+\begin{gather*}
 x = \frac{x_h}{w_h}\ \ \ \  y = \frac{y_h}{w_h}\ \ \ \ z = \frac{z_h}{w_h}
 \bf\tag{3-5}
-$$
-
+\end{gather*}
 Using homogeneous coordinates we can represent an infinite point by setting w h to zero. This capability is used by the camera for perspective transformations. The transformations are applied by using a 4x4 transformation matrix. Transformation matrices are widely used in computer graphics because they allow us to perform translation, scaling, and rotation of objects by repeated matrix multiplication. Not all of these operations can be performed using a 3x3 matrix.
 
 For example, suppose we wanted to create a transformation matrix that translates a point $(x, y, z)$ in Cartesian space by the vector $(t_x, t_y, t_z)$. We need only construct the translation matrix given by
 
-$$
+\begin{gather*}\bf\tag{3-6}
 T_T = \left[\begin{array}{cccc}
 1 & 0 & 0 & t_x       \\
 0 & 1 & 0 & t_y      \\
 0 & 0 & 1 & t_z      \\
 0 & 0 & 0 & 1
 \end{array}\right]
-\bf\tag{3-6}
-$$
+\end{gather*}
 
 and then postmultiply it with the homogeneous coordinate $(x_h, y_h, z_h, w_h)$. To carry this example through, we construct the homogeneous coordinate from the Cartesian coordinate $( x, y, z)$ by setting $w_h = 1$ to yield $(x, y, z, 1)$. Then to determine the translated point $(x', y', z')$ we premultiply current position by the transformation matrix $T_T$ to yield the translated coordinate. Substituting into **Equation3-6** we have the result
 
-$$
+\begin{gather*}\bf\tag{3-7}
 \left[\begin{array}{c}
 x'      \\
 y'       \\
@@ -305,77 +304,70 @@ y       \\
 z      \\
 1
 \end{array}\right]
-\bf\tag{3-7}
-$$
+\end{gather*}
 
 Converting back to Cartesian coordinates via **Equation3-5** we have the expected solution
 
-$$
+\begin{gather*}\bf\tag{3-8}
 x' = x + t_x \\
 y' = y + t_y \\
 z' = z + t_z
-\bf\tag{3-8}
-$$
+\end{gather*}
 
 The same procedure is used to scale or rotate an object. To scale an object we use the transformation matrix
 
-$$
+\begin{gather*}\bf\tag{3-9}
 T_s = \left[\begin{array}{cccc}
 s_x & 0 & 0 & 0 \\
 0 & s_y & 0 & 0 \\
 0 & 0 & s_z & 0 \\
 0 & 0 & 0 & 1
 \end{array}\right]
-\bf\tag{3-9}
-$$
+\end{gather*}
 
 where the parameters $s_x, s_y$, and $s_z$ are scale factors along the $x, y, z$ axes. Similaryly we can rotate an object around the $x$ axes by angle $\theta$ using the matrix
 
-$$
+\begin{gather*}\bf\tag{3-10}
 T_{R_x} = \left[\begin{array}{cccc}
 1 & 0 & 0 & 0 \\
 0 & \cos\theta & -\sin\theta & 0 \\
 0 & \sin\theta & \cos\theta & 0 \\
 0 & 0 & 0 & 1
 \end{array}\right]
-\bf\tag{3-10}
-$$
+\end{gather*}
 
 Around the $y$ axis we use
 
-$$
+\begin{gather*}\bf\tag{3-11}
 TT_{R_y} = \left[\begin{array}{cccc}
 \cos\theta & 0 & \sin\theta0 & 0 \\
 0 & 1 & 0 & 0 \\
 -\sin\theta & 0 & \cos\theta & 0 \\
 0 & 0 & 0 & 1
 \end{array}\right]
-\bf\tag{3-11}
-$$
+\end{gather*}
 
 and around the $z$ axis we use
 
-$$
+\begin{gather*}\bf\tag{3-12}
 T_{R_z} = \left[\begin{array}{cccc}
 \cos\theta & -\sin\theta & 0 & 0 \\
 \sin\theta & \cos\theta & 0 & 0 \\
 0 & 0 & 0 & 0 \\
 0 & 0 & 0 & 1
 \end{array}\right]
-\bf\tag{3-12}
-$$
+\end{gather*}
 
 Another useful rotation matrix is used to transform one coordinate axes $x-y-z$ to another coordinate axes $x'-y'-z'$. To derive the transformation matrix we assume that the unit $x'$ axis make the angles $(\theta_{x'x},\theta_{x'y},\theta_{x'z})$ around the $x-y-z$ axes (these are called direction cosines). Similarly, the unit $y'$ axis makes the angles $(\theta_{y'x},\theta_{y'y},\theta_{y'z})$ and the unit $z'$ axis makes the angles $(\theta_{z'x},\theta_{z'y},\theta_{z'z})$. The resulting rotation matrix is formed by placing the direction cosines along the rows of the transformation matrix as follows
 
-$$
+\begin{gather*}\bf\tag{3-13}
 T_R = \left[\begin{array}{cccc}
 \cos\theta_{x'x} & \cos\theta_{x'y} & \cos\theta_{x'z} & 0 \\
 \cos\theta_{y'x} & \cos\theta_{y'y} & \cos\theta_{y'z} & 0 \\
 \cos\theta_{z'x} & \cos\theta_{z'y} & \cos\theta_{z'z} & 0 \\
 0 & 0 & 0 & 1
 \end{array}\right]
-\bf\tag{3-13}
-$$
+\end{gather*}
 
 Rotations occur about the coordinate origin. It is often more convenient to rotate around the center of the object (or a user-specified point). Assume that we call this point the object's center. To rotate around $O_c$ we must first translate the object from $O_c$ to the origin, apply rotations, and then translate the object back to $O_c$.
 
@@ -925,10 +917,10 @@ A good demonstration example of transformation matrices is to examine how vtkAct
 
 The vtkActor class applies transformations in an order that we feel is natural to most users. As a convenience, we have created instance variables that abstract the transformation matrices. The Origin $(o_x,o_y,o_z)$ specifies the point that is the center of rotation and scaling. The Position $(p_x, p_y, p_z)$ specifies a final translation of the object. Orientation $(r_x, r_y, r_z)$ defines the rotation about the $x, y$ and $z$ axes. Scale $(s_x, s_y, s_z)$ defines scale factors for the $x, y,$ and $z$ axes. Internally, the actor uses these instance variables to create the following sequence of transformations (see **Equation3-6**, **Equation3-9**, **Equation3-13**).
 
-$$
+\begin{gather*}
 T = T_T(p_x + o_{x'}p_y + o_{y'}p_y + o_z)T_{R_z}T_{R_x}T_{R_z}T_ST_T(-o_x,-o_y,-o_z)
 \bf\tag{3-14}
-$$
+\end{gather*}
 
 The term $T_T(x, y, z)$ denotes the translations in the $x,y$ and $z$ direction. Recall that we premultiply the transformation matrix times the position vector. This means the transformations are read from right to left. In other words, **Equation3-14** proceeds as follows:
 
@@ -987,10 +979,10 @@ cow->SetUserMatrix(walk->GetMatrix());
 
 These operations produce the transformation sequence:
 
-$$
+\begin{gather*}
 T=T_{R_y}T_ST_T(0, 0, 5)
 \bf\tag{3-15}
-$$
+\end{gather*}
 
 Now we do the same using the cow's instance variables:
 
@@ -1003,10 +995,10 @@ cow->SetPosition(0,0,5);
 
 When the actor builds its transform it will be:
 
-$$
+\begin{gather*}
 T=T_T(0,0,5-(-5))T_{R_y}T_ST_T(0,0,-(-5))
 \bf\tag{3-16}
-$$
+\end{gather*}
 
 Canceling the minus signs in the right-most translation matrix and combining the position and origin translation produce the equivalent transform that we built with vtkTranform. {ref}`Figure 3-32 <Figure-3-32>` shows the cow rotating with the specified transformation order. Your preference is a matter of taste and how comfortable you are with matrix transformations. As you become more skilled (and your demands are greater) you may prefer to always build your transformations. VTK gives you the choice.
 

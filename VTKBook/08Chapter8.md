@@ -449,9 +449,8 @@ $$
 \begin{eqnarray*}
 f(r, s, t) &=& x - \sum W_i \, x_i = 0 \\
 g(r, s, t) &=& y - \sum W_i \, y_i = 0 \\
-h(r, s, t) &=& z - \sum W_i \, z_i = 0
+h(r, s, t) &=& z - \sum W_i \, z_i = 0 \bf\tag{8-10}
 \end{eqnarray*}
-\bf\tag{8-10}
 $$
 
 and then, expanding the functions using a Taylor's series approximation,
@@ -469,15 +468,14 @@ g(r, s, t) &\simeq& g_0
 h(r, s, t) &\simeq& h_0
   + \frac{\partial h}{\partial r}(r - r_0)
   + \frac{\partial h}{\partial s}(s - s_0)
-  + \frac{\partial h}{\partial t}(t - t_0) + \ldots \\
+  + \frac{\partial h}{\partial t}(t - t_0) + \ldots  \bf\tag{8-11}
 \end{eqnarray*}
-\bf\tag{8-11}
 $$
 
 we can develop an iterative procedure to solve for the parametric coordinates. This yields the general form
 
 $$
-\begin{equation*}
+\begin{equation*} \bf\tag{8-12}
 \left(
 \begin{array}{c}
 r_{i + 1} \\
@@ -505,7 +503,6 @@ h_i
 \end{array}
 \right)
 \end{equation*}
-\bf\tag{8-12}
 $$
 
 Fortunately, Newton's method converges quadratically (if it converges) and the interpolation functions that we have presented here are well behaved. In practice, Equation 8-12 converges in just a few iterations.
@@ -585,9 +582,8 @@ $$
 \begin{eqnarray*}
 \frac{ds}{dx}  &=& \left(\frac{s_1 - s_0}{1}\right) \vec{v} \cdot (1, 0, 0) \\
 \frac{ds}{dy}  &=& \left(\frac{s_1 - s_0}{1}\right) \vec{v} \cdot (0, 1, 0) \\
-\frac{ds}{dz}  &=& \left(\frac{s_1 - s_0}{1}\right) \vec{v} \cdot (0, 0, 1)
+\frac{ds}{dz}  &=& \left(\frac{s_1 - s_0}{1}\right) \vec{v} \cdot (0, 0, 1) \bf\tag{8-19}
 \end{eqnarray*}
-\bf\tag{8-19}
 $$
 
 To summarize this process, derivatives are computed in the local $r-s-t$ parametric space using cell interpolation. These are then transformed into a local $x'-y'-z'$ Cartesian system. Then, if the $x'-y'-z'$ system is not aligned with the global $x-y-z$ coordinate system, another transformation is required to generate the result.
@@ -604,15 +600,14 @@ $$
 + \frac{\partial}{\partial t} \frac{\partial t}{\partial y} \\
 \frac{\partial}{\partial z} &=& \frac{\partial}{\partial r} \frac{\partial r}{\partial z} \
 + \frac{\partial}{\partial s} \frac{\partial s}{\partial z} \
-+ \frac{\partial}{\partial t} \frac{\partial t}{\partial z}
++ \frac{\partial}{\partial t} \frac{\partial t}{\partial z} \bf\tag{8-20}
 \end{eqnarray*}
-\bf\tag{8-20}
 $$
 
 or after rearranging
 
 $$
-\begin{equation*}
+\begin{equation*} \bf\tag{8-21}
 \left(
 \begin{array}{c}
 \frac{\partial}{\partial r} \\
@@ -641,25 +636,22 @@ $$
 \end{array}
 \right)
 \end{equation*}
-\bf\tag{8-21}
 $$
 
 The $3 \times 3$ matrix $J$ is called the Jacobian matrix, and it relates the parametric coordinate derivatives to the global coordinate derivatives. We can rewrite Equation 8-21 into more compact form
 
 $$
-\begin{equation*}
+\begin{equation*} \bf\tag{8-21}
 \frac{\partial}{\partial r_i} = \sum_{j} J_{ij} \frac{\partial}{\partial x_j}
 \end{equation*}
-\bf\tag{8-21}
 $$
 
 and solve for the global derivatives by taking the inverse of the Jacobian matrix
 
 $$
-\begin{equation*}
+\begin{equation*}\bf\tag{8-22}
 \frac{\partial}{\partial x_i} = \sum_{j} J_{ij}^{-1} \frac{\partial}{\partial r_j}
 \end{equation*}
-\bf\tag{8-22}
 $$
 
 The inverse of the Jacobian always exists as long as there is a one-to-one correspondence between the parametric and global coordinate systems. This means that for any $(r, s, t)$ coordinate, there corresponds only one $(x, y, z)$ coordinate. This holds true for any of the parametric coordinate systems presented here, as long as pathological conditions such as cell self-intersection or a cell folding in on itself are avoided. (An example of cell folding is when a quadrilateral becomes non-convex.)
@@ -677,10 +669,9 @@ There are some simple rules we can use to decide whether a surface or region app
 We also will use the term simplex on some occasions. A simplex of dimension n is the convex region defined by a set of n+1 independent points. A vertex, line, triangle, and tetrahedron are simplices of dimension 0, 1, 2, and 3, respectively as shown in {ref}`Figure 8-28 <Figure-8-28>`.
 
 $$
-\begin{equation*}
+\begin{equation*}\bf\tag{8-23}
 \frac{\partial}{\partial x_i} = \sum_{j} J_{ij}^{-1} \frac{\partial}{\partial r_j}
 \end{equation*}
-\bf\tag{8-23}
 $$
 
 {#Figure-8-27 .figure-target}
@@ -826,12 +817,11 @@ Given a point $p$ we can find the structured coordinates by performing three div
 Because the image dataset is oriented parallel to the coordinate x, y, and z axes, and because the spacing of points in each of these directions is regular, finite difference schemes can be used to compute partial derivatives at the cell points. Referring to {ref}`Figure 8-33 <Figure-8-33>`, we see that central differences can be used in each of the three directions according to the equation:
 
 $$
-\begin{eqnarray*}
+\begin{eqnarray*} \bf\tag{8-28}
 g_x &=& \frac{d(x_0 + \Delta x_0, y_0, z_0) - d(x_0 - \Delta x_0, y_0, z_0)}{2 \Delta x_0} \\
 g_y &=& \frac{d(x_0, y_0 + \Delta y_0, z_0) - d(x_0, y_0 - \Delta y_0, z_0)}{2 \Delta y_0} \\
 g_z &=& \frac{d(x_0, y_0, z_0 + \Delta z_0) - d(x_0, y_0, z_0 - \Delta z_0)}{2 \Delta z_0}
 \end{eqnarray*}
-\bf\tag{8-28}
 $$
 
 (Note that at the boundary of the dataset, one-sided differences may be used.) We can use these equations to compute derivatives within the cell as well. We simply compute the derivatives at each cell point from Equation 8-28, and then use the cell interpolation functions to compute the derivative at the point inside the cell.
@@ -852,8 +842,8 @@ $$
 i &=& \text{id} \mod (n_x - 1) \\
 j &=& \frac{\text{id}}{n_x - 1} \mod (n_y - 1) \\
 k &=& \frac{\text{id}}{(n_x - 1)(n_y - 1)}
-\end{eqnarray*}
 \bf\tag{8-29}
+\end{eqnarray*}
 $$
 
 Face neighbors are determined by incrementing one of the i, j, or k indices. Edge neighbors are determined by incrementing any two indices, while vertex neighbors are found by incrementing all three indices. Care must be taken while incrementing to insure that the indices fall in the range
@@ -880,8 +870,8 @@ $$
 i = \text{int}\left( \frac{x-x_0}{x_1 - x_0} \right) \\
 j = \text{int}\left( \frac{y-y_0}{y_1 - y_0} \right) \\
 k = \text{int}\left( \frac{z-z_0}{z_1 - z_0} \right)
-\end{eqnarray*}
 \bf\tag{8-30}
+\end{eqnarray*}
 $$
 
 ## 8.11 Putting It All Together
