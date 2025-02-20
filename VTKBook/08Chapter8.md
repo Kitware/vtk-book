@@ -880,7 +880,7 @@ In this section we will finish our earlier description of an implementation for 
 
 ### Unstructured Topology
 
-In [Chapter 5 - Data Representation](05Chapter5) we described data representations for the unstructured dataset types vtkPolyData and vtkUnstructuredGrid. Lets dig deeper into the way the data is stored. An unstructured data is composed of points, connectivity and types. Points is of type vtkPoints and contains the coordinates of each points in the grid. Connectivity is of type vtkCellArray and contains the point ids of each cell in the grid. Types is of type vtkUnsignedCharArray and contains the type of each cell in the grid.
+In [Chapter 5 - Data Representation](05Chapter5) we described data representations for the unstructured dataset types vtkPolyData and vtkUnstructuredGrid. Lets dig deeper into the way the data is stored. An unstructured data is composed of points, connectivity and types. Points is of type vtkPoints and contains the coordinates of each point in the grid. Connectivity is of type vtkCellArray and contains the point ids of each cell in the grid. Types is of type vtkUnsignedCharArray and contains the type of each cell in the grid.
 
 One specific type of cell, vtkPolyhedron, require more complex structures to store information about faces and faces locations. Faces is a vtkCellArray and contains the point ids of each polyhedron faces, so its size is neither the number of points or the number of cells, but the number of polyhedron faces. Face locations is a vtkCellArray and contains the face ids, as they are stored in faces, for each of the cells in the grid. For mixed grid, the faces locations contains empty entries for non polyhedron cells.
 
