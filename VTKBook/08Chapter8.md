@@ -895,12 +895,19 @@ The reason for this inefficiency is that the data representation is a "downward"
   <figcaption style="color:blue"><b>Figure 8-34</b>. Enhancing hierarchical unstructured data representation. (a) Conventional topological hierarchy for geometric model. (b) Basic unstructured data hierarchy. (c) Full unstructured data hierarchy. By introducing upward references from points to cells, the unstructured data hierarchy may be efficiently traversed in both directions, and is more compact than conventional topological hierarchies.</figcaption>
 </figure>
 
+{#Figure-8-34b .figure-target}
+&nbsp;
+<figure>
+  <img src="https://github.com/Kitware/vtk-book/releases/download/book-resources/Figure8-34b.png?raw=true width="640" alt="Figure8-34b">
+  <figcaption style="color:blue"><b>Figure 8-34</b>. Complete unstructured data representation with polyhdron support. There are m cells, n points and k polyhdron faces. CellArray can be used to represent faces instead of cells.</figcaption>
+</figure>
+
 {#Figure-8-35 .figure-target}
 &nbsp;
 <figure>
   <img src="https://github.com/Kitware/vtk-book/releases/download/book-resources/Figure8-35.png?raw=true width="640" alt="Figure8-35">
   <figcaption style="color:blue"><b>Figure 8-35</b>. Complete unstructured data representation including link lists. There are m cells and n points. The n structures in the link list are lists of cells that use each vertex. Each link list is variable in length.</figcaption>
-</figure>
+</figure
 
 The solution to this problem is to extend the unstructured data structure with cell links. The cell links array is a list of lists of cells that use each point and corresponds to the upward links of {ref}`Figure 8-34 <Figure-8-34>`(c). The cell links array transforms the hierarchical structure of {ref}`Figure 5-13 <Figure-5-13>` into a ring structure. Cells reference their composing points, and points in turn reference the cells that use them. The full unstructured data structure is shown in {ref}`Figure 8-35 <Figure-8-35>`.The cell links array is in fact an implementation of the use sets of Equation 5-1. We can use this equation to compute adjacency operation in constant time, if the maximum number of cells using a point is much smaller than the number of points in a dataset. To see this, we refer to Equation 8-25 and see that the adjacency operations consist of a finite number of set intersections. Each operation is an intersection of the link lists for each point. If the number of cells in each link list is "small," then the intersection operation can be bounded by a fixed constant in time, and the total operation can be considered a constant time operation.
 
