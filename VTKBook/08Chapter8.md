@@ -880,7 +880,11 @@ In this section we will finish our earlier description of an implementation for 
 
 ### Unstructured Topology
 
-In [Chapter 5 - Data Representation](05Chapter5) we described data representations for the unstructured dataset types vtkPolyData and vtkUnstructuredGrid. Close examination of this data structure reveals that operations to retrieve topological adjacency are inefficient. In fact, to implement any operation to retrieve vertex, edge, or face neighbors requires a search of the cell array, resulting in O(n) time complexity. This is unacceptable for all but the smallest applications, since any algorithm traversing the cell array and retrieving adjacency information is at a minimum O(n2).
+In [Chapter 5 - Data Representation](05Chapter5) we described data representations for the unstructured dataset types vtkPolyData and vtkUnstructuredGrid. Lets dig deeper into the way the data is stored. An unstructured data is composed of points, connectivity and types. Points is of type vtkPoints and contains the coordinates of each point in the grid. Connectivity is of type vtkCellArray and contains the point ids of each cell in the grid. Types is of type vtkUnsignedCharArray and contains the type of each cell in the grid.
+
+One specific type of cell, vtkPolyhedron, requires more complex structures to store information about faces their location. Faces is a vtkCellArray and contains the point ids of each polyhedron faces, so its size is neither the number of points or the number of cells, but the number of polyhedron faces. Face locations is a vtkCellArray and contains the face ids, as they are stored in faces, for each of the cells in the grid. For mixed grids, the faces locations contains empty entries for non polyhedron cells.
+
+Close examination of this data structure reveals that operations to retrieve topological adjacency are inefficient. In fact, to implement any operation to retrieve vertex, edge, or face neighbors requires a search of the cell array, resulting in O(N) time complexity. This is very expensive for all but the smallest applications, since any algorithm traversing the cell array and retrieving adjacency information is at a minimum O(N^2).
 
 The reason for this inefficiency is that the data representation is a "downward" hierarchy ({ref}`Figure 8-34 <Figure-8-34>`(b)). That is, given a cell we can quickly determine the topological features lower in the topological hierarchy such as faces, edges, and points. However, given a face, edge, or point we must search the cell array to determine the owning cells. To improve the efficiency of this data representation, we must introduce additional information into the hierarchy that allows "upward" hierarchy traversal (similar to that shown in {ref}`Figure 8-34 <Figure-8-34>`(a)).
 
@@ -891,10 +895,17 @@ The reason for this inefficiency is that the data representation is a "downward"
   <figcaption style="color:blue"><b>Figure 8-34</b>. Enhancing hierarchical unstructured data representation. (a) Conventional topological hierarchy for geometric model. (b) Basic unstructured data hierarchy. (c) Full unstructured data hierarchy. By introducing upward references from points to cells, the unstructured data hierarchy may be efficiently traversed in both directions, and is more compact than conventional topological hierarchies.</figcaption>
 </figure>
 
+{#Figure-8-34b .figure-target}
+&nbsp;
+<figure>
+  <img src="https://github.com/Kitware/vtk-book/releases/download/book-resources/Figure8-34b.png?raw=true width="640" alt="Figure8-34b">
+  <figcaption style="color:blue"><b>Figure 8-34</b>. Complete unstructured data representation with polyhdron support. There are m cells, n points and k polyhdron faces. CellArray can be used to represent faces instead of cells.</figcaption>
+</figure>
+
 {#Figure-8-35 .figure-target}
 &nbsp;
 <figure>
-  <img src="https://github.com/Kitware/vtk-book/releases/download/book-resources/Figure8-35.png?raw=true width="640" alt="Figure8-35">
+  <img src="https://github.com/Kitware/vtk-book/releases/download/book-resources/Figure8-35_2025.02.20.png?raw=true width="640" alt="Figure8-35">
   <figcaption style="color:blue"><b>Figure 8-35</b>. Complete unstructured data representation including link lists. There are m cells and n points. The n structures in the link list are lists of cells that use each vertex. Each link list is variable in length.</figcaption>
 </figure>
 
@@ -908,7 +919,7 @@ There are several important characteristics of this data representation.
 
 * The data representation is compact relative to other topology representation schemes (e.g., the winged-edge structure and the radial-edge structures <em style="color:green;background-color: white">\[Baumgart74\]</em> <em style="color:green;background-color: white">\[Weiler88\]</em>). These other data structures contain explicit representation of intermediate topology such as edges, loops, faces, or special adjacency information such as adjacent edges (winged-edge structure) or extensive "use" descriptions (radial-edge structure). The compactness of representation is particularly important for visualization, since the data size is typically large.
 
-The unstructured data structure in the _Visualization Toolkit_ is implemented using the four classes vtkPoints (and subclasses), vtkCellArray, vtkCellTypes, and vtkCellLinks. The building of this data structure is incremental. At a minimum, the points and cells are represented using vtkPoints and vtkCellArray. If random access or extra type information is required, then the object vtkCellTypes is used. If adjacency information is required, an instance of the class vtkCellLinks is created. These operations are carried out behind the scenes, and generally do not require extra knowledge by the application programmer.
+The unstructured data structure in the _Visualization Toolkit_ is implemented using the points (vtkPoints), connectivity (vtkCellArray), types (vtkUnsignedCharArray) and links (vtkCellLinks). The building of this data structure is incremental. If adjacency information is required, an instance of the class vtkCellLinks is created. These operations are carried out behind the scenes, and generally do not require extra knowledge by the application programmer. If polyhedra are needed, faces (vtkCellArray) and face locations (vtkCellArray) are also needed.
 
 ### Abstract Interfaces
 
