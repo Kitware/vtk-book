@@ -905,7 +905,7 @@ The reason for this inefficiency is that the data representation is a "downward"
 {#Figure-8-35 .figure-target}
 &nbsp;
 <figure>
-  <img src="https://github.com/Kitware/vtk-book/releases/download/book-resources/Figure8-35.png?raw=true width="640" alt="Figure8-35">
+  <img src="https://github.com/Kitware/vtk-book/releases/download/book-resources/Figure8-35_2025.02.20.png?raw=true width="640" alt="Figure8-35">
   <figcaption style="color:blue"><b>Figure 8-35</b>. Complete unstructured data representation including link lists. There are m cells and n points. The n structures in the link list are lists of cells that use each vertex. Each link list is variable in length.</figcaption>
 </figure>
 
