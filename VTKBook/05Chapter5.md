@@ -203,7 +203,7 @@ VTK tessellates nonlinear quadratic cells using a fixed subdivision as shown in 
 
 ## 5.5 Attribute Data
 
-Attribute data is information associated with the structure of the dataset. This structure includes both the dataset geometry and topology. Most often, attribute data is associated with dataset points or cells, but sometimes attribute data may be assigned to cell components such as edges or faces. Attribute data may also be assigned across the entire dataset, or across a group of cells or points. We refer to this information as attribute data because it is an attribute to the structure of the dataset. Typical examples include temperature or velocity at a point, mass of a cell, or heat flux into and out of a cell face.
+Attribute data is information associated with the structure of the dataset. This structure includes both the dataset geometry and topology. Most often, attribute data is associated with dataset points or cells, but sometimes attribute data may be assigned to cell components such as edges or faces; or even to graph arcs, graph nodes, or table columns when dealing with non-geometric data. Attribute data may also be assigned across the entire dataset, or across a group of cells or points. We refer to this information as attribute data because it is an attribute to the structure of the dataset. Typical examples include temperature or velocity at a point, mass of a cell, or heat flux into and out of a cell face.
 
 {#Figure-5-6 .figure-target}
 &nbsp;
@@ -224,7 +224,13 @@ Scalar data is data that is single valued at each location in a dataset. Example
 
 ### Vectors
 
-Vector data is data with a magnitude and direction. In three dimensions this is represented as a triplet of values (u, v, w). Examples of vector data include flow velocity, particle trajectory, wind motion, and gradient function.
+Vector data is data with a magnitude and direction. In three dimensions this is represented as a triplet of values (u, v, w). Examples of vector data include flow velocity, particle trajectory, wind motion, and gradient function. Note that if you apply a transform (especially rotation but sometimes also scaling), you may also need to apply the same transform to any vector attributes.
+
+### Tensors
+
+Tensors are complex mathematical generalizations of vectors and matrices. A tensor of rank k can be considered a k-dimensional table. A tensor of rank 0 is a scalar, rank 1 is a vector, rank 2 is a matrix, and a tensor of rank 3 is a three-dimensional rectangular array. Tensors of higher rank are k-dimensional rectangular arrays.
+
+General tensor visualization is an area of current research. Efforts thus far have been focused on two-dimensional, rank 2 tensors, which are matrices (and since VTK datasets always use 3-dimensional point coordinates, they are 3x3 matrices). The most common form of such tensors are the stress and strain tensors, which represent the stress and strain at a point (or over a cell) in an object under load. VTK only treats real-valued, symmetric 3 x 3 tensors. Note that if you apply a transform (especially rotation but sometimes also scaling), you may also need to apply the same transform to any tensor attributes. Rank 2 tensor data is frequently decomposed using singular value decomposition (SVD) into eigenvalues and eigenvectors to identify the principale axes along which the tensor field changes and to classify regions where a field such as stress or strain has a constant gradient flow (i.e., is positive definite, negative definite, or semidefinite).
 
 ### Normals
 
@@ -232,15 +238,37 @@ Normals are direction vectors: that is, they are vectors of magnitude |n|=1. Nor
 
 ### Texture Coordinates
 
-Texture coordinates are used to map a point from Cartesian space into a 1-, 2-, or 3-dimensional texture space. The texture space is usually referred to as a texture map. Texture maps are regular arrays of color, intensity, and/or transparency values that provide extra detail to rendered objects.
+Texture coordinates are used to map a point from the "world" coordinate space of a dataset into a 1-, 2-, or 3-dimensional texture space (defined as part of reference element). Each corner point of a cell is assigned a 1-, 2-, or 3-tuple of coordinates in the texture space. The texture space (not the texture coordinates, but the space the texture coordinates reference) is referred to as a texture map and is usually rectangular image data, holding arrays of color, intensity, and/or transparency values that provide extra detail to rendered objects.
 
 One application of texturing in two dimensions is to "paste" a photograph onto one or more polygons, yielding a detailed image without a large number of graphics primitives. (Texture mapping is covered in more detail in [Chapter 7 - Advanced Computer Graphics](07Chapter7).)
 
-### Tensors
+### Tangents
 
-Tensors are complex mathematical generalizations of vectors and matrices. A tensor of rank k can be considered a k-dimensional table. A tensor of rank 0 is a scalar, rank 1 is a vector, rank 2 is a matrix, and a tensor of rank 3 is a three-dimensional rectangular array. Tensors of higher rank are k-dimensional rectangular arrays.
+Tangents are direction vectors (i.e., they should be unit length) like normal vectors except that they point in a direction tangent (rather than normal) to the surface. If both tangent and normal vectors are present, they should be perpendicular to one another and can be used to define a full coordinate frame at each point. These are often used for physics-based rendering of surfaces whose interaction with light is not symmetric about the normal vector (i.e., where reflectivity and refractivity are functions of the angle of incoming light with respect to both the normal and tangent axes).
 
-General tensor visualization is an area of current research. Efforts thus far have been focused on two-dimensional, rank 2 tensors, which are 3 x 3 matrices. The most common form of such tensors are the stress and strain tensors, which represent the stress and strain at a point in an object under load. VTK only treats real-valued, symmetric 3 x 3 tensors.
+### Edge Flags
+
+When a nonlinear surface is subdivided into multiple primitives (triangles or quadrilaterals) for rendering, cells can be marked with an edge flag indicating which edges of those primitives bound the original curved cell and which edges are simply artifacts of the subdivision that approximates the surface. These are used by renderers to show the original cell edges by coloring fragments only near marked edges rather than all the edges of the primitive.
+
+### Global IDs
+
+Global IDs should mark a point or cell with a number that is not repeated anywhere else in the dataset (and if the dataset is distributed across multiple processes or divided into pieces, the ID should not be present in any of these unless marked as a ghost). Readers often produce global IDs and filters that do not split a cell (or point) into multiple output cells (or points) should preserve global IDs. Filters that do split cells (or points) should never pass global IDs from the input (because of the possibility of duplicate IDs). Compare global IDs with pedigree IDs below.
+
+### Pedigree IDs
+
+Pedigree IDs track the provenance of a point or cell across a single filter, from its input to its output. Points and cells in VTK data objects have an implicit numbering, starting at 0. If a filter produces pedigree IDs on its output, then each value in the array identifies the cell (or point) number from which the corresponding output cell (or point) originated. Since filters can produce many output cells (or points) from a single input cell (or point), many output cells (points) may have the same value in the pedigree ID array. Contrast this with global IDs which must never have cells (points) with identical values. Not all filters are capable of providing pedigree IDs; sources (which have no input data) will not, nor will filters where many input cells (points) may contribute to a single output cell (point) – though in the latter case it is possible that a filter may arbitrarily choose one of the contributing cells (points) and report it.
+
+### Process IDs
+
+In a distributed-memory dataset, it is sometimes necessary for the same cell (or point) to be present on multiple processes (a.k.a. ranks). When the same data is present in multiple places, a common strategy for communicating changes to it is to assign a single process to be the "owner" of that cell (or point). All other processes will communicate with that process in regard to that cell (or point). A process ID array maps a process ID (rank) to each cell (or point). Negative values (if the array is signed) indicate that the cell (or point) is not shared with other processes. Note that process IDs are information provided as an alternative to ghost arrays, which imply but do not explicitly store the process ID for shared data.
+
+### Rational Weights
+
+For nonlinear cells that use rational coordinates (i.e., they have an additional coordinate also expressed as a polynomial used as a divisor for all the other coordinates), an array of weights (typically on points) can be stored to hold the additional coordinate. This attribute has evolved because of vtkPoint's hard requirement that point-coordinate arrays have exactly 3 components while rational coordinates require 4 components (X, Y, Z, and W) for 3-dimensional cells.
+
+### Higher Order Degrees
+
+For nonlinear cells, the polynomial order of interpolation may vary along each axis (e.g., a hexahedral cell may be linear along the r-parameter axis, quadratic along the s-parameter axis and cubic along the t-parameter axis). Rather than create a different type of cell for each combination of orders, we can store an array with a tuple for each cell indicating the order along each axis of its parameter-space coordinates. This will determine the number of connectivity entries for the cell. These numbers are kept separate from the connectivity in VTK as many algorithms assume every entry of the connectivity array is an offset into the point-coordinate array.
 
 ## 5.6 Types of Datasets
 
